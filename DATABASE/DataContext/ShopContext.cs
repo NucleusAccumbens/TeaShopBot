@@ -1,20 +1,26 @@
 ﻿using DATABASE.Entityes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace DATABASE.DataContext
 {
     public class ShopContext : DbContext
     {
-        public ShopContext(DbContextOptions<ShopContext> options) 
-            : base (options) 
-        { 
+        private readonly string _connectionString = 
+            "Data Source=tcp:teashopbotapidbserver.database.windows.net,1433;Initial Catalog=TeaShopBotAPI_db;" +
+            "User Id=noncredistka@teashopbotapidbserver;Password=nucleusACCUMBENS.20";
+
+        public ShopContext() 
+            : base () 
+        {
         }
 
         private readonly StreamWriter _logStream = new("mylog.txt", true);
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer(_connectionString);
             optionsBuilder.LogTo(_logStream.WriteLine, LogLevel.Trace);  // Логгирование 
         }
 

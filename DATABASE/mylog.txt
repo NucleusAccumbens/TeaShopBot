@@ -1,0 +1,592 @@
+dbug: 23.02.2022 21:55:41.469 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'Order.UserId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 21:55:41.470 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 21:55:41.470 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+warn: 23.02.2022 21:55:41.528 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+info: 23.02.2022 21:55:41.745 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+dbug: 23.02.2022 21:55:41.787 CoreEventId.RedundantIndexRemoved[10601] (Microsoft.EntityFrameworkCore.Model) 
+      The index {'OrdersOrderId'} was not created on entity type 'OrderProduct (Dictionary<string, object>)' as the properties are already covered by the index {'OrdersOrderId', 'ProductsProductId'}.
+dbug: 23.02.2022 21:55:41.799 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'Order.UserId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 21:55:41.799 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 21:55:41.799 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+warn: 23.02.2022 21:55:41.801 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+dbug: 23.02.2022 21:55:42.053 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'ShopContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 23.02.2022 21:55:42.054 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'ShopContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 23.02.2022 21:55:42.087 CoreEventId.DetectChangesStarting[10800] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges starting for 'ShopContext'.
+dbug: 23.02.2022 21:55:42.100 CoreEventId.DetectChangesCompleted[10801] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges completed for 'ShopContext'.
+dbug: 23.02.2022 21:55:42.160 RelationalEventId.BatchSmallerThanMinBatchSize[20701] (Microsoft.EntityFrameworkCore.Update) 
+      Executing update commands individually as the number of batchable commands (2) is smaller than the minimum batch size (4).
+dbug: 23.02.2022 21:55:42.292 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.
+dbug: 23.02.2022 21:56:16.923 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'Order.UserId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 21:56:16.923 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 21:56:16.923 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+warn: 23.02.2022 21:56:16.975 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+info: 23.02.2022 21:56:17.184 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+dbug: 23.02.2022 21:56:17.268 RelationalEventId.MigrateUsingConnection[20400] (Microsoft.EntityFrameworkCore.Migrations) 
+      Migrating using database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:17.278 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:18.533 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:18.541 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+dbug: 23.02.2022 21:56:18.547 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (5ms).
+dbug: 23.02.2022 21:56:18.555 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.02.2022 21:56:18.722 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (150ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+dbug: 23.02.2022 21:56:18.731 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:18.745 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:18.758 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 23.02.2022 21:56:18.758 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (0ms).
+dbug: 23.02.2022 21:56:18.758 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:18.760 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:18.761 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.02.2022 21:56:18.933 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (172ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+dbug: 23.02.2022 21:56:18.933 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:18.935 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:18.938 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:18.938 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:18.938 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+dbug: 23.02.2022 21:56:18.938 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (0ms).
+dbug: 23.02.2022 21:56:18.938 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.02.2022 21:56:19.063 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (124ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+dbug: 23.02.2022 21:56:19.063 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.063 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.064 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 23.02.2022 21:56:19.064 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (0ms).
+dbug: 23.02.2022 21:56:19.064 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.065 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.065 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.02.2022 21:56:19.143 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (78ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+dbug: 23.02.2022 21:56:19.144 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.144 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.173 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 23.02.2022 21:56:19.173 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+dbug: 23.02.2022 21:56:19.173 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.173 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.173 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: 23.02.2022 21:56:19.383 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (207ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+dbug: 23.02.2022 21:56:19.407 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+dbug: 23.02.2022 21:56:19.407 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.407 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+info: 23.02.2022 21:56:19.435 RelationalEventId.MigrationApplying[20402] (Microsoft.EntityFrameworkCore.Migrations) 
+      Applying migration '20220223185542_NewProj'.
+dbug: 23.02.2022 21:56:19.572 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.572 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.574 RelationalEventId.TransactionStarting[20209] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Beginning transaction with isolation level 'Unspecified'.
+dbug: 23.02.2022 21:56:19.680 RelationalEventId.TransactionStarted[20200] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Began transaction with isolation level 'ReadCommitted'.
+dbug: 23.02.2022 21:56:19.684 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+dbug: 23.02.2022 21:56:19.684 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (0ms).
+dbug: 23.02.2022 21:56:19.686 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Products] (
+          [ProductId] bigint NOT NULL IDENTITY,
+          [ProductName] nvarchar(100) NULL,
+          [ProductDescription] nvarchar(max) NULL,
+          [ProductPrice] decimal(18,2) NOT NULL,
+          [ProductCount] int NOT NULL,
+          [InStock] bit NOT NULL,
+          [CreatedAt] datetime2 NOT NULL,
+          [IsDeleted] bit NOT NULL,
+          CONSTRAINT [PK_Products] PRIMARY KEY ([ProductId])
+      );
+fail: 23.02.2022 21:56:19.824 RelationalEventId.CommandError[20102] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Failed executing DbCommand (131ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Products] (
+          [ProductId] bigint NOT NULL IDENTITY,
+          [ProductName] nvarchar(100) NULL,
+          [ProductDescription] nvarchar(max) NULL,
+          [ProductPrice] decimal(18,2) NOT NULL,
+          [ProductCount] int NOT NULL,
+          [InStock] bit NOT NULL,
+          [CreatedAt] datetime2 NOT NULL,
+          [IsDeleted] bit NOT NULL,
+          CONSTRAINT [PK_Products] PRIMARY KEY ([ProductId])
+      );
+dbug: 23.02.2022 21:56:19.833 RelationalEventId.TransactionDisposed[20204] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Disposing transaction.
+dbug: 23.02.2022 21:56:19.836 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.836 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:56:19.843 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.
+dbug: 23.02.2022 21:57:08.382 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'Order.UserId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 21:57:08.383 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 21:57:08.383 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+warn: 23.02.2022 21:57:08.435 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+info: 23.02.2022 21:57:08.649 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+dbug: 23.02.2022 21:57:08.694 CoreEventId.RedundantIndexRemoved[10601] (Microsoft.EntityFrameworkCore.Model) 
+      The index {'OrdersOrderId'} was not created on entity type 'OrderProduct (Dictionary<string, object>)' as the properties are already covered by the index {'OrdersOrderId', 'ProductsProductId'}.
+dbug: 23.02.2022 21:57:08.703 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'Order.UserId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 21:57:08.704 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 21:57:08.704 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+warn: 23.02.2022 21:57:08.705 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+dbug: 23.02.2022 21:57:08.882 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'ShopContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 23.02.2022 21:57:08.883 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'ShopContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 23.02.2022 21:57:08.911 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'ShopContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 23.02.2022 21:57:08.911 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'ShopContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 23.02.2022 21:57:08.936 CoreEventId.StateChanged[10807] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      An entity of type 'User' tracked by 'ShopContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 23.02.2022 21:57:08.950 CoreEventId.StateChanged[10807] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      An entity of type 'User' tracked by 'ShopContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 23.02.2022 21:57:08.963 CoreEventId.DetectChangesStarting[10800] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges starting for 'ShopContext'.
+dbug: 23.02.2022 21:57:08.974 CoreEventId.DetectChangesCompleted[10801] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges completed for 'ShopContext'.
+dbug: 23.02.2022 21:57:08.975 CoreEventId.DetectChangesStarting[10800] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges starting for 'ShopContext'.
+dbug: 23.02.2022 21:57:08.975 CoreEventId.DetectChangesCompleted[10801] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges completed for 'ShopContext'.
+dbug: 23.02.2022 21:57:09.028 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:57:10.142 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:57:10.147 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+dbug: 23.02.2022 21:57:10.153 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (3ms).
+dbug: 23.02.2022 21:57:10.161 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.02.2022 21:57:10.297 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (133ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+dbug: 23.02.2022 21:57:10.301 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:57:10.310 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:57:10.320 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 23.02.2022 21:57:10.321 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (0ms).
+dbug: 23.02.2022 21:57:10.321 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:57:10.322 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:57:10.322 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.02.2022 21:57:10.514 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (192ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+dbug: 23.02.2022 21:57:10.514 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:57:10.515 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:57:10.527 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 23.02.2022 21:57:10.528 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+dbug: 23.02.2022 21:57:10.528 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:57:10.528 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:57:10.528 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: 23.02.2022 21:57:10.661 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (131ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+dbug: 23.02.2022 21:57:10.683 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+dbug: 23.02.2022 21:57:10.683 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:57:10.683 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:57:10.713 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.
+dbug: 23.02.2022 21:58:18.933 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'Order.UserId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 21:58:18.934 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 21:58:18.934 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+warn: 23.02.2022 21:58:19.016 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+info: 23.02.2022 21:58:19.257 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+dbug: 23.02.2022 21:58:19.348 RelationalEventId.MigrateUsingConnection[20400] (Microsoft.EntityFrameworkCore.Migrations) 
+      Migrating using database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:19.358 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.314 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.322 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+dbug: 23.02.2022 21:58:20.329 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (6ms).
+dbug: 23.02.2022 21:58:20.336 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.02.2022 21:58:20.471 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (131ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+dbug: 23.02.2022 21:58:20.476 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.485 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.491 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 23.02.2022 21:58:20.491 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (0ms).
+dbug: 23.02.2022 21:58:20.491 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.492 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.492 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.02.2022 21:58:20.625 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (132ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+dbug: 23.02.2022 21:58:20.625 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.629 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.633 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.633 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.633 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+dbug: 23.02.2022 21:58:20.633 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (0ms).
+dbug: 23.02.2022 21:58:20.633 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.02.2022 21:58:20.726 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (93ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+dbug: 23.02.2022 21:58:20.726 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.726 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.727 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 23.02.2022 21:58:20.727 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (0ms).
+dbug: 23.02.2022 21:58:20.727 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.727 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.728 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.02.2022 21:58:20.826 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (99ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+dbug: 23.02.2022 21:58:20.826 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.827 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.900 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 23.02.2022 21:58:20.901 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+dbug: 23.02.2022 21:58:20.901 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.901 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:20.902 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: 23.02.2022 21:58:21.003 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (100ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+dbug: 23.02.2022 21:58:21.022 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+dbug: 23.02.2022 21:58:21.023 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:21.023 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 21:58:21.047 RelationalEventId.MigrationsNotFound[20406] (Microsoft.EntityFrameworkCore.Migrations) 
+      No migrations were found in assembly 'TeaShopDAL'.
+info: 23.02.2022 21:58:21.055 RelationalEventId.MigrationsNotApplied[20405] (Microsoft.EntityFrameworkCore.Migrations) 
+      No migrations were applied. The database is already up to date.
+dbug: 23.02.2022 21:58:21.058 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.
+dbug: 23.02.2022 22:02:51.990 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'Order.UserId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 22:02:51.990 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 22:02:51.990 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+warn: 23.02.2022 22:02:52.048 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+info: 23.02.2022 22:02:52.266 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+dbug: 23.02.2022 22:02:52.318 CoreEventId.RedundantIndexRemoved[10601] (Microsoft.EntityFrameworkCore.Model) 
+      The index {'OrdersOrderId'} was not created on entity type 'OrderProduct (Dictionary<string, object>)' as the properties are already covered by the index {'OrdersOrderId', 'ProductsProductId'}.
+dbug: 23.02.2022 22:02:52.329 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'Order.UserId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 22:02:52.329 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 22:02:52.329 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+warn: 23.02.2022 22:02:52.330 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+dbug: 23.02.2022 22:02:52.515 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'ShopContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 23.02.2022 22:02:52.516 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'ShopContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 23.02.2022 22:02:52.542 CoreEventId.DetectChangesStarting[10800] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges starting for 'ShopContext'.
+dbug: 23.02.2022 22:02:52.555 CoreEventId.DetectChangesCompleted[10801] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges completed for 'ShopContext'.
+dbug: 23.02.2022 22:02:52.604 RelationalEventId.BatchSmallerThanMinBatchSize[20701] (Microsoft.EntityFrameworkCore.Update) 
+      Executing update commands individually as the number of batchable commands (2) is smaller than the minimum batch size (4).
+dbug: 23.02.2022 22:02:52.720 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.
+dbug: 23.02.2022 22:03:17.715 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'Order.UserId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 22:03:17.715 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 23.02.2022 22:03:17.715 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+warn: 23.02.2022 22:03:17.769 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+info: 23.02.2022 22:03:17.974 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+dbug: 23.02.2022 22:03:18.038 RelationalEventId.MigrateUsingConnection[20400] (Microsoft.EntityFrameworkCore.Migrations) 
+      Migrating using database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:18.047 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.019 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.030 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+dbug: 23.02.2022 22:03:19.038 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (7ms).
+dbug: 23.02.2022 22:03:19.048 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.02.2022 22:03:19.189 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (137ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+dbug: 23.02.2022 22:03:19.195 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.201 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.208 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 23.02.2022 22:03:19.208 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (0ms).
+dbug: 23.02.2022 22:03:19.208 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.209 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.210 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.02.2022 22:03:19.333 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (122ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+dbug: 23.02.2022 22:03:19.333 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.335 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.339 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.339 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.339 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+dbug: 23.02.2022 22:03:19.339 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (0ms).
+dbug: 23.02.2022 22:03:19.339 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.02.2022 22:03:19.410 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (71ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+dbug: 23.02.2022 22:03:19.411 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.411 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.411 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 23.02.2022 22:03:19.411 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (0ms).
+dbug: 23.02.2022 22:03:19.411 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.412 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.412 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.02.2022 22:03:19.495 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (83ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+dbug: 23.02.2022 22:03:19.495 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.495 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.539 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 23.02.2022 22:03:19.539 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+dbug: 23.02.2022 22:03:19.539 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.539 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.540 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: 23.02.2022 22:03:19.656 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (115ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+dbug: 23.02.2022 22:03:19.671 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+dbug: 23.02.2022 22:03:19.671 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.672 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+info: 23.02.2022 22:03:19.700 RelationalEventId.MigrationApplying[20402] (Microsoft.EntityFrameworkCore.Migrations) 
+      Applying migration '20220223190252_Initial'.
+dbug: 23.02.2022 22:03:19.795 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.795 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:19.797 RelationalEventId.TransactionStarting[20209] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Beginning transaction with isolation level 'Unspecified'.
+dbug: 23.02.2022 22:03:19.881 RelationalEventId.TransactionStarted[20200] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Began transaction with isolation level 'ReadCommitted'.
+dbug: 23.02.2022 22:03:19.884 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+dbug: 23.02.2022 22:03:19.884 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (0ms).
+dbug: 23.02.2022 22:03:19.885 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Products] (
+          [ProductId] bigint NOT NULL IDENTITY,
+          [ProductName] nvarchar(100) NULL,
+          [ProductDescription] nvarchar(max) NULL,
+          [ProductPrice] decimal(18,2) NOT NULL,
+          [ProductCount] int NOT NULL,
+          [InStock] bit NOT NULL,
+          [CreatedAt] datetime2 NOT NULL,
+          [IsDeleted] bit NOT NULL,
+          CONSTRAINT [PK_Products] PRIMARY KEY ([ProductId])
+      );
+fail: 23.02.2022 22:03:19.995 RelationalEventId.CommandError[20102] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Failed executing DbCommand (101ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Products] (
+          [ProductId] bigint NOT NULL IDENTITY,
+          [ProductName] nvarchar(100) NULL,
+          [ProductDescription] nvarchar(max) NULL,
+          [ProductPrice] decimal(18,2) NOT NULL,
+          [ProductCount] int NOT NULL,
+          [InStock] bit NOT NULL,
+          [CreatedAt] datetime2 NOT NULL,
+          [IsDeleted] bit NOT NULL,
+          CONSTRAINT [PK_Products] PRIMARY KEY ([ProductId])
+      );
+dbug: 23.02.2022 22:03:20.006 RelationalEventId.TransactionDisposed[20204] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Disposing transaction.
+dbug: 23.02.2022 22:03:20.007 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:20.007 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'TeaShopBotAPI_db' on server 'tcp:teashopbotapidbserver.database.windows.net,1433'.
+dbug: 23.02.2022 22:03:20.011 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.
