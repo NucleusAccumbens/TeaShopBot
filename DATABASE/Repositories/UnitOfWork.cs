@@ -34,6 +34,16 @@ namespace DATABASE.Repositories
             }
         }
 
+        public UserRepository UsersRepo
+        {
+            get
+            {
+                if (_userRepository == null)
+                    _userRepository = new UserRepository(_context);
+                return _userRepository;
+            }
+        }
+
         public IRepository<Order> Orders
         {
             get

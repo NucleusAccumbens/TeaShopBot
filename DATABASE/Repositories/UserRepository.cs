@@ -16,7 +16,7 @@ namespace DATABASE.Repositories
 
         public UserRepository(ShopContext context)
         {
-            this._context = context;
+            _context = context;
         }
         public async Task CreateAsync(User user)
         {
@@ -79,16 +79,16 @@ namespace DATABASE.Repositories
             }
         }
 
-        public async Task<User> GetUserByChatIdAsync(long chatId)
+        public async Task<User?> GetUserByChatIdAsync(long chatId)
         {
             try
             {
                 return await _context.Users
-                    .FirstAsync(user => user.ChatId == chatId);
+                    .FirstOrDefaultAsync(user => user.ChatId == chatId);
             }
             catch (Exception)
             {
-                throw;
+                throw; 
             }
         }
 
@@ -117,5 +117,6 @@ namespace DATABASE.Repositories
                 throw;
             }
         }
+
     }
 }

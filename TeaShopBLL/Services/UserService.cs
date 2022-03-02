@@ -1,5 +1,7 @@
-﻿using DATABASE.Entityes;
+﻿using DATABASE.DataContext;
+using DATABASE.Entityes;
 using DATABASE.Interfaces;
+using DATABASE.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,9 @@ namespace TeaShopBLL.Services
 {
     public class UserService : IService<UserDTO>
     {
-        private readonly IUnitOfWork _repo;
+        private readonly UnitOfWork _repo;
 
-        public UserService(IUnitOfWork repo)
+        public UserService(UnitOfWork repo)
         {
             _repo = repo;
         }
@@ -22,7 +24,7 @@ namespace TeaShopBLL.Services
         {
             try
             {
-                var _user = new User()
+                var _user = new User() 
                 {
                     ChatId = user.ChatId,
                     IsAdmin = user.IsAdmin,
@@ -105,6 +107,21 @@ namespace TeaShopBLL.Services
                 };
                 await _repo.Users.UpdateAsync(_user);
                 await _repo.SaveAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> CheckUserIsInDb(long chatId)
+        {
+            try
+            {
+                var user = await _repo.UsersRepo.GetUserByChatIdAsync(chatId);
+
+                if (user == null) return false;
+                else return true;               
             }
             catch (Exception)
             {

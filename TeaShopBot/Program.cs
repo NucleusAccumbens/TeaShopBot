@@ -16,18 +16,20 @@ namespace TeaShopBot
 {
     public class Program
     {
-        
+        private static readonly TelegramBot _bot = new TelegramBot();
+
         static void Main(string[] args)
         {
-            var botClient = new TelegramBotClient("5234530253:AAE0rmehJ5dWrsrrwsdySvNjaZ25B-uibd8");
 
+
+            var botClient = _bot.BotClient;
             using var cts = new CancellationTokenSource();
 
-            // StartReceiving does not block the caller thread. Receiving is done on the ThreadPool.
             var receiverOptions = new ReceiverOptions
             {
-                AllowedUpdates = { } // receive all update types
+                AllowedUpdates = { } 
             };
+
             botClient.StartReceiving(
                 HandleUpdateAsync,
                 HandleErrorAsync,
@@ -38,29 +40,46 @@ namespace TeaShopBot
 
             Console.WriteLine($"Start listening for @{me.Username}");
             Console.ReadLine();
-
-            // Send cancellation request to stop bot
             cts.Cancel();
 
             async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
             {
-                // Only process Message updates: https://core.telegram.org/bots/api#message
                 if (update.Type != UpdateType.Message)
                     return;
-                // Only process text messages
                 if (update.Message!.Type != MessageType.Text)
                     return;
 
                 var chatId = update.Message.Chat.Id;
                 var messageText = update.Message.Text;
 
-                Console.WriteLine($"Received a '{messageText}' message in chat {chatId}.");
+                Console.WriteLine($"Получено сообщение '{messageText}' от пользователя номер {chatId}.");
 
-                // Echo received message text
                 Message sentMessage = await botClient.SendTextMessageAsync(
                     chatId: chatId,
                     text: "You said:\n" + messageText,
                     cancellationToken: cancellationToken);
+
+                try
+                {                   
+                    var res = _bot.SaveUserInDb(update).Result;
+
+                    if (res == true)
+                    {
+                        Console.WriteLine($"Пользователь с chatId {update.Message.Chat.Id} сохранён в базу данных. " +
+                                          $"Имя пользователя: { update.Message.Chat.Username}.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Пользователь с chatId {update.Message.Chat.Id} уже есть в базе данных. " +
+                                          $"Имя пользователя: {update.Message.Chat.Username}.");
+                    }
+                        
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                
             }
 
             Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
@@ -68,13 +87,14 @@ namespace TeaShopBot
                 var ErrorMessage = exception switch
                 {
                     ApiRequestException apiRequestException
-                        => $"Telegram API Error:\n[{apiRequestException.ErrorCode}]\n{apiRequestException.Message}",
+                        => $"Ошибка Telegram API:\n[{apiRequestException.ErrorCode}]\n{apiRequestException.Message}",
                     _ => exception.ToString()
                 };
 
                 Console.WriteLine(ErrorMessage);
                 return Task.CompletedTask;
             }
+
         }
     }
 }
