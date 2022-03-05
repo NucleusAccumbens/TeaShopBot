@@ -128,5 +128,20 @@ namespace TeaShopBLL.Services
                 throw;
             }
         }
+
+        public async Task<bool> CheckUserIsAdmin(long chatId)
+        {
+            try
+            {
+                var user = await _repo.UsersRepo.GetUserByChatIdAsync(chatId);
+
+                if (user?.IsAdmin == true) return true;
+                else return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -10,9 +10,12 @@ using System.Threading.Tasks;
 using TeaShopBLL;
 using TeaShopBLL.Services;
 using TeaShopBot.Abstractions;
+using TeaShopBot.Commands;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TeaShopBot
 {
@@ -76,6 +79,22 @@ namespace TeaShopBot
                 }                  
             }
             catch(Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<bool> CheckUserIsAdmin(long chatId)
+        {
+            try
+            {
+                using (ShopContext context = new ShopContext())
+                {
+                    UnitOfWork _unit = new UnitOfWork(context);
+                    var userService = new UserService(_unit);
+                    return await userService.CheckUserIsAdmin(chatId);
+                }
+            }
+            catch (Exception)
             {
                 throw;
             }

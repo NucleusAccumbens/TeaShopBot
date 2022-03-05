@@ -6,11 +6,13 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Threading;
 using System.Threading.Tasks;
+using TeaShopBot.Commands;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TeaShopBot
 {
@@ -54,11 +56,6 @@ namespace TeaShopBot
 
                 Console.WriteLine($"Получено сообщение '{messageText}' от пользователя номер {chatId}.");
 
-                Message sentMessage = await botClient.SendTextMessageAsync(
-                    chatId: chatId,
-                    text: "You said:\n" + messageText,
-                    cancellationToken: cancellationToken);
-
                 try
                 {                   
                     var res = _bot.SaveUserInDb(update).Result;
@@ -79,7 +76,31 @@ namespace TeaShopBot
                 {
                     Console.WriteLine(ex.ToString());
                 }
-                
+
+                //ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
+                //{
+                //    new KeyboardButton[] { "Старт" }
+                //})
+                //{
+                //    ResizeKeyboard = true
+                //};
+
+                //Message sentMessage = await botClient.SendTextMessageAsync(
+                //    chatId: chatId,
+                //    text: "💖 Чайный Автономный Округ приветствует Вас 💖 \n" +
+                //          "✅ Сейчас в магазине 30 + позиций чая, ассортимент пополняется ✅\n" +
+                //          "🧑‍✈️Любые вопросы и предложения - @shanti_travels 🧑‍✈️\n" +
+                //          "⤵️ Выберите категорию из списка ниже ⤵️",
+                //    replyMarkup: replyKeyboardMarkup,
+                //    cancellationToken: cancellationToken);
+
+                var massege = update.Message;
+                if (massege != null && massege.Text == "/start")
+                {
+                    var command = new StartCommand();
+                    await command.Execute(massege, botClient, cancellationToken);
+                }
+
             }
 
             Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)

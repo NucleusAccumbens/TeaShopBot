@@ -13,5 +13,6 @@ namespace TeaShopBot.Abstractions
     public interface ITelegramBot
     {
         Task<bool> SaveUserInDb(Update ubdate);
+        Task<bool> CheckUserIsAdmin(long chatId);
     }
 }

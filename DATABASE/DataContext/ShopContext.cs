@@ -7,9 +7,8 @@ namespace DATABASE.DataContext
 {
     public class ShopContext : DbContext
     {
-        private readonly string _connectionString = 
-            "Data Source=tcp:teashopbotapidbserver.database.windows.net,1433;Initial Catalog=TeaShopBotAPI_db;" +
-            "User Id=noncredistka@teashopbotapidbserver;Password=nucleusACCUMBENS.20";
+        private readonly string _connectionString =
+            "Data Source=User;Initial Catalog=TeaShopLocal;Integrated Security=True";
 
         public ShopContext() 
             : base () 
