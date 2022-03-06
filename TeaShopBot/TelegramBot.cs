@@ -22,6 +22,8 @@ namespace TeaShopBot
     public class TelegramBot : ITelegramBot
     {
         private static readonly string _token = "5234530253:AAE0rmehJ5dWrsrrwsdySvNjaZ25B-uibd8";
+        private readonly ICommandService _commandService = new CommandService();
+
         public ITelegramBotClient BotClient
         {
             get
@@ -98,6 +100,11 @@ namespace TeaShopBot
             {
                 throw;
             }
+        }
+
+        public List<TelegramCommand> GetCommands()
+        {
+            return _commandService.GetCommands();
         }
     }
 }

@@ -14,5 +14,6 @@ namespace TeaShopBot.Abstractions
     {
         Task<bool> SaveUserInDb(Update ubdate);
         Task<bool> CheckUserIsAdmin(long chatId);
+        List<TelegramCommand> GetCommands();
     }
 }

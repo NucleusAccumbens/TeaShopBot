@@ -63,42 +63,22 @@ namespace TeaShopBot
                     if (res == true)
                     {
                         Console.WriteLine($"Пользователь с chatId {update.Message.Chat.Id} сохранён в базу данных. " +
-                                          $"Имя пользователя: { update.Message.Chat.Username}.");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Пользователь с chatId {update.Message.Chat.Id} уже есть в базе данных. " +
                                           $"Имя пользователя: {update.Message.Chat.Username}.");
-                    }
-                        
+                    }                       
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
                 }
 
-                //ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
-                //{
-                //    new KeyboardButton[] { "Старт" }
-                //})
-                //{
-                //    ResizeKeyboard = true
-                //};
-
-                //Message sentMessage = await botClient.SendTextMessageAsync(
-                //    chatId: chatId,
-                //    text: "💖 Чайный Автономный Округ приветствует Вас 💖 \n" +
-                //          "✅ Сейчас в магазине 30 + позиций чая, ассортимент пополняется ✅\n" +
-                //          "🧑‍✈️Любые вопросы и предложения - @shanti_travels 🧑‍✈️\n" +
-                //          "⤵️ Выберите категорию из списка ниже ⤵️",
-                //    replyMarkup: replyKeyboardMarkup,
-                //    cancellationToken: cancellationToken);
-
                 var massege = update.Message;
-                if (massege != null && massege.Text == "/start")
+                var commands = _bot.GetCommands();
+                foreach(var command in commands)
                 {
-                    var command = new StartCommand();
-                    await command.Execute(massege, botClient, cancellationToken);
+                    if(command.Contains(massege))
+                    {
+                        await command.Execute(massege, botClient, cancellationToken);
+                    }
                 }
 
             }
