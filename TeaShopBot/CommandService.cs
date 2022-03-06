@@ -17,7 +17,8 @@ namespace TeaShopBot
             _commandsList.Add(new StartCommand());
             _commandsList.Add(new AddProductCommand());
             _commandsList.Add(new AddTeaCommand());
-            _commandsList.Add(new BackToSelectAction()); ;
+            _commandsList.Add(new BackToSelectActionCommand()); 
+            _commandsList.Add(new BackToSelectCategoryCommand());
             return _commandsList;
         }
     }

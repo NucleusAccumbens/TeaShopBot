@@ -11,22 +11,22 @@ using Telegram.Bot.Types.Enums;
 
 namespace TeaShopBot.Commands
 {
-    public class BackToSelectActionCommand : TelegramCommand
+    public class BackToSelectCategoryCommand : TelegramCommand
     {
-        public override string Name => @"Назад к выбору действия";
+        public override string Name => @"Назад к выбору категории товара";
 
         public override bool Contains(Message message)
         {
-            if(message.Type != MessageType.Text)
+            if (message.Type != MessageType.Text)
                 return false;
 
             return message.Text.Contains(Name);
         }
 
-        public override async Task Execute(Message message, ITelegramBotClient client, CancellationToken cancellationToken)
+        public override Task Execute(Message message, ITelegramBotClient client, CancellationToken cancellationToken)
         {
-            var startCommand = new StartCommand();
-            await startCommand.Execute(message, client, cancellationToken);
+            var addProductCommand = new AddProductCommand();
+            return addProductCommand.Execute(message, client, cancellationToken);
         }
     }
 }
