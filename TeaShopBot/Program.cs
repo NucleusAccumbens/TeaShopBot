@@ -73,6 +73,7 @@ namespace TeaShopBot
 
                 var massege = update.Message;
                 var commands = _bot.GetCommands();
+
                 foreach(var command in commands)
                 {
                     if(command.Contains(massege))
