@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace TeaShopDAL.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20220223190252_Initial")]
-    partial class Initial
+    [Migration("20220312113506_Initial-IgnoreChanges")]
+    partial class InitialIgnoreChanges
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -135,17 +135,19 @@ namespace TeaShopDAL.Migrations
                         {
                             UserId = 1L,
                             ChatId = 444343256L,
-                            CreatedAt = new DateTime(2022, 2, 23, 19, 2, 52, 312, DateTimeKind.Utc).AddTicks(4968),
+                            CreatedAt = new DateTime(2022, 3, 12, 11, 35, 6, 210, DateTimeKind.Utc).AddTicks(1070),
                             IsAdmin = true,
-                            IsDeleted = false
+                            IsDeleted = false,
+                            Name = "noncredistka"
                         },
                         new
                         {
                             UserId = 2L,
                             ChatId = 519140043L,
-                            CreatedAt = new DateTime(2022, 2, 23, 19, 2, 52, 312, DateTimeKind.Utc).AddTicks(4971),
+                            CreatedAt = new DateTime(2022, 3, 12, 11, 35, 6, 210, DateTimeKind.Utc).AddTicks(1073),
                             IsAdmin = true,
-                            IsDeleted = false
+                            IsDeleted = false,
+                            Name = "shanti_travels"
                         });
                 });
 

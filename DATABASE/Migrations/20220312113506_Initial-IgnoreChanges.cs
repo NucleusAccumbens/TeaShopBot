@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TeaShopDAL.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialIgnoreChanges : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -152,12 +152,12 @@ namespace TeaShopDAL.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "UserId", "ChatId", "CreatedAt", "IsAdmin", "IsDeleted", "Name" },
-                values: new object[] { 1L, 444343256L, new DateTime(2022, 2, 23, 19, 2, 52, 312, DateTimeKind.Utc).AddTicks(4968), true, false, null });
+                values: new object[] { 1L, 444343256L, new DateTime(2022, 3, 12, 11, 35, 6, 210, DateTimeKind.Utc).AddTicks(1070), true, false, "noncredistka" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "UserId", "ChatId", "CreatedAt", "IsAdmin", "IsDeleted", "Name" },
-                values: new object[] { 2L, 519140043L, new DateTime(2022, 2, 23, 19, 2, 52, 312, DateTimeKind.Utc).AddTicks(4971), true, false, null });
+                values: new object[] { 2L, 519140043L, new DateTime(2022, 3, 12, 11, 35, 6, 210, DateTimeKind.Utc).AddTicks(1073), true, false, "shanti_travels" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderProduct_ProductsProductId",

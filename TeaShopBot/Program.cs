@@ -1,23 +1,12 @@
-﻿using DATABASE.DataContext;
-using DATABASE.Enums;
-using DATABASE.Repositories;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Net;
-using System.Net.Http;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using TeaShopBLL.DTO;
-using TeaShopBLL.Services;
-using TeaShopBot.Commands;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
-using Telegram.Bot.Types.ReplyMarkups;
+
 
 namespace TeaShopBot
 {
@@ -99,7 +88,6 @@ namespace TeaShopBot
                 Console.WriteLine(ErrorMessage);
                 return Task.CompletedTask;
             }
-
         }
     }
 }

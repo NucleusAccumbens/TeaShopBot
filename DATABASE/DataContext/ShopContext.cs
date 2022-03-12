@@ -20,7 +20,7 @@ namespace DATABASE.DataContext
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(_connectionString);
-            optionsBuilder.LogTo(_logStream.WriteLine, LogLevel.Trace);  // Логгирование 
+            optionsBuilder.LogTo(_logStream.WriteLine, LogLevel.Information);  // Логгирование 
         }
 
         public override void Dispose()
@@ -34,16 +34,18 @@ namespace DATABASE.DataContext
             // Предзаполнение БД - обязательно проинициализировать первичный ключ (Id)
             modelBuilder.Entity<User>().HasData(new User[]
             {
-                new User 
-                { 
+                new User
+                {
                     UserId = 1,
                     ChatId = 444343256,
+                    Name = "noncredistka",
                     IsAdmin = true
-                }, 
+                },
                 new User
                 {
                     UserId = 2,
                     ChatId = 519140043,
+                    Name = "shanti_travels",
                     IsAdmin = true
                 }
             });                                            

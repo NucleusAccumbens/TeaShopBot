@@ -38,48 +38,49 @@ namespace TeaShopBot.Commands
                 {
                     var unitOfWork = new UnitOfWork(context);
                     var teaService = new TeaService(unitOfWork);
+
                     var tea = new TeaDTO()
                     {
                         TeaType = TeaTypes.Red
                     };
 
-                    int teaWeight = SetTeaWeight(update, client, cancellationToken).Result;
+                    //int teaWeight = SetTeaWeight(update, client, cancellationToken).Result;
 
-                    if (teaWeight == 50)
-                    {
-                        tea.TeaWeight = TeaWeight.Fifty;
-                    }
-                    if (teaWeight == 100)
-                    {
-                        tea.TeaWeight = TeaWeight.OneHundred;
-                    }
-                    if (teaWeight == 150)
-                    {
-                        tea.TeaWeight = TeaWeight.OneHundredFifty;
-                    }
-                    if (teaWeight == 200)
-                    {
-                        tea.TeaWeight = TeaWeight.TwoHundred;
-                    }
-                    if (teaWeight == 250)
-                    {
-                        tea.TeaWeight = TeaWeight.TwoHundredFifty;
-                    }
-                    if (teaWeight == 375)
-                    {
-                        tea.TeaWeight = TeaWeight.ThreeHundredSeventyFive;
-                    }
+                    //if (teaWeight == 50)
+                    //{
+                    //    tea.TeaWeight = TeaWeight.Fifty;
+                    //}
+                    //if (teaWeight == 100)
+                    //{
+                    //    tea.TeaWeight = TeaWeight.OneHundred;
+                    //}
+                    //if (teaWeight == 150)
+                    //{
+                    //    tea.TeaWeight = TeaWeight.OneHundredFifty;
+                    //}
+                    //if (teaWeight == 200)
+                    //{
+                    //    tea.TeaWeight = TeaWeight.TwoHundred;
+                    //}
+                    //if (teaWeight == 250)
+                    //{
+                    //    tea.TeaWeight = TeaWeight.TwoHundredFifty;
+                    //}
+                    //if (teaWeight == 375)
+                    //{
+                    //    tea.TeaWeight = TeaWeight.ThreeHundredSeventyFive;
+                    //}
 
-                    string teaForm = SetTeaForm(update, client, cancellationToken).Result;
+                    //string teaForm = SetTeaForm(update, client, cancellationToken).Result;
 
-                    if (teaForm == "Рассыпной")
-                    {
-                        tea.TeaForm = TeaForms.Loose;
-                    }
-                    if (teaForm == "Пресованный")
-                    {
-                        tea.TeaForm = TeaForms.Pressed;
-                    }
+                    //if (teaForm == "Рассыпной")
+                    //{
+                    //    tea.TeaForm = TeaForms.Loose;
+                    //}
+                    //if (teaForm == "Пресованный")
+                    //{
+                    //    tea.TeaForm = TeaForms.Pressed;
+                    //}
 
                     await teaService.CreateAsync(tea);
                 }

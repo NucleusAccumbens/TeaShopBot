@@ -133,17 +133,19 @@ namespace TeaShopDAL.Migrations
                         {
                             UserId = 1L,
                             ChatId = 444343256L,
-                            CreatedAt = new DateTime(2022, 3, 4, 10, 10, 55, 144, DateTimeKind.Utc).AddTicks(2739),
+                            CreatedAt = new DateTime(2022, 3, 12, 11, 35, 6, 210, DateTimeKind.Utc).AddTicks(1070),
                             IsAdmin = true,
-                            IsDeleted = false
+                            IsDeleted = false,
+                            Name = "noncredistka"
                         },
                         new
                         {
                             UserId = 2L,
                             ChatId = 519140043L,
-                            CreatedAt = new DateTime(2022, 3, 4, 10, 10, 55, 144, DateTimeKind.Utc).AddTicks(2742),
+                            CreatedAt = new DateTime(2022, 3, 12, 11, 35, 6, 210, DateTimeKind.Utc).AddTicks(1073),
                             IsAdmin = true,
-                            IsDeleted = false
+                            IsDeleted = false,
+                            Name = "shanti_travels"
                         });
                 });
 
