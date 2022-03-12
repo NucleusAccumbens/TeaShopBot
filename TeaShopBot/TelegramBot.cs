@@ -77,7 +77,6 @@ namespace TeaShopBot
                             ChatId = ubdate.Message.Chat.Id,
                             Name = ubdate.Message.Chat.Username,
                             IsAdmin = false,
-                            IsActive = true,
                         };                          
                         
                         await userService.CreateAsync(user);

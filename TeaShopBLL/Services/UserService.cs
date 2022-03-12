@@ -27,6 +27,7 @@ namespace TeaShopBLL.Services
                 var _user = new User() 
                 {
                     ChatId = user.ChatId,
+                    Name = user.Name,
                     IsAdmin = user.IsAdmin,
                 };
                 await _repo.Users.CreateAsync(_user);

@@ -32,7 +32,6 @@ namespace TeaShopBLL.Services
                     TeaType = tea.TeaType,
                     TeaForm = tea.TeaForm,
                     TeaWeight = tea.TeaWeight,
-                    InStock = true
                 };
                 await _repo.Teas.CreateAsync(_tea);
                 await _repo.SaveAsync();
