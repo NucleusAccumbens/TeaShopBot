@@ -121,8 +121,7 @@ namespace TeaShopBLL.Services
                 ProductCount = tea.ProductCount,
                 TeaType = tea.TeaType,
                 TeaForm = tea.TeaForm,
-                TeaWeight = tea.TeaWeight,
-                InStock = true
+                TeaWeight = tea.TeaWeight
             };
 
             try

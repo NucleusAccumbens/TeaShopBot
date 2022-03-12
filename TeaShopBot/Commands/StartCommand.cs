@@ -24,9 +24,9 @@ namespace TeaShopBot.Commands
             return message.Text.Contains(Name);
         }
 
-        public override async Task Execute(Message message, ITelegramBotClient botClient, CancellationToken cancellationToken)
+        public override async Task Execute(Update update, ITelegramBotClient botClient, CancellationToken cancellationToken)
         {
-            var chatId = message.Chat.Id;
+            var chatId = update.Message.Chat.Id;
             ITelegramBot bot = new TelegramBot();
             bool isAdmin = await bot.CheckUserIsAdmin(chatId);
 
@@ -42,7 +42,7 @@ namespace TeaShopBot.Commands
                     ResizeKeyboard = true
                 };
 
-                Message sentMessage = await botClient.SendTextMessageAsync(
+                await botClient.SendTextMessageAsync(
                     chatId: chatId,
                     text: "Здесь будет какой-то текст...",
                     replyMarkup: replyKeyboardMarkup,
@@ -58,7 +58,7 @@ namespace TeaShopBot.Commands
                     ResizeKeyboard = true
                 };
 
-                Message sentMessage = await botClient.SendTextMessageAsync(
+                await botClient.SendTextMessageAsync(
                     chatId: chatId,
                     text: "Чай в ассортименте!",
                     replyMarkup: replyKeyboardMarkup,

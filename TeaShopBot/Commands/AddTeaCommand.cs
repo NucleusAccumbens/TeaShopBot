@@ -24,9 +24,9 @@ namespace TeaShopBot.Commands
             return message.Text.Contains(Name);
         }
 
-        public override async Task Execute(Message message, ITelegramBotClient client, CancellationToken cancellationToken)
+        public override async Task Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
         {
-            var chatId = message.Chat.Id;
+            var chatId = update.Message.Chat.Id;
 
             ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
             {
@@ -38,7 +38,7 @@ namespace TeaShopBot.Commands
                 ResizeKeyboard = true
             };
 
-            Message sentMessage = await client.SendTextMessageAsync(
+            await client.SendTextMessageAsync(
                 chatId: chatId,
                 text: "Выбери сорт чая:",
                 replyMarkup: replyKeyboardMarkup,

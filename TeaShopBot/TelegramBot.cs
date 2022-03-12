@@ -32,6 +32,11 @@ namespace TeaShopBot
             }
         } 
 
+        public async Task SetWebhookAsync()
+        {
+            await BotClient.SetWebhookAsync("");
+        }
+
         private async Task<bool> CheckUserIsInDb(Update ubdate)
         {
             using (ShopContext context = new ShopContext())

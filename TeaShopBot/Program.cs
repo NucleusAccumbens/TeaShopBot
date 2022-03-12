@@ -1,11 +1,16 @@
 ﻿using DATABASE.DataContext;
+using DATABASE.Enums;
 using DATABASE.Repositories;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Net;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using TeaShopBLL.DTO;
+using TeaShopBLL.Services;
 using TeaShopBot.Commands;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
@@ -22,8 +27,6 @@ namespace TeaShopBot
 
         static void Main(string[] args)
         {
-
-
             var botClient = _bot.BotClient;
             using var cts = new CancellationTokenSource();
 
@@ -78,10 +81,10 @@ namespace TeaShopBot
                 {
                     if(command.Contains(massege))
                     {
-                        await command.Execute(massege, botClient, cancellationToken);
+                        await command.Execute(update, botClient, cancellationToken);
+                        break;
                     }
                 }
-
             }
 
             Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)

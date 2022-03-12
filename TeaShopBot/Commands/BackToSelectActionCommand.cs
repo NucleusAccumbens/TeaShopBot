@@ -23,10 +23,10 @@ namespace TeaShopBot.Commands
             return message.Text.Contains(Name);
         }
 
-        public override async Task Execute(Message message, ITelegramBotClient client, CancellationToken cancellationToken)
+        public override async Task Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
         {
             var startCommand = new StartCommand();
-            await startCommand.Execute(message, client, cancellationToken);
+            await startCommand.Execute(update, client, cancellationToken);
         }
     }
 }
