@@ -52,17 +52,17 @@ namespace TeaShopBot.Commands
         }
 
         
-        private async Task Callback(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
-        {
-            var chatId = update.Message.Chat.Id;
+        //private async Task Callback(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
+        //{
+        //    var chatId = update.Message.Chat.Id;
 
-            if (update.CallbackQuery.Data == "1")
-            {
-                await client.SendTextMessageAsync(
-                  chatId: chatId,
-                  text: "Красный чай",
-                  cancellationToken: cancellationToken);
-            }
-        }
+        //    if (update.CallbackQuery.Data == "1")
+        //    {
+        //        await client.SendTextMessageAsync(
+        //          chatId: chatId,
+        //          text: "Красный чай",
+        //          cancellationToken: cancellationToken);
+        //    }
+        //}
     }
 }

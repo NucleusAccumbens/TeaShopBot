@@ -75,7 +75,6 @@ namespace TeaShopBot
                     }
                 }
 
-
             }
 
             Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
