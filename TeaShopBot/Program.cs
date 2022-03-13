@@ -74,6 +74,8 @@ namespace TeaShopBot
                         break;
                     }
                 }
+
+
             }
 
             Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
@@ -88,6 +90,7 @@ namespace TeaShopBot
                 Console.WriteLine(ErrorMessage);
                 return Task.CompletedTask;
             }
+
         }
     }
 }

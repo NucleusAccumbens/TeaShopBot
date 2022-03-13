@@ -28,21 +28,41 @@ namespace TeaShopBot.Commands
         {
             var chatId = update.Message.Chat.Id;
 
-            ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
+            InlineKeyboardMarkup inlineKeyboardMarkup = new(new[]
             {
-                new KeyboardButton[] {"Красный",  "Зелёный", "Белый"},
-                new KeyboardButton[] {"Улун", "Шу пуэр", "Шен пуэр"},
-                new KeyboardButton[] {"Назад к выбору категории товара"}
-            })
-            {
-                ResizeKeyboard = true
-            };
+                new[]
+                {
+                    InlineKeyboardButton.WithCallbackData(text: "Красный", callbackData: "1"),
+                    InlineKeyboardButton.WithCallbackData(text: "Зелёный", callbackData: "2"),
+                    InlineKeyboardButton.WithCallbackData(text: "Белый", callbackData: "3"),
+                },
+                new[]
+                {
+                    InlineKeyboardButton.WithCallbackData(text: "Улун", callbackData: "4"),
+                    InlineKeyboardButton.WithCallbackData(text: "Шу пуэр", callbackData: "5"),
+                    InlineKeyboardButton.WithCallbackData(text: "Шен пуэр", callbackData: "6"),
+                },
+            });
 
             await client.SendTextMessageAsync(
                 chatId: chatId,
                 text: "Выбери сорт чая:",
-                replyMarkup: replyKeyboardMarkup,
+                replyMarkup: inlineKeyboardMarkup,
                 cancellationToken: cancellationToken);
+        }
+
+        
+        private async Task Callback(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
+        {
+            var chatId = update.Message.Chat.Id;
+
+            if (update.CallbackQuery.Data == "1")
+            {
+                await client.SendTextMessageAsync(
+                  chatId: chatId,
+                  text: "Красный чай",
+                  cancellationToken: cancellationToken);
+            }
         }
     }
 }
