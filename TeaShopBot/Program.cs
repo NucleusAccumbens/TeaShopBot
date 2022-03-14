@@ -39,13 +39,13 @@ namespace TeaShopBot
 
             async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
             {
-                if (update.Type != UpdateType.Message)
-                    return;
-                if (update.Message!.Type != MessageType.Text)
-                    return;
+
                 if (update.Type == UpdateType.CallbackQuery)
                 {
-                    await AddTeaCommand.CallbackExecute(update, botClient, cancellationToken);
+                    var tea = await AddTeaCommand.TeaTypeCallbackExecute(update, botClient, cancellationToken);
+                    tea = await AddTeaCommand.TeaWeighteCallbackExecute(update, botClient, cancellationToken, tea);
+                    tea = await AddTeaCommand.TeaFormCallbackExecute(update, botClient, cancellationToken, tea);
+                    return;
                 }
                 var chatId = update.Message.Chat.Id;
                 var messageText = update.Message.Text;
@@ -77,11 +77,6 @@ namespace TeaShopBot
                         await command.Execute(update, botClient, cancellationToken);
                         break;
                     }
-                }
-
-                if (update.CallbackQuery != null)
-                {
-                    await AddTeaCommand.CallbackExecute(update, botClient, cancellationToken);
                 }
 
             }
