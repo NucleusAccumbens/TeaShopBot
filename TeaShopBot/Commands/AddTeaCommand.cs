@@ -51,18 +51,22 @@ namespace TeaShopBot.Commands
                 cancellationToken: cancellationToken);
         }
 
-        
-        //private async Task Callback(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
-        //{
-        //    var chatId = update.Message.Chat.Id;
 
-        //    if (update.CallbackQuery.Data == "1")
-        //    {
-        //        await client.SendTextMessageAsync(
-        //          chatId: chatId,
-        //          text: "Красный чай",
-        //          cancellationToken: cancellationToken);
-        //    }
-        //}
+        public static async Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
+        {
+
+            if (update.CallbackQuery.Data != null)
+            {
+                var chatId = update.Message.Chat.Id;
+
+                if (update.CallbackQuery.Data == "1")
+                {
+                    await client.SendTextMessageAsync(
+                        chatId: chatId,
+                        text: "Выбери сорт чая:",
+                        cancellationToken: cancellationToken);
+                }
+            }
+        }
     }
 }

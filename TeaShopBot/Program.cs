@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using TeaShopBot.Commands;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Extensions.Polling;
@@ -42,7 +43,10 @@ namespace TeaShopBot
                     return;
                 if (update.Message!.Type != MessageType.Text)
                     return;
-
+                if (update.Type == UpdateType.CallbackQuery)
+                {
+                    await AddTeaCommand.CallbackExecute(update, botClient, cancellationToken);
+                }
                 var chatId = update.Message.Chat.Id;
                 var messageText = update.Message.Text;
 
@@ -73,6 +77,11 @@ namespace TeaShopBot
                         await command.Execute(update, botClient, cancellationToken);
                         break;
                     }
+                }
+
+                if (update.CallbackQuery != null)
+                {
+                    await AddTeaCommand.CallbackExecute(update, botClient, cancellationToken);
                 }
 
             }
