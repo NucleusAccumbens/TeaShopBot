@@ -17,6 +17,7 @@ namespace TeaShopBot.Commands.CallbackCommands
         public override async Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
         {
             var tea = await AddTeaCommand.TeaTypeCallbackExecute(update, client, cancellationToken);
+            //tea = await AddTeaCommand.SetTeaNameCallbackQuery(update, client, cancellationToken, tea);
             tea = await AddTeaCommand.TeaWeighteCallbackExecute(update, client, cancellationToken, tea);
             tea = await AddTeaCommand.TeaFormCallbackExecute(update, client, cancellationToken, tea);
             return;

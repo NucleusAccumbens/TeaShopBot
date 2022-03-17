@@ -69,7 +69,7 @@ namespace TeaShopBot.Commands
                         chatId: chatId,
                         text: "Ты выбрал 'Красный' ",
                         cancellationToken: cancellationToken);
-                    await SetTeaWeight(update, client, cancellationToken, tea);
+                    await SetTeaName(update, client, cancellationToken, tea);
                     return tea;
                 }
                 if (update.CallbackQuery.Data == "TЗелёный")
@@ -79,7 +79,7 @@ namespace TeaShopBot.Commands
                         chatId: chatId,
                         text: "Ты выбрал 'Зелёный' ",
                         cancellationToken: cancellationToken);
-                    await SetTeaWeight(update, client, cancellationToken, tea);
+                    await SetTeaName(update, client, cancellationToken, tea);
                     return tea;
                 }
                 if (update.CallbackQuery.Data == "TБелый")
@@ -89,7 +89,7 @@ namespace TeaShopBot.Commands
                         chatId: chatId,
                         text: "Ты выбрал 'Белый' ",
                         cancellationToken: cancellationToken);
-                    await SetTeaWeight(update, client, cancellationToken, tea);
+                    await SetTeaName(update, client, cancellationToken, tea);
                     return tea;
                 }
                 if (update.CallbackQuery.Data == "TУлун")
@@ -99,7 +99,7 @@ namespace TeaShopBot.Commands
                         chatId: chatId,
                         text: "Ты выбрал 'Улун' ",
                         cancellationToken: cancellationToken);
-                    await SetTeaWeight(update, client, cancellationToken, tea);
+                    await SetTeaName(update, client, cancellationToken, tea);
                     return tea;
                 }
                 if (update.CallbackQuery.Data == "TШу пуэр")
@@ -109,7 +109,7 @@ namespace TeaShopBot.Commands
                         chatId: chatId,
                         text: "Ты выбрал 'Шу пуэр' ",
                         cancellationToken: cancellationToken);
-                    await SetTeaWeight(update, client, cancellationToken, tea);
+                    await SetTeaName(update, client, cancellationToken, tea);
                     return tea;
                 }
                 if (update.CallbackQuery.Data == "TШен пуэр")
@@ -119,11 +119,21 @@ namespace TeaShopBot.Commands
                         chatId: chatId,
                         text: "Ты выбрал 'Шен пуэр' ",
                         cancellationToken: cancellationToken);
-                    await SetTeaWeight(update, client, cancellationToken, tea);
+                    await SetTeaName(update, client, cancellationToken, tea);
                     return tea;
                 }
             }
             return new TeaDTO();
+        }
+
+        private static async Task<TeaDTO> SetTeaName(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea)
+        {
+            var chatId = update.CallbackQuery.Message.Chat.Id;
+            await client.SendTextMessageAsync(
+                        chatId: chatId,
+                        text: "Чтобы установить название чая напиши сообщение:\n< Название чая: какое-то название... >",
+                        cancellationToken: cancellationToken);
+            return tea;
         }
 
         private static async Task SetTeaWeight(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea)

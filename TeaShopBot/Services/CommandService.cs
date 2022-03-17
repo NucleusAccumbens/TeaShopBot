@@ -20,6 +20,7 @@ namespace TeaShopBot.Services
             _commandsList.Add(new AddTeaCommand());
             _commandsList.Add(new BackToSelectActionCommand()); 
             _commandsList.Add(new BackToSelectCategoryCommand());
+            _commandsList.Add(new TeaNameCommand());
             return _commandsList;
         }
 
