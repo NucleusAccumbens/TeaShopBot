@@ -34,15 +34,15 @@ namespace TeaShopBot.Commands
             {
                 new[]
                 {
-                    InlineKeyboardButton.WithCallbackData(text: "Красный", callbackData: "1"),
-                    InlineKeyboardButton.WithCallbackData(text: "Зелёный", callbackData: "2"),
-                    InlineKeyboardButton.WithCallbackData(text: "Белый", callbackData: "3"),
+                    InlineKeyboardButton.WithCallbackData(text: "Красный", callbackData: "TКрасный"),
+                    InlineKeyboardButton.WithCallbackData(text: "Зелёный", callbackData: "TЗелёный"),
+                    InlineKeyboardButton.WithCallbackData(text: "Белый", callbackData: "TБелый"),
                 },
                 new[]
                 {
-                    InlineKeyboardButton.WithCallbackData(text: "Улун", callbackData: "4"),
-                    InlineKeyboardButton.WithCallbackData(text: "Шу пуэр", callbackData: "5"),
-                    InlineKeyboardButton.WithCallbackData(text: "Шен пуэр", callbackData: "6"),
+                    InlineKeyboardButton.WithCallbackData(text: "Улун", callbackData: "TУлун"),
+                    InlineKeyboardButton.WithCallbackData(text: "Шу пуэр", callbackData: "TШу пуэр"),
+                    InlineKeyboardButton.WithCallbackData(text: "Шен пуэр", callbackData: "TШен пуэр"),
                 },
             });
 
@@ -62,7 +62,7 @@ namespace TeaShopBot.Commands
                 var tea = new TeaDTO();
                 var chatId = update.CallbackQuery.Message.Chat.Id;
 
-                if (update.CallbackQuery.Data == "1")
+                if (update.CallbackQuery.Data == "TКрасный")
                 {
                     tea.TeaType = TeaTypes.Red;
                     await client.SendTextMessageAsync(
@@ -72,7 +72,7 @@ namespace TeaShopBot.Commands
                     await SetTeaWeight(update, client, cancellationToken, tea);
                     return tea;
                 }
-                if (update.CallbackQuery.Data == "2")
+                if (update.CallbackQuery.Data == "TЗелёный")
                 {
                      tea.TeaType = TeaTypes.Green;
                     await client.SendTextMessageAsync(
@@ -82,7 +82,7 @@ namespace TeaShopBot.Commands
                     await SetTeaWeight(update, client, cancellationToken, tea);
                     return tea;
                 }
-                if (update.CallbackQuery.Data == "3")
+                if (update.CallbackQuery.Data == "TБелый")
                 {
                     tea.TeaType = TeaTypes.White;
                     await client.SendTextMessageAsync(
@@ -92,7 +92,7 @@ namespace TeaShopBot.Commands
                     await SetTeaWeight(update, client, cancellationToken, tea);
                     return tea;
                 }
-                if (update.CallbackQuery.Data == "4")
+                if (update.CallbackQuery.Data == "TУлун")
                 {
                     tea.TeaType = TeaTypes.Oolong;
                     await client.SendTextMessageAsync(
@@ -102,7 +102,7 @@ namespace TeaShopBot.Commands
                     await SetTeaWeight(update, client, cancellationToken, tea);
                     return tea;
                 }
-                if (update.CallbackQuery.Data == "5")
+                if (update.CallbackQuery.Data == "TШу пуэр")
                 {
                     tea.TeaType = TeaTypes.ShuPuer;
                     await client.SendTextMessageAsync(
@@ -112,7 +112,7 @@ namespace TeaShopBot.Commands
                     await SetTeaWeight(update, client, cancellationToken, tea);
                     return tea;
                 }
-                if (update.CallbackQuery.Data == "6")
+                if (update.CallbackQuery.Data == "TШен пуэр")
                 {
                     tea.TeaType = TeaTypes.ShenPuer;
                     await client.SendTextMessageAsync(
@@ -134,15 +134,15 @@ namespace TeaShopBot.Commands
             {
                 new[]
                 {
-                    InlineKeyboardButton.WithCallbackData(text: "50", callbackData: "50"),
-                    InlineKeyboardButton.WithCallbackData(text: "100", callbackData: "100"),
-                    InlineKeyboardButton.WithCallbackData(text: "150", callbackData: "150"),
+                    InlineKeyboardButton.WithCallbackData(text: "50", callbackData: "T50"),
+                    InlineKeyboardButton.WithCallbackData(text: "100", callbackData: "T100"),
+                    InlineKeyboardButton.WithCallbackData(text: "150", callbackData: "T150"),
                 },
                 new[]
                 {
-                    InlineKeyboardButton.WithCallbackData(text: "200", callbackData: "200"),
-                    InlineKeyboardButton.WithCallbackData(text: "250", callbackData: "250"),
-                    InlineKeyboardButton.WithCallbackData(text: "375", callbackData: "375"),
+                    InlineKeyboardButton.WithCallbackData(text: "200", callbackData: "T200"),
+                    InlineKeyboardButton.WithCallbackData(text: "250", callbackData: "T250"),
+                    InlineKeyboardButton.WithCallbackData(text: "375", callbackData: "T375"),
                 },
             });
 
@@ -159,7 +159,7 @@ namespace TeaShopBot.Commands
 
             if (update.CallbackQuery.Data != null)
             {
-                if (update.CallbackQuery.Data == "50")
+                if (update.CallbackQuery.Data == "T50")
                 {
                     tea.TeaWeight = TeaWeight.Fifty;
                     await client.SendTextMessageAsync(
@@ -169,7 +169,7 @@ namespace TeaShopBot.Commands
                     await SetTeaForm(update, client, cancellationToken, tea);
                     return tea;
                 }
-                if (update.CallbackQuery.Data == "100")
+                if (update.CallbackQuery.Data == "T100")
                 {
                     tea.TeaWeight = TeaWeight.OneHundred;
                     await client.SendTextMessageAsync(
@@ -179,7 +179,7 @@ namespace TeaShopBot.Commands
                     await SetTeaForm(update, client, cancellationToken, tea);
                     return tea;
                 }
-                if (update.CallbackQuery.Data == "150")
+                if (update.CallbackQuery.Data == "T150")
                 {
                     tea.TeaWeight = TeaWeight.OneHundredFifty;
                     await client.SendTextMessageAsync(
@@ -189,7 +189,7 @@ namespace TeaShopBot.Commands
                     await SetTeaForm(update, client, cancellationToken, tea);
                     return tea;
                 }
-                if (update.CallbackQuery.Data == "200")
+                if (update.CallbackQuery.Data == "T200")
                 {
                     tea.TeaWeight = TeaWeight.TwoHundred;
                     await client.SendTextMessageAsync(
@@ -199,7 +199,7 @@ namespace TeaShopBot.Commands
                     await SetTeaForm(update, client, cancellationToken, tea);
                     return tea;
                 }
-                if (update.CallbackQuery.Data == "250")
+                if (update.CallbackQuery.Data == "T250")
                 {
                     tea.TeaWeight = TeaWeight.TwoHundredFifty;
                     await client.SendTextMessageAsync(
@@ -209,7 +209,7 @@ namespace TeaShopBot.Commands
                     await SetTeaForm(update, client, cancellationToken, tea);
                     return tea;
                 }
-                if (update.CallbackQuery.Data == "375")
+                if (update.CallbackQuery.Data == "T375")
                 {
                     tea.TeaWeight = TeaWeight.ThreeHundredSeventyFive;
                     await client.SendTextMessageAsync(
@@ -231,11 +231,11 @@ namespace TeaShopBot.Commands
             {
                 new[]
                 {
-                    InlineKeyboardButton.WithCallbackData(text: "Пресованный", callbackData: "Пресованный"),
+                    InlineKeyboardButton.WithCallbackData(text: "Пресованный", callbackData: "TПресованный"),
                 },
                 new[]
                 {
-                    InlineKeyboardButton.WithCallbackData(text: "Рассыпной", callbackData: "Рассыпной"),
+                    InlineKeyboardButton.WithCallbackData(text: "Рассыпной", callbackData: "TРассыпной"),
                 },
             });
 
@@ -252,7 +252,7 @@ namespace TeaShopBot.Commands
 
             if (update.CallbackQuery.Data != null)
             {
-                if (update.CallbackQuery.Data == "Пресованный")
+                if (update.CallbackQuery.Data == "TПресованный")
                 {
                     tea.TeaWeight = TeaWeight.Fifty;
                     await client.SendTextMessageAsync(
@@ -261,7 +261,7 @@ namespace TeaShopBot.Commands
                         cancellationToken: cancellationToken);
                     return tea;
                 }
-                if (update.CallbackQuery.Data == "Рассыпной")
+                if (update.CallbackQuery.Data == "TРассыпной")
                 {
                     tea.TeaWeight = TeaWeight.OneHundred;
                     await client.SendTextMessageAsync(

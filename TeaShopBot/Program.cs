@@ -40,44 +40,56 @@ namespace TeaShopBot
             async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
             {
 
+
                 if (update.Type == UpdateType.CallbackQuery)
                 {
-                    var tea = await AddTeaCommand.TeaTypeCallbackExecute(update, botClient, cancellationToken);
-                    tea = await AddTeaCommand.TeaWeighteCallbackExecute(update, botClient, cancellationToken, tea);
-                    tea = await AddTeaCommand.TeaFormCallbackExecute(update, botClient, cancellationToken, tea);
-                    return;
-                }
-                var chatId = update.Message.Chat.Id;
-                var messageText = update.Message.Text;
+                    var callbackQuery = update.CallbackQuery;
+                    var callbackCommands = _bot.GetCallbackCommands();
 
-                Console.WriteLine($"Получено сообщение '{messageText}' от пользователя номер {chatId}.");
-
-                try
-                {                   
-                    var res = _bot.SaveUserInDb(update).Result;
-
-                    if (res == true)
+                    foreach (var callbackCommand in callbackCommands)
                     {
-                        Console.WriteLine($"Пользователь с chatId {update.Message.Chat.Id} сохранён в базу данных. " +
-                                          $"Имя пользователя: {update.Message.Chat.Username}.");
-                    }                       
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }
-
-                var massege = update.Message;
-                var commands = _bot.GetCommands();
-
-                foreach(var command in commands)
-                {
-                    if(command.Contains(massege))
-                    {
-                        await command.Execute(update, botClient, cancellationToken);
-                        break;
+                        if (callbackCommand.Contains(callbackQuery))
+                        {
+                            await callbackCommand.CallbackExecute(update, botClient, cancellationToken);
+                            break;
+                        }
                     }
                 }
+                if (update.Message == null) return;
+                if (update.Message != null || update.Message.Type == MessageType.Text)
+                {
+                    var chatId = update.Message.Chat.Id;
+                    var message = update.Message;
+
+                    Console.WriteLine($"Получено сообщение '{message.Text}' от пользователя номер {chatId}.");
+
+                    try
+                    {
+                        var res = _bot.SaveUserInDb(update).Result;
+
+                        if (res == true)
+                        {
+                            Console.WriteLine($"Пользователь с chatId {update.Message.Chat.Id} сохранён в базу данных. " +
+                                              $"Имя пользователя: {update.Message.Chat.Username}.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+
+                    var commands = _bot.GetCommands();
+
+                    foreach (var command in commands)
+                    {
+                        if (command.Contains(message))
+                        {
+                            await command.Execute(update, botClient, cancellationToken);
+                            break;
+                        }
+                    }
+                }
+                else return;
 
             }
 

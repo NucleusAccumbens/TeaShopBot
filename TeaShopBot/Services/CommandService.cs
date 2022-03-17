@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using TeaShopBot.Abstractions;
 using TeaShopBot.Commands;
+using TeaShopBot.Commands.CallbackCommands;
 
-namespace TeaShopBot
+namespace TeaShopBot.Services
 {
     public class CommandService : ICommandService
     {
         private List<TelegramCommand> _commandsList = new List<TelegramCommand>();
-
+        private List<TelegramCallbackCommand> _callbackCommandList = new List<TelegramCallbackCommand>();
         public List<TelegramCommand> GetCommands()
         {
             _commandsList.Add(new StartCommand());
@@ -20,6 +21,12 @@ namespace TeaShopBot
             _commandsList.Add(new BackToSelectActionCommand()); 
             _commandsList.Add(new BackToSelectCategoryCommand());
             return _commandsList;
+        }
+
+        public List<TelegramCallbackCommand> GetCallbackCommands()
+        {
+            _callbackCommandList.Add(new AddTeaCallbackCommand());
+            return _callbackCommandList;
         }
     }
 }

@@ -11,6 +11,8 @@ using TeaShopBLL;
 using TeaShopBLL.Services;
 using TeaShopBot.Abstractions;
 using TeaShopBot.Commands;
+using TeaShopBot.Commands.CallbackCommands;
+using TeaShopBot.Services;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Types;
@@ -109,6 +111,11 @@ namespace TeaShopBot
         public List<TelegramCommand> GetCommands()
         {
             return _commandService.GetCommands();
+        }
+
+        public List<TelegramCallbackCommand> GetCallbackCommands()
+        {
+            return _commandService.GetCallbackCommands();
         }
     }
 }
