@@ -10,10 +10,10 @@ using Telegram.Bot.Types;
 
 namespace TeaShopBot.Abstractions
 {
-    public abstract class TelegramCommand
+    public abstract class TelegramSaveProductCommand
     {
         public abstract string Name { get; }
-        public abstract Task Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken);
+        public abstract Task Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO product);
         public abstract bool Contains(Message message);
     }
 }

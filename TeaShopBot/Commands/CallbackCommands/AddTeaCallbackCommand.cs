@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TeaShopBLL.DTO;
 using TeaShopBot.Abstractions;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -14,13 +15,12 @@ namespace TeaShopBot.Commands.CallbackCommands
     {
         public override char CallbackDataCode => 'T';
 
-        public override async Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
+        public override async Task<ProductDTO> CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea)
         {
-            var tea = await AddTeaCommand.TeaTypeCallbackExecute(update, client, cancellationToken);
-            //tea = await AddTeaCommand.SetTeaNameCallbackQuery(update, client, cancellationToken, tea);
-            tea = await AddTeaCommand.TeaWeighteCallbackExecute(update, client, cancellationToken, tea);
-            tea = await AddTeaCommand.TeaFormCallbackExecute(update, client, cancellationToken, tea);
-            return;
+            await AddTeaCommand.TeaTypeCallbackExecute(update, client, cancellationToken, tea);
+            //tea = await AddTeaCommand.TeaWeighteCallbackExecute(update, client, cancellationToken, tea);
+            //tea = await AddTeaCommand.TeaFormCallbackExecute(update, client, cancellationToken, tea);
+            return tea;
         }
 
         public override bool Contains(CallbackQuery message)

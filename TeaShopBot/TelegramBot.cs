@@ -117,5 +117,10 @@ namespace TeaShopBot
         {
             return _commandService.GetCallbackCommands();
         }
+
+        public List<TelegramSaveProductCommand> GetTelegramSaveProductCommands()
+        {
+            return _commandService.GetTelegramSaveProductCommands();
+        }
     }
 }

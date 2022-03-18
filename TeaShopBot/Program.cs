@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using TeaShopBLL.DTO;
 using TeaShopBot.Commands;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
@@ -14,6 +15,7 @@ namespace TeaShopBot
     public class Program
     {
         private static readonly TelegramBot _bot = new TelegramBot();
+        private static TeaDTO product = new TeaDTO();
 
         static void Main(string[] args)
         {
@@ -39,7 +41,7 @@ namespace TeaShopBot
 
             async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
             {
-
+                
 
                 if (update.Type == UpdateType.CallbackQuery)
                 {
@@ -50,17 +52,21 @@ namespace TeaShopBot
                     {
                         if (callbackCommand.Contains(callbackQuery))
                         {
-                            await callbackCommand.CallbackExecute(update, botClient, cancellationToken);
+                            await callbackCommand.CallbackExecute(update, botClient, cancellationToken, product);
                             break;
                         }
                     }
                 }
-                if (update.Message == null) return;
-                if (update.Message != null || update.Message.Type == MessageType.Text)
+
+                Console.WriteLine(product.TeaType);
+
+                //if (update.Message == null) return;
+
+                if (update.Message != null && update.Message.Type == MessageType.Text)
                 {
                     var chatId = update.Message.Chat.Id;
                     var message = update.Message;
-
+                    Console.WriteLine(product.TeaType);
                     Console.WriteLine($"Получено сообщение '{message.Text}' от пользователя номер {chatId}.");
 
                     try
@@ -78,6 +84,8 @@ namespace TeaShopBot
                         Console.WriteLine(ex.ToString());
                     }
 
+                    Console.WriteLine(product.TeaType);
+
                     var commands = _bot.GetCommands();
 
                     foreach (var command in commands)
@@ -88,8 +96,19 @@ namespace TeaShopBot
                             break;
                         }
                     }
+
+                    var addProductCommands = _bot.GetTelegramSaveProductCommands();
+
+                    foreach (var addProductCommand in addProductCommands)
+                    {
+                        if (addProductCommand.Contains(message))
+                        {
+                            await addProductCommand.Execute(update, botClient, cancellationToken, product);
+                            break;
+                        }
+                    }
+
                 }
-                else return;
 
             }
 

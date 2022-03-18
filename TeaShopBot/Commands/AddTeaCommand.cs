@@ -32,19 +32,19 @@ namespace TeaShopBot.Commands
 
             InlineKeyboardMarkup inlineKeyboardMarkup = new(new[]
             {
-                new[]
-                {
-                    InlineKeyboardButton.WithCallbackData(text: "Красный", callbackData: "TКрасный"),
-                    InlineKeyboardButton.WithCallbackData(text: "Зелёный", callbackData: "TЗелёный"),
-                    InlineKeyboardButton.WithCallbackData(text: "Белый", callbackData: "TБелый"),
-                },
-                new[]
-                {
-                    InlineKeyboardButton.WithCallbackData(text: "Улун", callbackData: "TУлун"),
-                    InlineKeyboardButton.WithCallbackData(text: "Шу пуэр", callbackData: "TШу пуэр"),
-                    InlineKeyboardButton.WithCallbackData(text: "Шен пуэр", callbackData: "TШен пуэр"),
-                },
-            });
+                        new[]
+                        {
+                            InlineKeyboardButton.WithCallbackData(text: "Красный", callbackData: "TКрасный"),
+                            InlineKeyboardButton.WithCallbackData(text: "Зелёный", callbackData: "TЗелёный"),
+                            InlineKeyboardButton.WithCallbackData(text: "Белый", callbackData: "TБелый"),
+                        },
+                        new[]
+                        {
+                            InlineKeyboardButton.WithCallbackData(text: "Улун", callbackData: "TУлун"),
+                            InlineKeyboardButton.WithCallbackData(text: "Шу пуэр", callbackData: "TШу пуэр"),
+                            InlineKeyboardButton.WithCallbackData(text: "Шен пуэр", callbackData: "TШен пуэр"),
+                        },
+                    });
 
             await client.SendTextMessageAsync(
                 chatId: chatId,
@@ -54,12 +54,11 @@ namespace TeaShopBot.Commands
         }
 
 
-        public static async Task<TeaDTO> TeaTypeCallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
+        public static async Task<TeaDTO> TeaTypeCallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea)
         {
 
             if (update.CallbackQuery.Data != null)
             {
-                var tea = new TeaDTO();
                 var chatId = update.CallbackQuery.Message.Chat.Id;
 
                 if (update.CallbackQuery.Data == "TКрасный")
@@ -74,7 +73,7 @@ namespace TeaShopBot.Commands
                 }
                 if (update.CallbackQuery.Data == "TЗелёный")
                 {
-                     tea.TeaType = TeaTypes.Green;
+                    tea.TeaType = TeaTypes.Green;
                     await client.SendTextMessageAsync(
                         chatId: chatId,
                         text: "Ты выбрал 'Зелёный' ",
@@ -131,7 +130,7 @@ namespace TeaShopBot.Commands
             var chatId = update.CallbackQuery.Message.Chat.Id;
             await client.SendTextMessageAsync(
                         chatId: chatId,
-                        text: "Чтобы установить название чая напиши сообщение:\n< Название чая: какое-то название... >",
+                        text: "Чтобы установить название чая, отправь сообщение:\n<<Название чая: какое-то название...>>",
                         cancellationToken: cancellationToken);
             return tea;
         }
@@ -142,19 +141,19 @@ namespace TeaShopBot.Commands
 
             InlineKeyboardMarkup inlineKeyboardMarkup = new(new[]
             {
-                new[]
-                {
-                    InlineKeyboardButton.WithCallbackData(text: "50", callbackData: "T50"),
-                    InlineKeyboardButton.WithCallbackData(text: "100", callbackData: "T100"),
-                    InlineKeyboardButton.WithCallbackData(text: "150", callbackData: "T150"),
-                },
-                new[]
-                {
-                    InlineKeyboardButton.WithCallbackData(text: "200", callbackData: "T200"),
-                    InlineKeyboardButton.WithCallbackData(text: "250", callbackData: "T250"),
-                    InlineKeyboardButton.WithCallbackData(text: "375", callbackData: "T375"),
-                },
-            });
+                        new[]
+                        {
+                            InlineKeyboardButton.WithCallbackData(text: "50", callbackData: "T50"),
+                            InlineKeyboardButton.WithCallbackData(text: "100", callbackData: "T100"),
+                            InlineKeyboardButton.WithCallbackData(text: "150", callbackData: "T150"),
+                        },
+                        new[]
+                        {
+                            InlineKeyboardButton.WithCallbackData(text: "200", callbackData: "T200"),
+                            InlineKeyboardButton.WithCallbackData(text: "250", callbackData: "T250"),
+                            InlineKeyboardButton.WithCallbackData(text: "375", callbackData: "T375"),
+                        },
+                    });
 
             await client.SendTextMessageAsync(
                 chatId: chatId,
@@ -239,15 +238,15 @@ namespace TeaShopBot.Commands
 
             InlineKeyboardMarkup inlineKeyboardMarkup = new(new[]
             {
-                new[]
-                {
-                    InlineKeyboardButton.WithCallbackData(text: "Пресованный", callbackData: "TПресованный"),
-                },
-                new[]
-                {
-                    InlineKeyboardButton.WithCallbackData(text: "Рассыпной", callbackData: "TРассыпной"),
-                },
-            });
+                        new[]
+                        {
+                            InlineKeyboardButton.WithCallbackData(text: "Пресованный", callbackData: "TПресованный"),
+                        },
+                        new[]
+                        {
+                            InlineKeyboardButton.WithCallbackData(text: "Рассыпной", callbackData: "TРассыпной"),
+                        },
+                    });
 
             await client.SendTextMessageAsync(
                 chatId: chatId,

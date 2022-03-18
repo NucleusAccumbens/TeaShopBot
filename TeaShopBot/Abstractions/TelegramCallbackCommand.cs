@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TeaShopBLL.DTO;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -12,7 +13,7 @@ namespace TeaShopBot.Abstractions
     public abstract class TelegramCallbackCommand
     {
         public abstract char CallbackDataCode { get; }
-        public abstract Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken);
+        public abstract Task<ProductDTO> CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea);
         public abstract bool Contains(CallbackQuery message);
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TeaShopBot.Abstractions;
 using TeaShopBot.Commands;
 using TeaShopBot.Commands.CallbackCommands;
+using TeaShopBot.Commands.SaveProductCommands;
 
 namespace TeaShopBot.Services
 {
@@ -13,6 +14,7 @@ namespace TeaShopBot.Services
     {
         private List<TelegramCommand> _commandsList = new List<TelegramCommand>();
         private List<TelegramCallbackCommand> _callbackCommandList = new List<TelegramCallbackCommand>();
+        private List<TelegramSaveProductCommand> _telegramSaveProductCommands = new List<TelegramSaveProductCommand>();
         public List<TelegramCommand> GetCommands()
         {
             _commandsList.Add(new StartCommand());
@@ -20,7 +22,6 @@ namespace TeaShopBot.Services
             _commandsList.Add(new AddTeaCommand());
             _commandsList.Add(new BackToSelectActionCommand()); 
             _commandsList.Add(new BackToSelectCategoryCommand());
-            _commandsList.Add(new TeaNameCommand());
             return _commandsList;
         }
 
@@ -28,6 +29,12 @@ namespace TeaShopBot.Services
         {
             _callbackCommandList.Add(new AddTeaCallbackCommand());
             return _callbackCommandList;
+        }
+
+        public List<TelegramSaveProductCommand> GetTelegramSaveProductCommands()
+        {
+            _telegramSaveProductCommands.Add(new TeaNameCommand());
+            return _telegramSaveProductCommands;
         }
     }
 }
