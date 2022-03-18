@@ -15,7 +15,7 @@ namespace TeaShopBot
     public class Program
     {
         private static readonly TelegramBot _bot = new TelegramBot();
-        private static TeaDTO product = new TeaDTO();
+        private static TeaDTO _product = new TeaDTO();
 
         static void Main(string[] args)
         {
@@ -52,21 +52,17 @@ namespace TeaShopBot
                     {
                         if (callbackCommand.Contains(callbackQuery))
                         {
-                            await callbackCommand.CallbackExecute(update, botClient, cancellationToken, product);
+                            await callbackCommand.CallbackExecute(update, botClient, cancellationToken, _product);
                             break;
                         }
                     }
                 }
 
-                Console.WriteLine(product.TeaType);
-
-                //if (update.Message == null) return;
-
                 if (update.Message != null && update.Message.Type == MessageType.Text)
                 {
                     var chatId = update.Message.Chat.Id;
                     var message = update.Message;
-                    Console.WriteLine(product.TeaType);
+                    Console.WriteLine(_product.TeaType);
                     Console.WriteLine($"Получено сообщение '{message.Text}' от пользователя номер {chatId}.");
 
                     try
@@ -83,8 +79,6 @@ namespace TeaShopBot
                     {
                         Console.WriteLine(ex.ToString());
                     }
-
-                    Console.WriteLine(product.TeaType);
 
                     var commands = _bot.GetCommands();
 
@@ -103,7 +97,7 @@ namespace TeaShopBot
                     {
                         if (addProductCommand.Contains(message))
                         {
-                            await addProductCommand.Execute(update, botClient, cancellationToken, product);
+                            await addProductCommand.Execute(update, botClient, cancellationToken, _product);
                             break;
                         }
                     }

@@ -27,7 +27,7 @@ namespace TeaShopBot.Commands.SaveProductCommands
 
         public override async Task<ProductDTO> Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
         {
-            tea.ProductName = update.Message.Text.Substring(13);
+            tea.ProductName = update.Message.Text.Substring(14);
             var chatId = update.Message.Chat.Id;
             await client.SendTextMessageAsync(
                         chatId: chatId,
