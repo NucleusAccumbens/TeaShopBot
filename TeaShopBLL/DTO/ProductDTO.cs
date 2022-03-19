@@ -22,5 +22,7 @@ namespace TeaShopBLL.DTO
                 else return false;
             }
         }
+
+        public object TeaWeight { get; set; }
     }
 }

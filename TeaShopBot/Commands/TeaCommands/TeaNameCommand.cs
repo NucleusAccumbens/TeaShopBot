@@ -10,9 +10,9 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
-namespace TeaShopBot.Commands.SaveProductCommands
+namespace TeaShopBot.Commands.TeaCommands
 {
-    public class TeaNameCommand : TelegramSaveProductCommand
+    public class TeaNameCommand : TelegramCreateProductCommand
     {
         public override string Name => @"Название чая: ";
 
@@ -32,9 +32,10 @@ namespace TeaShopBot.Commands.SaveProductCommands
             await client.SendTextMessageAsync(
                         chatId: chatId,
                         text: $"Сорт чая: {(tea as TeaDTO).TeaType}\n" +
-                              $"Название чая: {tea.ProductName}\n\n" +
-                              $"Теперь отправь сообщение с описанием чая: \n" +
-                              $"<<Описание: какое-то описание...",
+                        $"Название чая: {tea.ProductName}\n\n" +
+                        $"Теперь отправь сообщение с описанием чая: \n" +
+                        $"<b>Описание чая</b>: <i>какое-то описание...</i>",
+                        parseMode: ParseMode.Html,
                         cancellationToken: cancellationToken);
             return tea;
         }
