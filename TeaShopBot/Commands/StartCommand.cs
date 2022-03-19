@@ -45,7 +45,9 @@ namespace TeaShopBot.Commands
 
                 await botClient.SendTextMessageAsync(
                     chatId: chatId,
-                    text: "Здесь будет какой-то текст...",
+                    text: "Привет, Дорогой чайный друг🦊!\n" +
+                    "Добро пожаловать🌞  в наш чайный бот!\n" +
+                    "Выбирай чаи на любой вкус!🙏🏻⛩🙏🏻",
                     replyMarkup: replyKeyboardMarkup,
                     cancellationToken: cancellationToken);
             }

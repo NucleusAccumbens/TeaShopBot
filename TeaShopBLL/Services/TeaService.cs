@@ -29,6 +29,8 @@ namespace TeaShopBLL.Services
                     ProductDescription = tea.ProductDescription,
                     ProductPrice = tea.ProductPrice,
                     ProductCount = tea.ProductCount,
+                    ProductImage = tea.ProductImage,
+                    InStock = tea.InStock,
                     TeaType = tea.TeaType,
                     TeaForm = tea.TeaForm,
                     TeaWeight = tea.TeaWeight,

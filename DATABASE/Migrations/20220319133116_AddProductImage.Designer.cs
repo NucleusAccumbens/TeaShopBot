@@ -4,6 +4,7 @@ using DATABASE.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace TeaShopDAL.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    partial class ShopContextModelSnapshot : ModelSnapshot
+    [Migration("20220319133116_AddProductImage")]
+    partial class AddProductImage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -132,7 +134,7 @@ namespace TeaShopDAL.Migrations
                         {
                             UserId = 1L,
                             ChatId = 444343256L,
-                            CreatedAt = new DateTime(2022, 3, 19, 13, 46, 4, 559, DateTimeKind.Utc).AddTicks(2200),
+                            CreatedAt = new DateTime(2022, 3, 19, 13, 31, 16, 552, DateTimeKind.Utc).AddTicks(3728),
                             IsAdmin = true,
                             IsDeleted = false,
                             Name = "noncredistka"
@@ -141,7 +143,7 @@ namespace TeaShopDAL.Migrations
                         {
                             UserId = 2L,
                             ChatId = 519140043L,
-                            CreatedAt = new DateTime(2022, 3, 19, 13, 46, 4, 559, DateTimeKind.Utc).AddTicks(2202),
+                            CreatedAt = new DateTime(2022, 3, 19, 13, 31, 16, 552, DateTimeKind.Utc).AddTicks(3733),
                             IsAdmin = true,
                             IsDeleted = false,
                             Name = "shanti_travels"

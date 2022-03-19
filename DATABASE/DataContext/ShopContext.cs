@@ -13,6 +13,8 @@ namespace DATABASE.DataContext
         public ShopContext() 
             : base () 
         {
+            //Database.EnsureDeleted();   // удаляем бд со старой схемой
+            //Database.EnsureCreated();
         }
 
         private readonly StreamWriter _logStream = new("mylog.txt", true);

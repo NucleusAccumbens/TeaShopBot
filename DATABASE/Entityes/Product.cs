@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace DATABASE.Entityes
 {
-    [Index(nameof(ProductName), IsUnique = true)]
     public abstract class Product : BaseModel
     {
         public long ProductId { get; set; }
@@ -19,6 +18,7 @@ namespace DATABASE.Entityes
         public string? ProductDescription { get; set; }
         public decimal ProductPrice { get; set; }
         public int ProductCount { get; set; }
+        public byte[]? ProductImage { get; set; }
         public bool InStock { get; set; }
 
         public virtual List<Order>? Orders { get; set; }

@@ -29,6 +29,7 @@ namespace TeaShopBLL.Services
                     ProductDescription = honey.ProductDescription,
                     ProductCount = honey.ProductCount,
                     ProductPrice = honey.ProductPrice,
+                    ProductImage = honey.ProductImage,
                     InStock = honey.InStock,
                     HoneyWeight = honey.HoneyWeight
                 };

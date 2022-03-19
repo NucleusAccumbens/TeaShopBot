@@ -14,6 +14,7 @@ namespace TeaShopBLL.DTO
         public string? ProductDescription { get; set; }
         public decimal ProductPrice { get; set; }
         public int ProductCount { get; set; }
+        public byte[]? ProductImage { get; set; }
         public bool InStock
         {
             get
@@ -22,7 +23,5 @@ namespace TeaShopBLL.DTO
                 else return false;
             }
         }
-
-        public object TeaWeight { get; set; }
     }
 }
