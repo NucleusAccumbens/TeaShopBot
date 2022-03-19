@@ -79,7 +79,7 @@ namespace TeaShopBot.Commands.CallbackCommands
             var chatId = update.CallbackQuery.Message.Chat.Id;
             await client.SendTextMessageAsync(
                         chatId: chatId,
-                        text: $"Сорт чая: {tea.TeaType}\n\n" +
+                        text: $"Сорт чая: {TeaEnumParser.TeaTypeToString(tea.TeaType)}\n\n" +
                         $"Чтобы установить название чая, отправь сообщение:\n" +
                         $"<b>Название чая</b>: <i>какое-то название...</i>",
                         parseMode: ParseMode.Html,

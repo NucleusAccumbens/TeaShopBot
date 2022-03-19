@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DATABASE.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,11 +34,11 @@ namespace TeaShopBot.Commands.TeaCommands
                 tea.ProductPrice = Convert.ToDecimal(update.Message.Text.Substring(10));
                 await client.SendTextMessageAsync(
                             chatId: chatId,
-                            text: $"Сорт чая: {(tea as TeaDTO).TeaType}\n" +
+                            text: $"Сорт чая: {TeaEnumParser.TeaTypeToString((tea as TeaDTO).TeaType)}\n" +
                             $"Название чая: {tea.ProductName}\n" +
                             $"Описание чая: {tea.ProductDescription}\n" +
-                            $"Вес чая: {(tea as TeaDTO).TeaWeight}\n" +
-                            $"Форма хранения чая: {(tea as TeaDTO).TeaForm}\n" +
+                            $"Вес чая: {TeaEnumParser.TeaWeightToString((tea as TeaDTO).TeaWeight)}\n" +
+                            $"Форма хранения чая: {TeaEnumParser.TeaFormToString((tea as TeaDTO).TeaForm)}\n" +
                             $"Цена чая: {tea.ProductPrice}\n\n" +
                             $"Теперь укажи количество: \n" +
                             $"<b>Количество чая</b>: <i>какя-то цифра...</i>",

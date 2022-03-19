@@ -90,10 +90,10 @@ namespace TeaShopBot.Commands.CallbackCommands
 
             await client.SendTextMessageAsync(
                  chatId: chatId,
-                 text: $"Сорт чая: {tea.TeaType}\n" +
+                 text: $"Сорт чая: {TeaEnumParser.TeaTypeToString(tea.TeaType)}\n" +
                  $"Название чая: {tea.ProductName}\n" +
                  $"Описание чая: {tea.ProductDescription}\n" +
-                 $"Вес чая: {tea.TeaWeight}\n\n" +
+                 $"Вес чая: {TeaEnumParser.TeaWeightToString(tea.TeaWeight)}\n\n" +
                  $"Теперь выбери форму хранения чая: ",
                  replyMarkup: inlineKeyboardMarkup,
                  cancellationToken: cancellationToken);

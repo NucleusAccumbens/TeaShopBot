@@ -38,11 +38,11 @@ namespace TeaShopBot.Commands.CallbackCommands
                     tea.TeaForm = TeaForms.Pressed;
                     await client.SendTextMessageAsync(
                         chatId: chatId,
-                        text: $"Сорт чая: {(tea as TeaDTO).TeaType}\n" +
+                        text: $"Сорт чая: {TeaEnumParser.TeaTypeToString(tea.TeaType)}\n" +
                         $"Название чая: {tea.ProductName}\n" +
                         $"Описание чая: {tea.ProductDescription}\n" +
-                        $"Вес чая: {tea.TeaWeight}\n" +
-                        $"Форма хранения чая: {tea.TeaForm}\n\n" +
+                        $"Вес чая: {TeaEnumParser.TeaWeightToString(tea.TeaWeight)}\n" +
+                        $"Форма хранения чая: {TeaEnumParser.TeaFormToString(tea.TeaForm)}\n\n" +
                         $"Теперь укажи цену чая: \n" +
                         $"<b>Цена чая</b>: <i>какя-то цифра...</i>",
                         parseMode: ParseMode.Html,
@@ -54,11 +54,11 @@ namespace TeaShopBot.Commands.CallbackCommands
                     tea.TeaForm = TeaForms.Loose;
                     await client.SendTextMessageAsync(
                         chatId: chatId,
-                        text: $"Сорт чая: {(tea as TeaDTO).TeaType}\n" +
+                        text: $"Сорт чая: {TeaEnumParser.TeaTypeToString(tea.TeaType)}\n" +
                         $"Название чая: {tea.ProductName}\n" +
                         $"Описание чая: {tea.ProductDescription}\n" +
-                        $"Вес чая: {tea.TeaWeight}\n" +
-                        $"Форма хранения чая: {tea.TeaForm}\n\n" +
+                        $"Вес чая: {TeaEnumParser.TeaWeightToString(tea.TeaWeight)}\n" +
+                        $"Форма хранения чая: {TeaEnumParser.TeaFormToString(tea.TeaForm)}\n\n" +
                         $"Теперь укажи цену чая: \n" +
                         $"<b>Цена чая</b>: <i>какя-то цифра...</i>",
                         parseMode: ParseMode.Html,

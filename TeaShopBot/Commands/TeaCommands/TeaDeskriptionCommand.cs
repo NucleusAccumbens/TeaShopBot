@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DATABASE.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,7 +50,7 @@ namespace TeaShopBot.Commands.TeaCommands
 
             await client.SendTextMessageAsync(
                 chatId: chatId,
-                text: $"Сорт чая: {(tea as TeaDTO).TeaType}\n" +
+                text: $"Сорт чая: {TeaEnumParser.TeaTypeToString((tea as TeaDTO).TeaType)}\n" +
                 $"Название чая: {tea.ProductName}\n" +
                 $"Описание чая: {tea.ProductDescription}\n\n" +
                 $"Далее выбери вес чая: ",
