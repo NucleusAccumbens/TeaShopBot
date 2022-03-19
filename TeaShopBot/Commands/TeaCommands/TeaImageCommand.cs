@@ -10,13 +10,14 @@ using TeaShopBot.Abstractions;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.InputFiles;
 using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TeaShopBot.Commands.TeaCommands
 {
-    public class TeaCountCommand : TelegramCreateProductCommand
+    public class TeaImageCommand : TelegramCreateProductCommand
     {
-        public override string Name => @"Количество чая: ";
+        public override string Name => @"Фото чая";
 
         public override bool Contains(Message message)
         {
@@ -33,18 +34,28 @@ namespace TeaShopBot.Commands.TeaCommands
 
             try
             {
-                tea.ProductCount = Convert.ToInt32(update.Message.Text.Substring(16));
-                await client.SendTextMessageAsync(
+                var fileId = update.Message.Photo[2].FileId;
+                InputOnlineFile file = new InputOnlineFile(fileId);
+
+                InlineKeyboardMarkup inlineKeyboardMarkup = new(new[]
+                {
+                        new[]
+                        {
+                            InlineKeyboardButton.WithCallbackData(text: "Сохранить", callbackData: "S"),
+                        },
+                    });
+                await client.SendPhotoAsync(
                             chatId: chatId,
-                            text: $"Сорт чая: {TeaEnumParser.TeaTypeToString((tea as TeaDTO).TeaType)}\n" +
+                            photo: fileId,
+                            caption: $"Сорт чая: {TeaEnumParser.TeaTypeToString((tea as TeaDTO).TeaType)}\n" +
                             $"Название чая: {tea.ProductName}\n" +
                             $"Описание чая: {tea.ProductDescription}\n" +
                             $"Вес чая: {TeaEnumParser.TeaWeightToString((tea as TeaDTO).TeaWeight)}\n" +
                             $"Форма хранения чая: {TeaEnumParser.TeaFormToString((tea as TeaDTO).TeaForm)}\n" +
                             $"Цена чая: {tea.ProductPrice}\n" +
                             $"Количество чая: {tea.ProductCount}\n\n" +
-                            $"Осталось только загрузить фото! Отправь фотографию с подписью:\n" +
-                            $"Фото чая",
+                            $"Чай появится в наличии после нажатия на кнопку ⬇️",
+                            replyMarkup: inlineKeyboardMarkup,
                             cancellationToken: cancellationToken);
                 return tea;
             }

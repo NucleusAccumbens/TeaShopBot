@@ -29,7 +29,7 @@ namespace TeaShopBLL.Services
                     ProductDescription = tea.ProductDescription,
                     ProductPrice = tea.ProductPrice,
                     ProductCount = tea.ProductCount,
-                    ProductImage = tea.ProductImage,
+                    ProductPathToImage = tea.ProductPathToImage,
                     InStock = tea.InStock,
                     TeaType = tea.TeaType,
                     TeaForm = tea.TeaForm,

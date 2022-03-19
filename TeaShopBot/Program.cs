@@ -3,12 +3,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using TeaShopBLL.DTO;
 using TeaShopBot.Commands;
+using TeaShopBot.Commands.TeaCommands;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
-
+using Telegram.Bot.Types.InputFiles;
 
 namespace TeaShopBot
 {
@@ -41,7 +42,20 @@ namespace TeaShopBot
 
             async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
             {
-                
+
+                if (update.Message.Type == MessageType.Photo)
+                {
+                    var chatId = update.Message.Chat.Id;
+                    var fileId = update.Message.Photo[2].FileId;
+                    Console.WriteLine(fileId);
+                    InputOnlineFile file = new InputOnlineFile(fileId);
+                    await botClient.SendPhotoAsync(chatId, file);
+                }
+
+                if ()
+                {
+                    update.Message.Caption.Contains()
+                }
 
                 if (update.Type == UpdateType.CallbackQuery)
                 {

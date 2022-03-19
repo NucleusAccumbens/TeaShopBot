@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +14,7 @@ namespace TeaShopBLL.DTO
         public string? ProductDescription { get; set; }
         public decimal ProductPrice { get; set; }
         public int ProductCount { get; set; }
-        public byte[]? ProductImage { get; set; }
+        public string? ProductPathToImage { get; set; }
         public bool InStock
         {
             get

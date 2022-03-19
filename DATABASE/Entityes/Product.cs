@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -18,7 +18,7 @@ namespace DATABASE.Entityes
         public string? ProductDescription { get; set; }
         public decimal ProductPrice { get; set; }
         public int ProductCount { get; set; }
-        public byte[]? ProductImage { get; set; }
+        public string? ProductPathToImage { get; set; }
         public bool InStock { get; set; }
 
         public virtual List<Order>? Orders { get; set; }

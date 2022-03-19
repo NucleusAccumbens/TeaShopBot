@@ -40,6 +40,7 @@ namespace TeaShopBot.Services
             _telegramCreateProductCommands.Add(new TeaDeskriptionCommand());
             _telegramCreateProductCommands.Add(new TeaPriceCommand());
             _telegramCreateProductCommands.Add(new TeaCountCommand());
+            _telegramCreateProductCommands.Add(new TeaImageCommand());
             return _telegramCreateProductCommands;
         }
     }

@@ -1,4 +1,4 @@
-﻿using DATABASE.Entityes;
+using DATABASE.Entityes;
 using DATABASE.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -29,7 +29,7 @@ namespace TeaShopBLL.Services
                     ProductDescription = honey.ProductDescription,
                     ProductCount = honey.ProductCount,
                     ProductPrice = honey.ProductPrice,
-                    ProductImage = honey.ProductImage,
+                    ProductPathToImage = honey.ProductPathToImage,
                     InStock = honey.InStock,
                     HoneyWeight = honey.HoneyWeight
                 };
