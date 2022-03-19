@@ -43,18 +43,18 @@ namespace TeaShopBot
             async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
             {
 
-                if (update.Message.Type == MessageType.Photo)
+                if (update.Message != null && update.Message.Type == MessageType.Photo)
                 {
-                    var chatId = update.Message.Chat.Id;
-                    var fileId = update.Message.Photo[2].FileId;
-                    Console.WriteLine(fileId);
-                    InputOnlineFile file = new InputOnlineFile(fileId);
-                    await botClient.SendPhotoAsync(chatId, file);
-                }
-
-                if ()
-                {
-                    update.Message.Caption.Contains()
+                    var fileCommands = _bot.GetTelegramFileCommands();
+                    foreach (var fileCommand in fileCommands)
+                    {
+                        if (fileCommand.Contains(update.Message))
+                        {
+                            await fileCommand.FileExecute(update, botClient, cancellationToken, _tea);
+                            break;
+                        }
+                        
+                    }
                 }
 
                 if (update.Type == UpdateType.CallbackQuery)

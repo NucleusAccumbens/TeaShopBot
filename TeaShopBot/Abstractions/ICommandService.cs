@@ -11,5 +11,6 @@ namespace TeaShopBot.Abstractions
         List<TelegramCommand> GetCommands();
         List<TelegramCallbackCommand> GetCallbackCommands();
         List<TelegramCreateProductCommand> GetTelegramCreateProductCommands();
+        List<TelegramFileCommand> GetTelegramFileCommands();
     }
 }
