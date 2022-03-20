@@ -9,8 +9,10 @@ namespace TeaShopBot.Abstractions
     public interface ICommandService
     {
         List<TelegramCommand> GetCommands();
-        List<TelegramCallbackCommand> GetCallbackCommands();
+        List<TelegramAddProductCallbackCommand> GetAddProductCallbackCommands();
         List<TelegramCreateProductCommand> GetTelegramCreateProductCommands();
         List<TelegramFileCommand> GetTelegramFileCommands();
+        List<TelegramCallbackCommand> GetCallbackCommands();
+        
     }
 }

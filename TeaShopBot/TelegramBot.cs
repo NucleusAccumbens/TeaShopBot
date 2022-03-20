@@ -113,9 +113,9 @@ namespace TeaShopBot
             return _commandService.GetCommands();
         }
 
-        public List<TelegramCallbackCommand> GetCallbackCommands()
+        public List<TelegramAddProductCallbackCommand> GetAddProductCallbackCommands()
         {
-            return _commandService.GetCallbackCommands();
+            return _commandService.GetAddProductCallbackCommands();
         }
 
         public List<TelegramCreateProductCommand> GetTelegramCreateProductCommands()
@@ -126,6 +126,11 @@ namespace TeaShopBot
         public List<TelegramFileCommand> GetTelegramFileCommands()
         {
             return _commandService.GetTelegramFileCommands();
+        }
+
+        public List<TelegramCallbackCommand> GetCallbackCommands()
+        {
+            return _commandService.GetCallbackCommands();
         }
     }
 }

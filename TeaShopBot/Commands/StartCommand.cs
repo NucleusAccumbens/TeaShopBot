@@ -35,9 +35,30 @@ namespace TeaShopBot.Commands
             {
                 ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
                 {
-                    new KeyboardButton[] { "Добавить товар", "Посмотреть историю заказов" },
-                    new KeyboardButton[] { "Редактировать", "Посмотреть список пользователей" },
-                    new KeyboardButton[] { "Главное меню" },
+                    new KeyboardButton[] { "Добавить товар", "История заказов" },
+                    new KeyboardButton[] { "Редактировать", "Список пользователей" },
+                    new KeyboardButton[] { "✨ Меню ✨" },
+                })
+                {
+                    ResizeKeyboard = true
+                };
+
+                await botClient.SendTextMessageAsync(
+                    chatId: chatId,
+                    text: "Привет, админ! 🖖🏻\n\n" +
+                    "Управление ботом доступно только администраторам.\n" +
+                    "Другие пользователи видят только кнопку ✨ Mеню ✨.\n\n" +
+                    "🔥 Используй соответствующие кнопки, чтобы добавить товар, " +
+                    "посмотреть историю заказов или список пользователей, " +
+                    "а также чтобы редактировать информацию о товарах, доставке, скидках и т.д. 🔥",
+                    replyMarkup: replyKeyboardMarkup,
+                    cancellationToken: cancellationToken);
+            }
+            else
+            {
+                ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
+                {
+                    new KeyboardButton[] { "✨ Меню ✨" },
                 })
                 {
                     ResizeKeyboard = true
@@ -48,22 +69,6 @@ namespace TeaShopBot.Commands
                     text: "Привет, Дорогой чайный друг🦊!\n" +
                     "Добро пожаловать🌞  в наш чайный бот!\n" +
                     "Выбирай чаи на любой вкус!🙏🏻⛩🙏🏻",
-                    replyMarkup: replyKeyboardMarkup,
-                    cancellationToken: cancellationToken);
-            }
-            else
-            {
-                ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
-                {
-                    new KeyboardButton[] { "Меню" },
-                })
-                {
-                    ResizeKeyboard = true
-                };
-
-                await botClient.SendTextMessageAsync(
-                    chatId: chatId,
-                    text: "Чай в ассортименте!",
                     replyMarkup: replyKeyboardMarkup,
                     cancellationToken: cancellationToken);
             } 

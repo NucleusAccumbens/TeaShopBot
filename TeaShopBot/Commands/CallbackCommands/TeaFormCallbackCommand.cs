@@ -13,7 +13,7 @@ using Telegram.Bot.Types.Enums;
 
 namespace TeaShopBot.Commands.CallbackCommands
 {
-    public class TeaFormCallbackCommand : TelegramCallbackCommand
+    public class TeaFormCallbackCommand : TelegramAddProductCallbackCommand
     {
         public override char CallbackDataCode => 'F';
 

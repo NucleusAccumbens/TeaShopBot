@@ -52,7 +52,7 @@ namespace TeaShopBLL.Services
             }
         }
 
-        public async Task<IEnumerable<UserDTO>> GetAllAsync()
+        public async Task<List<UserDTO>> GetAllAsync()
         {
             try
             {
@@ -119,7 +119,7 @@ namespace TeaShopBLL.Services
         {
             try
             {
-                var user = await _repo.UsersRepo.GetUserByChatIdAsync(chatId);
+                var user = await (_repo.Users as UserRepository).GetUserByChatIdAsync(chatId);
 
                 if (user == null) return false;
                 else return true;               
@@ -134,7 +134,7 @@ namespace TeaShopBLL.Services
         {
             try
             {
-                var user = await _repo.UsersRepo.GetUserByChatIdAsync(chatId);
+                var user = await (_repo.Users as UserRepository).GetUserByChatIdAsync(chatId);
 
                 if (user?.IsAdmin == true) return true;
                 else return false;

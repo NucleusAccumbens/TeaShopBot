@@ -56,7 +56,7 @@ namespace TeaShopBLL.Services
             }
         }
 
-        public async Task<IEnumerable<HerbDTO>> GetAllAsync()
+        public async Task<List<HerbDTO>> GetAllAsync()
         {
             try
             {

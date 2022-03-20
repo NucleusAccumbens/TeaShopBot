@@ -1,5 +1,7 @@
 ﻿using DATABASE.Entityes;
+using DATABASE.Enums;
 using DATABASE.Interfaces;
+using DATABASE.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +59,7 @@ namespace TeaShopBLL.Services
             }
         }
 
-        public async Task<IEnumerable<TeaDTO>> GetAllAsync()
+        public async Task<List<TeaDTO>> GetAllAsync()
         {
             try
             {
@@ -78,6 +80,210 @@ namespace TeaShopBLL.Services
                         TeaWeight = tea.TeaWeight
                     };
                     res.Add(teaDTO);
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
+            };
+        }
+
+        public async Task<List<TeaDTO>> GetAllRedTeaAsync()
+        {
+            try
+            {
+                var res = new List<TeaDTO>();
+                var allTeas = await _repo.Teas.GetAllAsync();
+
+                foreach (var tea in allTeas)
+                {
+                    if (tea.TeaType == TeaTypes.Red)
+                    {
+                        var teaDTO = new TeaDTO()
+                        {
+                            ProductId = tea.ProductId,
+                            ProductName = tea.ProductName,
+                            ProductDescription = tea.ProductDescription,
+                            ProductCount = tea.ProductCount,
+                            ProductPathToImage = tea.ProductPathToImage,
+                            ProductPrice = tea.ProductPrice,
+                            TeaForm = tea.TeaForm,
+                            TeaType = tea.TeaType,
+                            TeaWeight = tea.TeaWeight
+                        };
+                        res.Add(teaDTO);
+                    }                 
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
+            };
+        }
+
+        public async Task<List<TeaDTO>> GetAllGreenTeaAsync()
+        {
+            try
+            {
+                var res = new List<TeaDTO>();
+                var allTeas = await _repo.Teas.GetAllAsync();
+
+                foreach (var tea in allTeas)
+                {
+                    if (tea.TeaType == TeaTypes.Green)
+                    {
+                        var teaDTO = new TeaDTO()
+                        {
+                            ProductId = tea.ProductId,
+                            ProductName = tea.ProductName,
+                            ProductDescription = tea.ProductDescription,
+                            ProductCount = tea.ProductCount,
+                            ProductPathToImage = tea.ProductPathToImage,
+                            ProductPrice = tea.ProductPrice,
+                            TeaForm = tea.TeaForm,
+                            TeaType = tea.TeaType,
+                            TeaWeight = tea.TeaWeight
+                        };
+                        res.Add(teaDTO);
+                    }
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
+            };
+        }
+
+        public async Task<List<TeaDTO>> GetAllWhiteTeaAsync()
+        {
+            try
+            {
+                var res = new List<TeaDTO>();
+                var allTeas = await _repo.Teas.GetAllAsync();
+
+                foreach (var tea in allTeas)
+                {
+                    if (tea.TeaType == TeaTypes.White)
+                    {
+                        var teaDTO = new TeaDTO()
+                        {
+                            ProductId = tea.ProductId,
+                            ProductName = tea.ProductName,
+                            ProductDescription = tea.ProductDescription,
+                            ProductCount = tea.ProductCount,
+                            ProductPathToImage = tea.ProductPathToImage,
+                            ProductPrice = tea.ProductPrice,
+                            TeaForm = tea.TeaForm,
+                            TeaType = tea.TeaType,
+                            TeaWeight = tea.TeaWeight
+                        };
+                        res.Add(teaDTO);
+                    }
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
+            };
+        }
+
+        public async Task<List<TeaDTO>> GetAllOolongTeaAsync()
+        {
+            try
+            {
+                var res = new List<TeaDTO>();
+                var allTeas = await _repo.Teas.GetAllAsync();
+
+                foreach (var tea in allTeas)
+                {
+                    if (tea.TeaType == TeaTypes.Oolong)
+                    {
+                        var teaDTO = new TeaDTO()
+                        {
+                            ProductId = tea.ProductId,
+                            ProductName = tea.ProductName,
+                            ProductDescription = tea.ProductDescription,
+                            ProductCount = tea.ProductCount,
+                            ProductPathToImage = tea.ProductPathToImage,
+                            ProductPrice = tea.ProductPrice,
+                            TeaForm = tea.TeaForm,
+                            TeaType = tea.TeaType,
+                            TeaWeight = tea.TeaWeight
+                        };
+                        res.Add(teaDTO);
+                    }
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
+            };
+        }
+
+        public async Task<List<TeaDTO>> GetAllShenPuerAsync()
+        {
+            try
+            {
+                var res = new List<TeaDTO>();
+                var allTeas = await _repo.Teas.GetAllAsync();
+
+                foreach (var tea in allTeas)
+                {
+                    if (tea.TeaType == TeaTypes.ShenPuer)
+                    {
+                        var teaDTO = new TeaDTO()
+                        {
+                            ProductId = tea.ProductId,
+                            ProductName = tea.ProductName,
+                            ProductDescription = tea.ProductDescription,
+                            ProductCount = tea.ProductCount,
+                            ProductPathToImage = tea.ProductPathToImage,
+                            ProductPrice = tea.ProductPrice,
+                            TeaForm = tea.TeaForm,
+                            TeaType = tea.TeaType,
+                            TeaWeight = tea.TeaWeight
+                        };
+                        res.Add(teaDTO);
+                    }
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
+            };
+        }
+
+        public async Task<List<TeaDTO>> GetAllShuPuerAsync()
+        {
+            try
+            {
+                var res = new List<TeaDTO>();
+                var allTeas = await _repo.Teas.GetAllAsync();
+
+                foreach (var tea in allTeas)
+                {
+                    if (tea.TeaType == TeaTypes.ShuPuer)
+                    {
+                        var teaDTO = new TeaDTO()
+                        {
+                            ProductId = tea.ProductId,
+                            ProductName = tea.ProductName,
+                            ProductDescription = tea.ProductDescription,
+                            ProductCount = tea.ProductCount,
+                            ProductPathToImage = tea.ProductPathToImage,
+                            ProductPrice = tea.ProductPrice,
+                            TeaForm = tea.TeaForm,
+                            TeaType = tea.TeaType,
+                            TeaWeight = tea.TeaWeight
+                        };
+                        res.Add(teaDTO);
+                    }
                 }
                 return res;
             }

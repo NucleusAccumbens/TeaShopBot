@@ -42,7 +42,7 @@ namespace TeaShopBot.Commands.FileCommands
                         {
                             InlineKeyboardButton.WithCallbackData(text: "Сохранить", callbackData: "S"),
                         },
-                });
+            });
 
             await client.SendPhotoAsync(
                         chatId: chatId,

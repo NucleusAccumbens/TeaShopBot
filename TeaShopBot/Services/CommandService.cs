@@ -13,43 +13,51 @@ namespace TeaShopBot.Services
 {
     public class CommandService : ICommandService
     {
-        private List<TelegramCommand> _commandsList = new List<TelegramCommand>();
+        private List<TelegramCommand> _commandList = new List<TelegramCommand>();
+        private List<TelegramAddProductCallbackCommand> _addProductCallbackCommandList = new List<TelegramAddProductCallbackCommand>();
+        private List<TelegramCreateProductCommand> _createProductCommandList = new List<TelegramCreateProductCommand>();
+        private List<TelegramFileCommand> _fileCommandList = new List<TelegramFileCommand>();
         private List<TelegramCallbackCommand> _callbackCommandList = new List<TelegramCallbackCommand>();
-        private List<TelegramCreateProductCommand> _telegramCreateProductCommands = new List<TelegramCreateProductCommand>();
-        private List<TelegramFileCommand> _telegramFileCommands = new List<TelegramFileCommand>();
         public List<TelegramCommand> GetCommands()
         {
-            _commandsList.Add(new StartCommand());
-            _commandsList.Add(new AddProductCommand());
-            _commandsList.Add(new TeaTypeCommand());
-            _commandsList.Add(new BackToSelectActionCommand()); 
-            _commandsList.Add(new BackToSelectCategoryCommand());
-            _commandsList.Add(new AllTeaCommand());
-            return _commandsList;
+            _commandList.Add(new StartCommand());
+            _commandList.Add(new AddProductCommand());
+            _commandList.Add(new TeaTypeCommand());
+            _commandList.Add(new BackToSelectActionCommand()); 
+            _commandList.Add(new AllTeaCommand());
+            _commandList.Add(new MenuCommand());
+            return _commandList;
         }
 
-        public List<TelegramCallbackCommand> GetCallbackCommands()
+        public List<TelegramAddProductCallbackCommand> GetAddProductCallbackCommands()
         {
-            _callbackCommandList.Add(new TeaTypeCallbackCommand());
-            _callbackCommandList.Add(new TeaWeighteCallbackCommand());
-            _callbackCommandList.Add(new TeaFormCallbackCommand());
-            _callbackCommandList.Add(new SaveTeaCallbackCommand());
-            return _callbackCommandList;
+            _addProductCallbackCommandList.Add(new TeaTypeCallbackCommand());
+            _addProductCallbackCommandList.Add(new TeaWeighteCallbackCommand());
+            _addProductCallbackCommandList.Add(new TeaFormCallbackCommand());
+            _addProductCallbackCommandList.Add(new SaveTeaCallbackCommand());
+            return _addProductCallbackCommandList;
         }
 
         public List<TelegramCreateProductCommand> GetTelegramCreateProductCommands()
         {
-            _telegramCreateProductCommands.Add(new TeaNameCommand());
-            _telegramCreateProductCommands.Add(new TeaDeskriptionCommand());
-            _telegramCreateProductCommands.Add(new TeaPriceCommand());
-            _telegramCreateProductCommands.Add(new TeaCountCommand());
-            return _telegramCreateProductCommands;
+            _createProductCommandList.Add(new TeaNameCommand());
+            _createProductCommandList.Add(new TeaDeskriptionCommand());
+            _createProductCommandList.Add(new TeaPriceCommand());
+            _createProductCommandList.Add(new TeaCountCommand());
+            return _createProductCommandList;
         }
 
         public List<TelegramFileCommand> GetTelegramFileCommands()
         {
-            _telegramFileCommands.Add(new TeaImageCommand());
-            return _telegramFileCommands;
+            _fileCommandList.Add(new TeaImageCommand());
+            return _fileCommandList;
+        }
+
+        public List<TelegramCallbackCommand> GetCallbackCommands()
+        {
+            _callbackCommandList.Add(new TeaTypeForMenuCallbackCommand());
+            _callbackCommandList.Add(new TeaListCallbackCommand());
+            return _callbackCommandList;
         }
     }
 }

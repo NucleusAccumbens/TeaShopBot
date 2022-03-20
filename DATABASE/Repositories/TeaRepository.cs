@@ -1,5 +1,6 @@
 ﻿using DATABASE.DataContext;
 using DATABASE.Entityes;
+using DATABASE.Enums;
 using DATABASE.Intarfaces;
 using Microsoft.EntityFrameworkCore;
 using System;

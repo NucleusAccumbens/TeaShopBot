@@ -14,7 +14,7 @@ namespace TeaShopBot.Commands
 {
     public class BackToSelectActionCommand : TelegramCommand
     {
-        public override string Name => @"Назад к выбору действия";
+        public override string Name => @"Назад";
 
         public override bool Contains(Message message)
         {

@@ -14,7 +14,7 @@ using Telegram.Bot.Types;
 
 namespace TeaShopBot.Commands.CallbackCommands
 {
-    public class SaveTeaCallbackCommand : TelegramCallbackCommand
+    public class SaveTeaCallbackCommand : TelegramAddProductCallbackCommand
     {
         public override char CallbackDataCode => 'S';
         public override bool Contains(CallbackQuery message)

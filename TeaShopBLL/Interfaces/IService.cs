@@ -13,6 +13,6 @@ namespace TeaShopBLL.Interfaces
         Task UpdateAsync(T item);
         Task DeleteAsync(long itemId);
         Task<T> GetAsync(long itemtId);
-        Task<IEnumerable<T>> GetAllAsync();
+        Task<List<T>> GetAllAsync();
     }
 }

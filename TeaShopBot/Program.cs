@@ -60,13 +60,23 @@ namespace TeaShopBot
                 if (update.Type == UpdateType.CallbackQuery)
                 {
                     var callbackQuery = update.CallbackQuery;
-                    var callbackCommands = _bot.GetCallbackCommands();
 
-                    foreach (var callbackCommand in callbackCommands)
+                    var addProductCallbackCommands = _bot.GetAddProductCallbackCommands();
+                    foreach (var callbackCommand in addProductCallbackCommands)
                     {
                         if (callbackCommand.Contains(callbackQuery))
                         {
                             await callbackCommand.CallbackExecute(update, botClient, cancellationToken, _tea);
+                            break;
+                        }
+                    }
+
+                    var callbackCommands = _bot.GetCallbackCommands();
+                    foreach (var callbackCommand in callbackCommands)
+                    {
+                        if (callbackCommand.Contains(callbackQuery))
+                        {
+                            await callbackCommand.CallbackExecute(update, botClient, cancellationToken);
                             break;
                         }
                     }

@@ -13,7 +13,7 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TeaShopBot.Commands.CallbackCommands
 {
-    public class TeaWeighteCallbackCommand : TelegramCallbackCommand
+    public class TeaWeighteCallbackCommand : TelegramAddProductCallbackCommand
     {
         public override char CallbackDataCode => 'W';
         public override bool Contains(CallbackQuery message)
