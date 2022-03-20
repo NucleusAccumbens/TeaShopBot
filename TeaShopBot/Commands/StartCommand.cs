@@ -68,7 +68,9 @@ namespace TeaShopBot.Commands
                     chatId: chatId,
                     text: "Привет, Дорогой чайный друг🦊!\n" +
                     "Добро пожаловать🌞  в наш чайный бот!\n" +
-                    "Выбирай чаи на любой вкус!🙏🏻⛩🙏🏻",
+                    "Выбирай чаи на любой вкус!🙏🏻⛩🙏🏻\n\n" +
+                    "Чтобы ознакомиться с ассортиментом и совершить покупку, переходи в\n" +
+                    " ✨ Mеню ✨ ⬇️",
                     replyMarkup: replyKeyboardMarkup,
                     cancellationToken: cancellationToken);
             } 

@@ -13,6 +13,7 @@ using TeaShopBot.Abstractions;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TeaShopBot.Commands.CallbackCommands
 {
@@ -133,6 +134,14 @@ namespace TeaShopBot.Commands.CallbackCommands
                 {
                     if (tea.ProductPathToImage != null && tea.InStock == true)
                     {
+                        InlineKeyboardMarkup inlineKeyboardMarkup = new(new[]
+                        {
+                            new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData(text: "🛒 Добавить в корзину 🛒", callbackData: "CCard"),
+                            },
+                        });
+
                         await client.SendPhotoAsync(
                             chatId: chatId,
                             photo: tea.ProductPathToImage,
@@ -143,10 +152,19 @@ namespace TeaShopBot.Commands.CallbackCommands
                             $"<b>Цена:</b> {tea.ProductPrice}\n\n" +
                             $"<b>В наличии:</b> {tea.ProductCount}",
                             parseMode: ParseMode.Html,
+                            replyMarkup: inlineKeyboardMarkup,
                             cancellationToken: cancellationToken);
                     }
                     if (tea.ProductPathToImage == null && tea.InStock == true)
                     {
+                        InlineKeyboardMarkup inlineKeyboardMarkup = new(new[]
+                       {
+                            new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData(text: "🛒 Добавить в корзину 🛒", callbackData: "CCard"),
+                            },
+                        });
+
                         await client.SendTextMessageAsync(
                             chatId: chatId,
                             text: $"<b>Название:</b> {tea.ProductName}\n\n" +
@@ -156,6 +174,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                             $"<b>Цена:</b> {tea.ProductPrice}\n\n" +
                             $"<b>В наличии:</b> {tea.ProductCount}",
                             parseMode: ParseMode.Html,
+                            replyMarkup: inlineKeyboardMarkup,
                             cancellationToken: cancellationToken);
                     }
                 }

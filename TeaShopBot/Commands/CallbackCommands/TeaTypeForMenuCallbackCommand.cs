@@ -88,6 +88,30 @@ namespace TeaShopBot.Commands.CallbackCommands
                        "Но это временно, не пропусти обновления 🍯",
                        cancellationToken: cancellationToken);
                 }
+                if (update.CallbackQuery.Data == "ACart")
+                {
+                    await client.SendTextMessageAsync(
+                       chatId: chatId,
+                       text: "🤷🏼 Эта функция временно недоступна...",
+                       cancellationToken: cancellationToken);
+                }
+                if (update.CallbackQuery.Data == "AShop")
+                {
+                    await client.SendTextMessageAsync(
+                       chatId: chatId,
+                       text: "Создатель ⛩ Чайного Автономного Округа ⛩ Алексей с 2011 года занимается китайскими чаями! " +
+                       "Он поставил себе задачей привозить качественный пуэр по доступной цене. " +
+                       "Алексей 8 раз был в Китае, и теперь может сказать, что разбирается в чае!",
+                       cancellationToken: cancellationToken);
+                }
+                if (update.CallbackQuery.Data == "AContact")
+                {
+                    await client.SendTextMessageAsync(
+                       chatId: chatId,
+                       text: "Связаться с администратором: @shanti_travels \n" +
+                       "По вопросам создания бота: @noncredistka",
+                       cancellationToken: cancellationToken);
+                }
             }         
         }
     }
