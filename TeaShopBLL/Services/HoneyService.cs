@@ -70,6 +70,7 @@ namespace TeaShopBLL.Services
                         ProductName = honey.ProductName,
                         ProductDescription = honey.ProductDescription,
                         ProductCount = honey.ProductCount,
+                        ProductPathToImage = honey.ProductPathToImage,
                         ProductPrice = honey.ProductPrice,
                         HoneyWeight = honey.HoneyWeight
                     };
@@ -94,6 +95,7 @@ namespace TeaShopBLL.Services
                     ProductName = _honey.ProductName,
                     ProductDescription = _honey.ProductDescription,
                     ProductCount = _honey.ProductCount,
+                    ProductPathToImage = _honey.ProductPathToImage,
                     ProductPrice = _honey.ProductPrice,
                     HoneyWeight = _honey.HoneyWeight
                 };

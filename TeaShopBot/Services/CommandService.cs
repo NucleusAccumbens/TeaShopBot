@@ -24,6 +24,7 @@ namespace TeaShopBot.Services
             _commandsList.Add(new TeaTypeCommand());
             _commandsList.Add(new BackToSelectActionCommand()); 
             _commandsList.Add(new BackToSelectCategoryCommand());
+            _commandsList.Add(new AllTeaCommand());
             return _commandsList;
         }
 

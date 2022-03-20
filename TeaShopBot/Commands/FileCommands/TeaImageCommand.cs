@@ -46,7 +46,7 @@ namespace TeaShopBot.Commands.FileCommands
 
             await client.SendPhotoAsync(
                         chatId: chatId,
-                        photo: $"{tea.ProductPathToImage}",
+                        photo: file,
                         caption: $"Сорт чая: {TeaEnumParser.TeaTypeToString((tea as TeaDTO).TeaType)}\n" +
                         $"Название чая: {tea.ProductName}\n" +
                         $"Описание чая: {tea.ProductDescription}\n" +

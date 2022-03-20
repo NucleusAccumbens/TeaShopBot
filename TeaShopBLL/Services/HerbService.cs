@@ -70,6 +70,7 @@ namespace TeaShopBLL.Services
                         ProductName = herb.ProductName,
                         ProductDescription = herb.ProductDescription,
                         ProductCount = herb.ProductCount,
+                        ProductPathToImage = herb.ProductPathToImage,
                         ProductPrice = herb.ProductPrice,
                         Region = herb.Region,
                         Weight = herb.Weight         
@@ -95,6 +96,7 @@ namespace TeaShopBLL.Services
                     ProductName = _herb.ProductName,
                     ProductDescription = _herb.ProductDescription,
                     ProductCount = _herb.ProductCount,
+                    ProductPathToImage = _herb.ProductPathToImage,
                     ProductPrice = _herb.ProductPrice,
                     Region = _herb.Region,
                     Weight = _herb.Weight
@@ -117,6 +119,7 @@ namespace TeaShopBLL.Services
                     ProductName = herb.ProductName,
                     ProductDescription = herb.ProductDescription,
                     ProductCount = herb.ProductCount,
+                    ProductPathToImage = herb.ProductPathToImage,
                     ProductPrice = herb.ProductPrice,
                     InStock = herb.InStock,
                     Region = herb.Region,
