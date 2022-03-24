@@ -26,7 +26,7 @@ namespace TeaShopBot.Commands.CallbackCommands
             return message.Data.Contains(CallbackDataCode);
         }
 
-        public override async Task<ProductDTO> CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea)
+        public override async Task<ProductDTO> CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
         {
             var chatId = update.CallbackQuery.Message.Chat.Id;
 
@@ -34,38 +34,38 @@ namespace TeaShopBot.Commands.CallbackCommands
             {
                 if (update.CallbackQuery.Data == "W50")
                 {
-                    tea.TeaWeight = TeaWeight.Fifty;
-                    await SetTeaForm(update, client, cancellationToken, tea);
+                    (tea as TeaDTO).TeaWeight = TeaWeight.Fifty;
+                    await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
                     return tea;
                 }
                 if (update.CallbackQuery.Data == "W100")
                 {
-                    tea.TeaWeight = TeaWeight.OneHundred;
-                    await SetTeaForm(update, client, cancellationToken, tea);
+                    (tea as TeaDTO).TeaWeight = TeaWeight.OneHundred;
+                    await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
                     return tea;
                 }
                 if (update.CallbackQuery.Data == "W150")
                 {
-                    tea.TeaWeight = TeaWeight.OneHundredFifty;
-                    await SetTeaForm(update, client, cancellationToken, tea);
+                    (tea as TeaDTO).TeaWeight = TeaWeight.OneHundredFifty;
+                    await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
                     return tea;
                 }
                 if (update.CallbackQuery.Data == "W200")
                 {
-                    tea.TeaWeight = TeaWeight.TwoHundred;
-                    await SetTeaForm(update, client, cancellationToken, tea);
+                    (tea as TeaDTO).TeaWeight = TeaWeight.TwoHundred;
+                    await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
                     return tea;
                 }
                 if (update.CallbackQuery.Data == "W250")
                 {
-                    tea.TeaWeight = TeaWeight.TwoHundredFifty;
-                    await SetTeaForm(update, client, cancellationToken, tea);
+                    (tea as TeaDTO).TeaWeight = TeaWeight.TwoHundredFifty;
+                    await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
                     return tea;
                 }
                 if (update.CallbackQuery.Data == "W375")
                 {
-                    tea.TeaWeight = TeaWeight.ThreeHundredSeventyFive;
-                    await SetTeaForm(update, client, cancellationToken, tea);
+                    (tea as TeaDTO).TeaWeight = TeaWeight.ThreeHundredSeventyFive;
+                    await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
                     return tea;
                 }
             }

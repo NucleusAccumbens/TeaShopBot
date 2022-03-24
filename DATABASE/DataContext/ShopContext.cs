@@ -50,7 +50,7 @@ namespace DATABASE.DataContext
                     Name = "shanti_travels",
                     IsAdmin = true
                 }
-            });                                            
+            });
         }
 
         public DbSet<User> Users { get; set; }

@@ -11,6 +11,8 @@ namespace DATABASE.Entityes
     public class User : BaseModel
     {
         public long UserId  { get; set; }
+        
+        [Key]
         public long ChatId { get; set; }
         public string? Name { get; set; }
         public bool IsAdmin { get; set; }

@@ -2031,3 +2031,158 @@ fail: 19.03.2022 19:48:54.572 RelationalEventId.CommandError[20102] (Microsoft.E
           [IsDeleted] bit NOT NULL,
           CONSTRAINT [PK_Products] PRIMARY KEY ([ProductId])
       );
+warn: 23.03.2022 15:19:24.051 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+info: 23.03.2022 15:19:24.278 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+warn: 23.03.2022 15:19:24.333 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+warn: 23.03.2022 15:20:39.396 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+info: 23.03.2022 15:20:39.637 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+info: 23.03.2022 15:20:40.205 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.03.2022 15:20:40.237 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.03.2022 15:20:40.240 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.03.2022 15:20:40.392 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [__EFMigrationsHistory] (
+          [MigrationId] nvarchar(150) NOT NULL,
+          [ProductVersion] nvarchar(32) NOT NULL,
+          CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+      );
+info: 23.03.2022 15:20:40.394 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.03.2022 15:20:40.396 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.03.2022 15:20:40.400 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: 23.03.2022 15:20:40.417 RelationalEventId.MigrationApplying[20402] (Microsoft.EntityFrameworkCore.Migrations) 
+      Applying migration '20220312113506_Initial-IgnoreChanges'.
+fail: 23.03.2022 15:20:40.508 RelationalEventId.CommandError[20102] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Failed executing DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Products] (
+          [ProductId] bigint NOT NULL IDENTITY,
+          [ProductName] nvarchar(100) NULL,
+          [ProductDescription] nvarchar(max) NULL,
+          [ProductPrice] decimal(18,2) NOT NULL,
+          [ProductCount] int NOT NULL,
+          [InStock] bit NOT NULL,
+          [CreatedAt] datetime2 NOT NULL,
+          [IsDeleted] bit NOT NULL,
+          CONSTRAINT [PK_Products] PRIMARY KEY ([ProductId])
+      );
+warn: 23.03.2022 15:22:52.140 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+info: 23.03.2022 15:22:52.374 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+info: 23.03.2022 15:22:52.764 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.03.2022 15:22:52.795 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.03.2022 15:22:52.799 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.03.2022 15:22:52.800 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+fail: 23.03.2022 15:22:52.829 RelationalEventId.CommandError[20102] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Failed executing DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+warn: 23.03.2022 15:24:56.151 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+info: 23.03.2022 15:24:56.382 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+info: 23.03.2022 15:24:56.795 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.03.2022 15:24:56.825 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.03.2022 15:24:56.828 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.03.2022 15:24:56.960 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [__EFMigrationsHistory] (
+          [MigrationId] nvarchar(150) NOT NULL,
+          [ProductVersion] nvarchar(32) NOT NULL,
+          CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+      );
+info: 23.03.2022 15:24:56.962 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.03.2022 15:24:56.964 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.03.2022 15:24:56.968 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: 23.03.2022 15:24:56.985 RelationalEventId.MigrationApplying[20402] (Microsoft.EntityFrameworkCore.Migrations) 
+      Applying migration '20220312113506_Initial-IgnoreChanges'.
+fail: 23.03.2022 15:24:57.068 RelationalEventId.CommandError[20102] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Failed executing DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Products] (
+          [ProductId] bigint NOT NULL IDENTITY,
+          [ProductName] nvarchar(100) NULL,
+          [ProductDescription] nvarchar(max) NULL,
+          [ProductPrice] decimal(18,2) NOT NULL,
+          [ProductCount] int NOT NULL,
+          [InStock] bit NOT NULL,
+          [CreatedAt] datetime2 NOT NULL,
+          [IsDeleted] bit NOT NULL,
+          CONSTRAINT [PK_Products] PRIMARY KEY ([ProductId])
+      );
+warn: 23.03.2022 15:27:27.325 SqlServerEventId.DecimalTypeDefaultWarning[30000] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+info: 23.03.2022 15:27:27.546 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+info: 23.03.2022 15:27:27.965 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (35ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.03.2022 15:27:27.997 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.03.2022 15:27:28.002 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: 23.03.2022 15:27:28.002 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: 23.03.2022 15:27:28.023 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: 23.03.2022 15:27:28.042 RelationalEventId.MigrationApplying[20402] (Microsoft.EntityFrameworkCore.Migrations) 
+      Applying migration '20220312113506_Initial-IgnoreChanges'.
+fail: 23.03.2022 15:27:28.152 RelationalEventId.CommandError[20102] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Failed executing DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Products] (
+          [ProductId] bigint NOT NULL IDENTITY,
+          [ProductName] nvarchar(100) NULL,
+          [ProductDescription] nvarchar(max) NULL,
+          [ProductPrice] decimal(18,2) NOT NULL,
+          [ProductCount] int NOT NULL,
+          [InStock] bit NOT NULL,
+          [CreatedAt] datetime2 NOT NULL,
+          [IsDeleted] bit NOT NULL,
+          CONSTRAINT [PK_Products] PRIMARY KEY ([ProductId])
+      );

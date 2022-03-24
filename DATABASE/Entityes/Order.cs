@@ -20,7 +20,8 @@ namespace DATABASE.Entityes
         public PaymentMethods PaymentMethod { get; set; }
         public ReceiptMethods ReceiptMethod { get; set; }
 
-        public virtual User User { get; set; }
-        public virtual List<Product> Products { get; set; } 
+        [ForeignKey("UsersChatId")]
+        public virtual User AppUser { get; set; }
+        public List<Product> Products { get; set; }
     }
 }

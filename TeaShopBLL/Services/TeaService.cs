@@ -2,6 +2,7 @@
 using DATABASE.Enums;
 using DATABASE.Interfaces;
 using DATABASE.Repositories;
+using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,18 +26,7 @@ namespace TeaShopBLL.Services
         {
             try
             {
-                var _tea = new Tea()
-                {
-                    ProductName = tea.ProductName,
-                    ProductDescription = tea.ProductDescription,
-                    ProductPrice = tea.ProductPrice,
-                    ProductCount = tea.ProductCount,
-                    ProductPathToImage = tea.ProductPathToImage,
-                    InStock = tea.InStock,
-                    TeaType = tea.TeaType,
-                    TeaForm = tea.TeaForm,
-                    TeaWeight = tea.TeaWeight,
-                };
+                var _tea = tea.Adapt<Tea>();
                 await _repo.Teas.CreateAsync(_tea);
                 await _repo.SaveAsync();
             }
@@ -298,19 +288,7 @@ namespace TeaShopBLL.Services
             try
             {
                 var tea = await _repo.Teas.GetAsync(productId);
-                
-                var teaDTO = new TeaDTO()
-                    {
-                        ProductId = tea.ProductId,
-                        ProductName = tea.ProductName,
-                        ProductDescription = tea.ProductDescription,
-                        ProductCount = tea.ProductCount,
-                        ProductPathToImage = tea.ProductPathToImage,
-                        ProductPrice = tea.ProductPrice,
-                        TeaForm = tea.TeaForm,
-                        TeaType = tea.TeaType,
-                        TeaWeight = tea.TeaWeight
-                    };
+                var teaDTO = tea.Adapt<TeaDTO>();
                 return teaDTO;
             }
             catch (Exception)

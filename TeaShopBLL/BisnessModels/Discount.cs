@@ -22,7 +22,7 @@ namespace TeaShopBLL.BisnessModels
 
         public decimal GetDiscount()
         {
-            if(_order.OrderNumber == 1)
+            if (_order.OrderNumber == 1)
             {
                 return (_order.TotalProductPrice / 100) * _discountPercent;
             }

@@ -49,7 +49,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                             var teaList = await teaService.GetAllRedTeaAsync();
                             await GetSpetialTeaListAsync(chatId, client, cancellationToken, teaList);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             await ExeptionMassegeAsync(chatId, client, cancellationToken);
                         }
@@ -61,7 +61,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                             var teaList = await teaService.GetAllGreenTeaAsync();
                             await GetSpetialTeaListAsync(chatId, client, cancellationToken, teaList);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             await ExeptionMassegeAsync(chatId, client, cancellationToken); ;
                         }
@@ -73,7 +73,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                             var teaList = await teaService.GetAllWhiteTeaAsync();
                             await GetSpetialTeaListAsync(chatId, client, cancellationToken, teaList);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             await ExeptionMassegeAsync(chatId, client, cancellationToken); ;
                         }
@@ -85,7 +85,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                             var teaList = await teaService.GetAllOolongTeaAsync();
                             await GetSpetialTeaListAsync(chatId, client, cancellationToken, teaList);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             await ExeptionMassegeAsync(chatId, client, cancellationToken);
                         }
@@ -97,7 +97,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                             var teaList = await teaService.GetAllShuPuerAsync();
                             await GetSpetialTeaListAsync(chatId, client, cancellationToken, teaList);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             await ExeptionMassegeAsync(chatId, client, cancellationToken);
                         }
@@ -109,7 +109,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                             var teaList = await teaService.GetAllShenPuerAsync();
                             await GetSpetialTeaListAsync(chatId, client, cancellationToken, teaList);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             await ExeptionMassegeAsync(chatId, client, cancellationToken);
                         }
@@ -130,6 +130,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                             "Но это временно, не пропусти обновления ✨",
                             cancellationToken: cancellationToken);
                 }
+
                 foreach (var tea in teaList)
                 {
                     if (tea.ProductPathToImage != null && tea.InStock == true)
@@ -138,14 +139,15 @@ namespace TeaShopBot.Commands.CallbackCommands
                         {
                             new[]
                             {
-                                InlineKeyboardButton.WithCallbackData(text: "🛒 Добавить в корзину 🛒", callbackData: "CCard"),
+                                InlineKeyboardButton.WithCallbackData(text: "🛒 Добавить в корзину 🛒", callbackData: "CTeaAddToCard"),
                             },
                         });
 
                         await client.SendPhotoAsync(
                             chatId: chatId,
                             photo: tea.ProductPathToImage,
-                            caption: $"<b>Название:</b> {tea.ProductName}\n\n" +
+                            caption: $"<b>Код:</b> {tea.ProductId}\n\n" +
+                            $"<b>Название:</b> {tea.ProductName}\n\n" +
                             $"<b>Описание:</b> {tea.ProductDescription}\n\n" +
                             $"<b>Вес:</b> {TeaEnumParser.TeaWeightToString(tea.TeaWeight)}\n\n" +
                             $"<b>Форма хранения:</b> {TeaEnumParser.TeaFormToString(tea.TeaForm)}\n\n" +
@@ -161,13 +163,14 @@ namespace TeaShopBot.Commands.CallbackCommands
                        {
                             new[]
                             {
-                                InlineKeyboardButton.WithCallbackData(text: "🛒 Добавить в корзину 🛒", callbackData: "CCard"),
+                                InlineKeyboardButton.WithCallbackData(text: "🛒 Добавить в корзину 🛒", callbackData: "CTeaAddToCard"),
                             },
                         });
 
                         await client.SendTextMessageAsync(
                             chatId: chatId,
-                            text: $"<b>Название:</b> {tea.ProductName}\n\n" +
+                            text: $"<b>Код:</b> {tea.ProductId}\n\n" +
+                            $"<b>Название:</b> {tea.ProductName}\n\n" +
                             $"<b>Описание:</b> {tea.ProductDescription}\n\n" +
                             $"<b>Вес:</b> {TeaEnumParser.TeaWeightToString(tea.TeaWeight)} грамм\n\n" +
                             $"<b>Форма хранения:</b> {TeaEnumParser.TeaFormToString(tea.TeaForm)}\n\n" +

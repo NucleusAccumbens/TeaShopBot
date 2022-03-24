@@ -27,7 +27,7 @@ namespace TeaShopBot.Commands.CallbackCommands
             return message.Data.Contains(CallbackDataCode);
         }
 
-        public override async Task<ProductDTO> CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea)
+        public override async Task<ProductDTO> CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
         {
             var chatId = update.CallbackQuery.Message.Chat.Id;
 
@@ -35,14 +35,14 @@ namespace TeaShopBot.Commands.CallbackCommands
             {
                 if (update.CallbackQuery.Data == "FПресованный")
                 {
-                    tea.TeaForm = TeaForms.Pressed;
+                    (tea as TeaDTO).TeaForm = TeaForms.Pressed;
                     await client.SendTextMessageAsync(
                         chatId: chatId,
-                        text: $"Сорт чая: {TeaEnumParser.TeaTypeToString(tea.TeaType)}\n" +
+                        text: $"Сорт чая: {TeaEnumParser.TeaTypeToString((tea as TeaDTO).TeaType)}\n" +
                         $"Название чая: {tea.ProductName}\n" +
                         $"Описание чая: {tea.ProductDescription}\n" +
-                        $"Вес чая: {TeaEnumParser.TeaWeightToString(tea.TeaWeight)}\n" +
-                        $"Форма хранения чая: {TeaEnumParser.TeaFormToString(tea.TeaForm)}\n\n" +
+                        $"Вес чая: {TeaEnumParser.TeaWeightToString((tea as TeaDTO).TeaWeight)}\n" +
+                        $"Форма хранения чая: {TeaEnumParser.TeaFormToString((tea as TeaDTO).TeaForm)}\n\n" +
                         $"Теперь укажи цену чая: \n" +
                         $"<b>Цена чая</b>: <i>какя-то цифра...</i>",
                         parseMode: ParseMode.Html,
@@ -51,14 +51,14 @@ namespace TeaShopBot.Commands.CallbackCommands
                 }
                 if (update.CallbackQuery.Data == "FРассыпной")
                 {
-                    tea.TeaForm = TeaForms.Loose;
+                    (tea as TeaDTO).TeaForm = TeaForms.Loose;
                     await client.SendTextMessageAsync(
                         chatId: chatId,
-                        text: $"Сорт чая: {TeaEnumParser.TeaTypeToString(tea.TeaType)}\n" +
+                        text: $"Сорт чая: {TeaEnumParser.TeaTypeToString((tea as TeaDTO).TeaType)}\n" +
                         $"Название чая: {tea.ProductName}\n" +
                         $"Описание чая: {tea.ProductDescription}\n" +
-                        $"Вес чая: {TeaEnumParser.TeaWeightToString(tea.TeaWeight)}\n" +
-                        $"Форма хранения чая: {TeaEnumParser.TeaFormToString(tea.TeaForm)}\n\n" +
+                        $"Вес чая: {TeaEnumParser.TeaWeightToString((tea as TeaDTO).TeaWeight)}\n" +
+                        $"Форма хранения чая: {TeaEnumParser.TeaFormToString((tea as TeaDTO).TeaForm)}\n\n" +
                         $"Теперь укажи цену чая: \n" +
                         $"<b>Цена чая</b>: <i>какя-то цифра...</i>",
                         parseMode: ParseMode.Html,

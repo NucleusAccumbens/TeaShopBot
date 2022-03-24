@@ -57,6 +57,7 @@ namespace TeaShopBot.Services
         {
             _callbackCommandList.Add(new TeaTypeForMenuCallbackCommand());
             _callbackCommandList.Add(new TeaListCallbackCommand());
+            _callbackCommandList.Add(new ProductAddToCardCallbackCommand());
             return _callbackCommandList;
         }
     }

@@ -27,7 +27,7 @@ namespace TeaShopBot.Commands.CallbackCommands
             return message.Data.Contains(CallbackDataCode);
         }
 
-        public override async Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea)
+        public override async Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
         {
             var chatId = update.CallbackQuery.Message.Chat.Id;
             using (ShopContext context = new ShopContext())
@@ -38,7 +38,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                     UnitOfWork _unit = new UnitOfWork(context);
                     var teaService = new TeaService(_unit);
 
-                     await teaService.CreateAsync(tea);
+                     await teaService.CreateAsync(tea as TeaDTO);
 
                      await client.SendTextMessageAsync(
                         chatId: chatId,

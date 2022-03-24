@@ -12,6 +12,8 @@ namespace TeaShopBLL.DTO
     // Data Transfer Object (DTO) - специальная модель для передачи данных.
     public class OrderDTO
     {
+        public DateTime CreatedAt { get; set; }
+        public bool IsDeleted { get; set; }
         public long OrderId { get; set; }
         public int OrderNumber { get; set; }
         public bool OrderStatus { get; set; }
@@ -33,6 +35,8 @@ namespace TeaShopBLL.DTO
                 return _totalProductPrice - Discount.GetDiscount();
             }
         }
+
+        public long UserChatId { get; set; }
         public List<ProductDTO> Products { get; set; }
     }
 }

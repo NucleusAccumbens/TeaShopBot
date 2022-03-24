@@ -16,7 +16,9 @@ namespace TeaShopBot
     public class Program
     {
         private static readonly TelegramBot _bot = new TelegramBot();
-        private static TeaDTO _tea = new TeaDTO();
+        private static ProductDTO _tea = new TeaDTO();
+        private static ProductDTO _herb = new HerbDTO();
+        private static ProductDTO _honey = new HoneyDTO();
 
         static void Main(string[] args)
         {
@@ -87,7 +89,8 @@ namespace TeaShopBot
                     var chatId = update.Message.Chat.Id;
                     var message = update.Message;
 
-                    Console.WriteLine($"Получено сообщение '{message.Text}' от пользователя номер {chatId}.");
+                    Console.WriteLine($"Получено сообщение '{message.Text}' от пользователя номер {chatId}. " +
+                        $"Тип чата: {message.Chat}");
 
                     try
                     {
