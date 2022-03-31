@@ -20,13 +20,13 @@ namespace TeaShopBLL.BisnessModels
             _order = order;
         }
 
-        public decimal GetDiscount()
-        {
-            if (_order.OrderNumber == 1)
-            {
-                return (_order.TotalProductPrice / 100) * _discountPercent;
-            }
-            else return _discountPercent = 0;
-        }
+        //public decimal GetDiscount()
+        //{
+        //    if (_order.OrderNumber == 1)
+        //    {
+        //        return (_order.TotalProductPrice / 100) * _discountPercent;
+        //    }
+        //    else return _discountPercent = 0;
+        //}
     }
 }

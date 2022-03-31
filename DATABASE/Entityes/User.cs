@@ -11,14 +11,10 @@ namespace DATABASE.Entityes
     public class User : BaseModel
     {
         public long UserId  { get; set; }
-        
-        [Key]
         public long ChatId { get; set; }
-        public string? Name { get; set; }
+        public string? Username { get; set; }
+        public string? Firstname { get; set; }
+        public string? Lastname { get; set; }
         public bool IsAdmin { get; set; }
-
-        public virtual List<Order> Orders { get; set; } // модификатор virtual нужен для lazy loading
-                                                        // - при обращении к сущности из бд не будут тянуться
-                                                        // связанные с ней данные 
     }
 }

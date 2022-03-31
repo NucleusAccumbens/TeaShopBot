@@ -89,8 +89,7 @@ namespace TeaShopBot
                     var chatId = update.Message.Chat.Id;
                     var message = update.Message;
 
-                    Console.WriteLine($"Получено сообщение '{message.Text}' от пользователя номер {chatId}. " +
-                        $"Тип чата: {message.Chat}");
+                    Console.WriteLine($"Получено сообщение '{message.Text}' от пользователя номер {chatId}. ");
 
                     try
                     {

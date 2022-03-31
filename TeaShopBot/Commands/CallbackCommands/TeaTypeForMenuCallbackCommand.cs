@@ -59,6 +59,11 @@ namespace TeaShopBot.Commands.CallbackCommands
                         {
                             InlineKeyboardButton.WithCallbackData(text: "🌚 Шен Пуэры 🌚", callbackData: "BShenPuer"),
                         },
+                        new[]
+                        {
+                                InlineKeyboardButton.WithCallbackData(text: "🛒 Корзина 🛒", callbackData: "CCart"),
+                                InlineKeyboardButton.WithCallbackData(text: "✨ Меню ✨", callbackData: "CMenu"),
+                        },
                     });
 
                     await client.SendTextMessageAsync(

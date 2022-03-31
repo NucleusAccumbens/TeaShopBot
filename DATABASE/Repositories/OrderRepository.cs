@@ -16,14 +16,15 @@ namespace DATABASE.Repositories
 
         public OrderRepository(ShopContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         public async Task CreateAsync(Order order)
         {
             try
             {
-                await _context.Orders.AddAsync(order);
+                await _context.Orders
+                    .AddAsync(order);
                 await _context.SaveChangesAsync();
             }
             catch (Exception)
@@ -52,12 +53,28 @@ namespace DATABASE.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<Order> GetAsync(long? orderId)
+        public async Task<Order> GetAsync(long? userChatId)
         {
             try
             {
                 return await _context.Orders
-                    .SingleAsync(order => order.OrderId == orderId);
+                    .Include(o => o.Products)
+                    .FirstAsync(order => order.UserChatId == userChatId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<Order> GetActiveOrderAsync(long? userChatId)
+        {
+            try
+            {
+                return await _context.Orders
+                    .Where(o => o.OrderStatus == true)
+                    .Include(o => o.Products)
+                    .FirstAsync(order => order.UserChatId == userChatId);
             }
             catch (Exception)
             {
@@ -70,6 +87,22 @@ namespace DATABASE.Repositories
             try
             {
                 return await _context.Orders
+                    .Include(o => o.Products)
+                    .ToListAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<Order>> GetAllUserOrdersAsync(long chatId)
+        {
+            try
+            {
+                return await _context.Orders
+                    .Where(o => o.UserChatId == chatId)
+                    .Include(o => o.Products)
                     .ToListAsync();
             }
             catch (Exception)

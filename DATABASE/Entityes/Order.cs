@@ -12,7 +12,7 @@ namespace DATABASE.Entityes
     public class Order : BaseModel
     {
         public long OrderId { get; set; }
-        public int OrderNumber { get; set; }
+        public long UserChatId { get; set; }
         public bool OrderStatus { get; set; }
 
         [MaxLength(1000)]
@@ -20,8 +20,6 @@ namespace DATABASE.Entityes
         public PaymentMethods PaymentMethod { get; set; }
         public ReceiptMethods ReceiptMethod { get; set; }
 
-        [ForeignKey("UsersChatId")]
-        public virtual User AppUser { get; set; }
         public List<Product> Products { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using DATABASE.Entityes;
 using DATABASE.Interfaces;
 using Mapster;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TeaShopBLL.DTO;
 using TeaShopBLL.Interfaces;
+using DATABASE.Repositories;
 
 namespace TeaShopBLL.Services
 {
@@ -24,7 +26,19 @@ namespace TeaShopBLL.Services
         {
             try
             {
-                var _order = order.Adapt<Order>();               
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<ProductDTO, Product>()
+                    .Include<TeaDTO, Tea>()
+                    .Include<HerbDTO, Herb>()
+                    .Include<HoneyDTO, Honey>();
+                    cfg.CreateMap<TeaDTO, Tea>();
+                    cfg.CreateMap<HerbDTO, Herb>();
+                    cfg.CreateMap<HoneyDTO, Honey>();
+                    cfg.CreateMap<OrderDTO, Order>();
+                });            
+                var mapper = config.CreateMapper();
+                var _order = mapper.Map<Order>(order);
+
                 await _repo.Orders.CreateAsync(_order);
                 await _repo.SaveAsync();
             }
@@ -39,19 +53,147 @@ namespace TeaShopBLL.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<OrderDTO>> GetAllAsync()
+        public async Task<List<OrderDTO>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<Product, ProductDTO>()
+                    .Include<Tea, TeaDTO>()
+                    .Include<Herb, HerbDTO>()
+                    .Include<Honey, HoneyDTO>();
+                    cfg.CreateMap<Tea, TeaDTO>();
+                    cfg.CreateMap<Herb, HerbDTO>();
+                    cfg.CreateMap<Honey, HoneyDTO>();
+                    cfg.CreateMap<Order, OrderDTO>();
+                });
+                var mapper = config.CreateMapper();
+
+                var orders = await _repo.Orders.GetAllAsync();
+                var orderList = new List<OrderDTO>();
+                foreach (var order in orders)
+                {
+                    var orderDto = mapper.Map<OrderDTO>(order);
+                    orderList.Add(orderDto);
+                }               
+                return orderList;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task<OrderDTO> GetAsync(long itemtId)
+        public async Task<List<OrderDTO>> GetAllUserOrdersAsync(long chatId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<Product, ProductDTO>()
+                    .Include<Tea, TeaDTO>()
+                    .Include<Herb, HerbDTO>()
+                    .Include<Honey, HoneyDTO>();
+                    cfg.CreateMap<Tea, TeaDTO>();
+                    cfg.CreateMap<Herb, HerbDTO>();
+                    cfg.CreateMap<Honey, HoneyDTO>();
+                    cfg.CreateMap<Order, OrderDTO>();
+                });
+                var mapper = config.CreateMapper();
+
+                var orders = await _repo.Orders.GetAllAsync();
+                var orderList = new List<OrderDTO>();
+                foreach (var order in orders)
+                {
+                    if (order.UserChatId == chatId)
+                    {
+                        var orderDto = mapper.Map<OrderDTO>(order);
+                        orderList.Add(orderDto);
+                    }                    
+                }
+                return orderList;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task UpdateAsync(OrderDTO item)
+        public async Task<OrderDTO> GetActiveOrderAsync(long userChatId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<Product, ProductDTO>()
+                    .Include<Tea, TeaDTO>()
+                    .Include<Herb, HerbDTO>()
+                    .Include<Honey, HoneyDTO>();
+                    cfg.CreateMap<Tea, TeaDTO>();
+                    cfg.CreateMap<Herb, HerbDTO>();
+                    cfg.CreateMap<Honey, HoneyDTO>();
+                    cfg.CreateMap<Order, OrderDTO>();
+                });
+                var mapper = config.CreateMapper();
+
+                var order = await (_repo.Orders as OrderRepository).GetActiveOrderAsync(userChatId);
+                var orderDto = mapper.Map<OrderDTO>(order);
+                return orderDto;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<OrderDTO> GetAsync(long userChatId)
+        {
+            try
+            {
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<Product, ProductDTO>()
+                    .Include<Tea, TeaDTO>()
+                    .Include<Herb, HerbDTO>()
+                    .Include<Honey, HoneyDTO>();
+                    cfg.CreateMap<Tea, TeaDTO>();
+                    cfg.CreateMap<Herb, HerbDTO>();
+                    cfg.CreateMap<Honey, HoneyDTO>();
+                    cfg.CreateMap<Order, OrderDTO>();
+                });
+                var mapper = config.CreateMapper();
+
+                var order = await _repo.Orders.GetAsync(userChatId);
+                var orderDto = mapper.Map<OrderDTO>(order);
+                return orderDto;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task UpdateAsync(OrderDTO order)
+        {
+            try
+            {
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<ProductDTO, Product>()
+                    .Include<TeaDTO, Tea>()
+                    .Include<HerbDTO, Herb>()
+                    .Include<HoneyDTO, Honey>();
+                    cfg.CreateMap<TeaDTO, Tea>();
+                    cfg.CreateMap<HerbDTO, Herb>();
+                    cfg.CreateMap<HoneyDTO, Honey>();
+                    cfg.CreateMap<OrderDTO, Order>();
+                });
+                var mapper = config.CreateMapper();
+                var _order = mapper.Map<Order>(order);
+
+                await _repo.Orders.UpdateAsync(_order);
+                await _repo.SaveAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

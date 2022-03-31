@@ -141,6 +141,11 @@ namespace TeaShopBot.Commands.CallbackCommands
                             {
                                 InlineKeyboardButton.WithCallbackData(text: "🛒 Добавить в корзину 🛒", callbackData: "CTeaAddToCard"),
                             },
+                            new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData(text: "🛒 Корзина 🛒", callbackData: "CCart"),
+                                InlineKeyboardButton.WithCallbackData(text: "✨ Меню ✨", callbackData: "CMenu"),
+                            },
                         });
 
                         await client.SendPhotoAsync(
@@ -164,6 +169,10 @@ namespace TeaShopBot.Commands.CallbackCommands
                             new[]
                             {
                                 InlineKeyboardButton.WithCallbackData(text: "🛒 Добавить в корзину 🛒", callbackData: "CTeaAddToCard"),
+                            },
+                             new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData(text: "🛒 Корзина 🛒", callbackData: "CCart"),
                             },
                         });
 

@@ -42,7 +42,7 @@ namespace TeaShopBot.Commands.CallbackCommands
 
                      await client.SendTextMessageAsync(
                         chatId: chatId,
-                        text: $"Чай успешно сохранён!",
+                        text: $"👍🏽 Чай успешно сохранён!",
                         cancellationToken: cancellationToken);
                 }
                 catch (Exception)

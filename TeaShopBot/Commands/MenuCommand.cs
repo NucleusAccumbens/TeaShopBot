@@ -26,7 +26,13 @@ namespace TeaShopBot.Commands
 
         public override async Task Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
         {
-            var chatId = update.Message.Chat.Id;
+            long chatId = default;
+            if (update.Type == UpdateType.CallbackQuery)
+            {
+                chatId = update.CallbackQuery.Message.Chat.Id;
+            }
+            else chatId = update.Message.Chat.Id;
+
             InlineKeyboardMarkup inlineKeyboardMarkup = new(new[]
             {
                         new[]
@@ -43,7 +49,7 @@ namespace TeaShopBot.Commands
                         },
                         new[]
                         {
-                            InlineKeyboardButton.WithCallbackData(text: "🛒 Корзина 🛒", callbackData: "ACart"),
+                            InlineKeyboardButton.WithCallbackData(text: "🛒 Корзина 🛒", callbackData: "CCart"),
                         },
                         new[]
                         {

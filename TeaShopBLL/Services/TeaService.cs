@@ -57,18 +57,7 @@ namespace TeaShopBLL.Services
                 var allTeas = await _repo.Teas.GetAllAsync();
                 foreach (var tea in allTeas)
                 {
-                    var teaDTO = new TeaDTO()
-                    {
-                        ProductId = tea.ProductId,
-                        ProductName = tea.ProductName,
-                        ProductDescription = tea.ProductDescription,
-                        ProductCount = tea.ProductCount,
-                        ProductPathToImage = tea.ProductPathToImage,
-                        ProductPrice = tea.ProductPrice,
-                        TeaForm = tea.TeaForm,
-                        TeaType = tea.TeaType,
-                        TeaWeight = tea.TeaWeight
-                    };
+                    var teaDTO = tea.Adapt<TeaDTO>();
                     res.Add(teaDTO);
                 }
                 return res;
@@ -90,18 +79,7 @@ namespace TeaShopBLL.Services
                 {
                     if (tea.TeaType == TeaTypes.Red)
                     {
-                        var teaDTO = new TeaDTO()
-                        {
-                            ProductId = tea.ProductId,
-                            ProductName = tea.ProductName,
-                            ProductDescription = tea.ProductDescription,
-                            ProductCount = tea.ProductCount,
-                            ProductPathToImage = tea.ProductPathToImage,
-                            ProductPrice = tea.ProductPrice,
-                            TeaForm = tea.TeaForm,
-                            TeaType = tea.TeaType,
-                            TeaWeight = tea.TeaWeight
-                        };
+                        var teaDTO = tea.Adapt<TeaDTO>();
                         res.Add(teaDTO);
                     }                 
                 }
@@ -124,18 +102,7 @@ namespace TeaShopBLL.Services
                 {
                     if (tea.TeaType == TeaTypes.Green)
                     {
-                        var teaDTO = new TeaDTO()
-                        {
-                            ProductId = tea.ProductId,
-                            ProductName = tea.ProductName,
-                            ProductDescription = tea.ProductDescription,
-                            ProductCount = tea.ProductCount,
-                            ProductPathToImage = tea.ProductPathToImage,
-                            ProductPrice = tea.ProductPrice,
-                            TeaForm = tea.TeaForm,
-                            TeaType = tea.TeaType,
-                            TeaWeight = tea.TeaWeight
-                        };
+                        var teaDTO = tea.Adapt<TeaDTO>();
                         res.Add(teaDTO);
                     }
                 }
@@ -158,18 +125,7 @@ namespace TeaShopBLL.Services
                 {
                     if (tea.TeaType == TeaTypes.White)
                     {
-                        var teaDTO = new TeaDTO()
-                        {
-                            ProductId = tea.ProductId,
-                            ProductName = tea.ProductName,
-                            ProductDescription = tea.ProductDescription,
-                            ProductCount = tea.ProductCount,
-                            ProductPathToImage = tea.ProductPathToImage,
-                            ProductPrice = tea.ProductPrice,
-                            TeaForm = tea.TeaForm,
-                            TeaType = tea.TeaType,
-                            TeaWeight = tea.TeaWeight
-                        };
+                        var teaDTO = tea.Adapt<TeaDTO>();
                         res.Add(teaDTO);
                     }
                 }
@@ -192,18 +148,7 @@ namespace TeaShopBLL.Services
                 {
                     if (tea.TeaType == TeaTypes.Oolong)
                     {
-                        var teaDTO = new TeaDTO()
-                        {
-                            ProductId = tea.ProductId,
-                            ProductName = tea.ProductName,
-                            ProductDescription = tea.ProductDescription,
-                            ProductCount = tea.ProductCount,
-                            ProductPathToImage = tea.ProductPathToImage,
-                            ProductPrice = tea.ProductPrice,
-                            TeaForm = tea.TeaForm,
-                            TeaType = tea.TeaType,
-                            TeaWeight = tea.TeaWeight
-                        };
+                        var teaDTO = tea.Adapt<TeaDTO>();
                         res.Add(teaDTO);
                     }
                 }
@@ -226,18 +171,7 @@ namespace TeaShopBLL.Services
                 {
                     if (tea.TeaType == TeaTypes.ShenPuer)
                     {
-                        var teaDTO = new TeaDTO()
-                        {
-                            ProductId = tea.ProductId,
-                            ProductName = tea.ProductName,
-                            ProductDescription = tea.ProductDescription,
-                            ProductCount = tea.ProductCount,
-                            ProductPathToImage = tea.ProductPathToImage,
-                            ProductPrice = tea.ProductPrice,
-                            TeaForm = tea.TeaForm,
-                            TeaType = tea.TeaType,
-                            TeaWeight = tea.TeaWeight
-                        };
+                        var teaDTO = tea.Adapt<TeaDTO>();
                         res.Add(teaDTO);
                     }
                 }
@@ -260,18 +194,7 @@ namespace TeaShopBLL.Services
                 {
                     if (tea.TeaType == TeaTypes.ShuPuer)
                     {
-                        var teaDTO = new TeaDTO()
-                        {
-                            ProductId = tea.ProductId,
-                            ProductName = tea.ProductName,
-                            ProductDescription = tea.ProductDescription,
-                            ProductCount = tea.ProductCount,
-                            ProductPathToImage = tea.ProductPathToImage,
-                            ProductPrice = tea.ProductPrice,
-                            TeaForm = tea.TeaForm,
-                            TeaType = tea.TeaType,
-                            TeaWeight = tea.TeaWeight
-                        };
+                        var teaDTO = tea.Adapt<TeaDTO>();
                         res.Add(teaDTO);
                     }
                 }
@@ -299,21 +222,9 @@ namespace TeaShopBLL.Services
 
         public async Task UpdateAsync(TeaDTO tea)
         {
-            var _tea = new Tea()
-            {
-                ProductId = tea.ProductId,
-                ProductName = tea.ProductName,
-                ProductDescription = tea.ProductDescription,
-                ProductPrice = tea.ProductPrice,
-                ProductPathToImage = tea.ProductPathToImage,
-                ProductCount = tea.ProductCount,
-                TeaType = tea.TeaType,
-                TeaForm = tea.TeaForm,
-                TeaWeight = tea.TeaWeight
-            };
-
             try
             {
+                var _tea = tea.Adapt<Tea>();
                 await _repo.Teas.UpdateAsync(_tea);
                 await _repo.SaveAsync();
             }

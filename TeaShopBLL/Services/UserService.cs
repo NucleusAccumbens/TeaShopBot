@@ -2,6 +2,7 @@
 using DATABASE.Entityes;
 using DATABASE.Interfaces;
 using DATABASE.Repositories;
+using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +25,7 @@ namespace TeaShopBLL.Services
         {
             try
             {
-                var _user = new User() 
-                {
-                    ChatId = user.ChatId,
-                    Name = user.Name,
-                    IsAdmin = user.IsAdmin,
-                };
+                var _user = user.Adapt<User>();
                 await _repo.Users.CreateAsync(_user);
                 await _repo.SaveAsync();
             }
@@ -61,12 +57,7 @@ namespace TeaShopBLL.Services
                 var _allUsers = await _repo.Users.GetAllAsync();
                 foreach (var user in _allUsers)
                 {
-                    var _userDTO = new UserDTO()
-                    {
-                        UserId = user.UserId,
-                        ChatId = user.ChatId,
-                        IsAdmin = user.IsAdmin
-                    };
+                    var _userDTO = user.Adapt<UserDTO>();
                     res.Add(_userDTO);
                 }
                 return res;
@@ -82,12 +73,7 @@ namespace TeaShopBLL.Services
             try
             {
                 var _user = await _repo.Users.GetAsync(userId);
-                var _userDTO = new UserDTO()
-                {
-                    UserId = _user.UserId,
-                    ChatId = _user.ChatId,
-                    IsAdmin = _user.IsAdmin
-                };
+                var _userDTO = _user.Adapt<UserDTO>();
                 return _userDTO;
             }
             catch (Exception)
@@ -100,12 +86,7 @@ namespace TeaShopBLL.Services
         {
             try
             {
-                var _user = new User()
-                {
-                    UserId = user.UserId,
-                    ChatId = user.ChatId,
-                    IsAdmin = user.IsAdmin
-                };
+                var _user = user.Adapt<User>();
                 await _repo.Users.UpdateAsync(_user);
                 await _repo.SaveAsync();
             }

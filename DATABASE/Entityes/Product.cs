@@ -21,6 +21,6 @@ namespace DATABASE.Entityes
         public string? ProductPathToImage { get; set; }
         public bool InStock { get; set; }
 
-        public virtual List<Order>? Orders { get; set; }
+        public List<Order>? Orders { get; set; }
     }
 }

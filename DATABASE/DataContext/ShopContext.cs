@@ -1,6 +1,5 @@
 ﻿using DATABASE.Entityes;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace DATABASE.DataContext
@@ -22,7 +21,7 @@ namespace DATABASE.DataContext
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(_connectionString);
-            optionsBuilder.LogTo(_logStream.WriteLine, LogLevel.Information);  // Логгирование 
+            optionsBuilder.LogTo(_logStream.WriteLine, LogLevel.Trace);  // Логгирование 
         }
 
         public override void Dispose()
@@ -40,19 +39,26 @@ namespace DATABASE.DataContext
                 {
                     UserId = 1,
                     ChatId = 444343256,
-                    Name = "noncredistka",
+                    Username = "noncredistka",
                     IsAdmin = true
                 },
                 new User
                 {
                     UserId = 2,
                     ChatId = 519140043,
-                    Name = "shanti_travels",
+                    Username = "shanti_travels",
                     IsAdmin = true
                 }
             });
-        }
 
+            modelBuilder.Entity<Product>()
+                .HasMany(c => c.Orders)
+                .WithMany(c => c.Products);
+
+            modelBuilder.Entity<Order>()
+                .HasMany(c => c.Products)
+                .WithMany(c => c.Orders);
+        }
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Tea> Teas { get; set; }

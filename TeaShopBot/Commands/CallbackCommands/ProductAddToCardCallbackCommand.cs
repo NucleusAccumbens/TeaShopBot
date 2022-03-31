@@ -11,10 +11,11 @@ using System.Threading.Tasks;
 using TeaShopBLL.DTO;
 using TeaShopBLL.Services;
 using TeaShopBot.Abstractions;
-using TeaShopDAL.Enums;
+using DATABASE.Enums;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TeaShopBot.Commands.CallbackCommands
 {
@@ -40,35 +41,57 @@ namespace TeaShopBot.Commands.CallbackCommands
 
                 if (update.CallbackQuery.Data == "CTeaAddToCard")
                 {
-                    var tea = await GetTea(update, client, cancellationToken);
-
+                    var teaDTO = await GetTea(update, client, cancellationToken);
                     try
                     {
                         using (ShopContext context = new ShopContext())
                         {
+
                             UnitOfWork _unit = new UnitOfWork(context);
-                            //var teaService = new TeaService(_unit);
-                            //var tea = await teaService.GetAsync(id);
+                            var tea = await _unit.Teas.GetAsync(teaDTO.ProductId);
+                            var orders = await (_unit.Orders as OrderRepository).GetAllUserOrdersAsync(chatId);
 
-                            var order = new OrderDTO()
+                            int activeOrdersCounter = 0;
+
+                            if (orders != null)
                             {
-                                IsDeleted = false,
-                                OrderNumber = 1,
-                                OrderStatus = true,
-                                Comment = "...",
-                                PaymentMethod = PaymentMethods.Cash,
-                                ReceiptMethod = ReceiptMethods.Pickup,
-                                UserChatId = chatId,
-                                Products = new List<ProductDTO>(),
-                            };
-                            order.Products.Add(tea);
+                                foreach (var o in orders)
+                                {
+                                    if (o.OrderStatus == true && o.Products != null)
+                                    {
+                                        if (o.Products.Contains(tea))
+                                        {
+                                            await client.SendTextMessageAsync(
+                                                chatId: chatId,
+                                                text: $"💥 <b>{tea.ProductName}</b> уже есть в корзине!\n",
+                                                parseMode: ParseMode.Html,
+                                                cancellationToken: cancellationToken);
+                                            return;
+                                        }
 
-                            var orderService = new OrderService(_unit);
-                            await orderService.CreateAsync(order);
+                                        o.Products.Add(tea);
+                                        await _unit.SaveAsync();
+                                        activeOrdersCounter++;
+                                    }
+                                }
+                            }
+                            if (activeOrdersCounter == 0)
+                            {
+                                var order = new Order()
+                                {
+                                    IsDeleted = false,
+                                    OrderStatus = true,
+                                    UserChatId = chatId,
+                                    Products = new List<Product>()
+                                };
+                                order.Products.Add(tea);
+                                await _unit.Orders.CreateAsync(order);
+                            }
+
 
                             await client.SendTextMessageAsync(
                                 chatId: chatId,
-                                text: $"✅ Товар <b>{tea.ProductName}</b> добавлен в корозину!",
+                                text: $"👍🏽 <b>{tea.ProductName}</b> добавлен в корозину!\n",
                                 parseMode: ParseMode.Html,
                                 cancellationToken: cancellationToken);
                         }
@@ -77,22 +100,72 @@ namespace TeaShopBot.Commands.CallbackCommands
                     {
                         await client.SendTextMessageAsync(
                             chatId: chatId,
-                            text: ex.Message,
+                            text: ex.InnerException.Message,
                             cancellationToken: cancellationToken);
                     }    
                 }
             }
+            if (update.CallbackQuery.Data == "CCart")
+            {
+                var chatId = update.CallbackQuery.Message.Chat.Id;
+
+                try
+                {
+                    
+                    using (ShopContext context = new ShopContext())
+                    {
+                        UnitOfWork unit = new UnitOfWork(context);
+                        var orderServise = new OrderService(unit);
+                        var userOrder = await orderServise.GetActiveOrderAsync(chatId);
+                        string message = GetCartMessage(userOrder);
+
+                        InlineKeyboardMarkup inlineKeyboardMarkup = new(new[]
+                        {
+                            new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData(text: "💳 Способ оплаты", callbackData: "DPaymentMethod"),
+                                InlineKeyboardButton.WithCallbackData(text: "🛸 Способ доставки", callbackData: "DReceiptMethod"),
+                            },
+                            new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData(text: "🤝 Подтвердить заказ", callbackData: "DOrderConfirm"),
+                            },
+                            new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData(text: "✨ Меню ✨", callbackData: "CMenu"),
+                            },
+                        });
+
+
+                        await client.SendTextMessageAsync(
+                                chatId: chatId,
+                                text: message,
+                                parseMode: ParseMode.Html,
+                                replyMarkup: inlineKeyboardMarkup,
+                                cancellationToken: cancellationToken);
+
+                    }
+                }
+                catch (Exception)
+                {
+                    await ExeptionMessage(chatId, client, cancellationToken);
+                }
+            }
+            if (update.CallbackQuery.Data == "CMenu")
+            {
+                var command = new MenuCommand();
+                await command.Execute(update, client, cancellationToken);
+            }
         }
 
-        private async Task<TeaDTO> GetTea(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
+        private async Task<ProductDTO> GetTea(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
         {
             var chatId = update.CallbackQuery.Message.Chat.Id;
             var productData = update.CallbackQuery.Message.Caption;
             var ch = '\n';
             var productId = productData.Substring(4, productData.IndexOf(ch) - 4);
-            productId.Trim();
-            int id = Convert.ToInt32(productId);
-            var tea = new TeaDTO();
+            int id = Convert.ToInt32(productId.Trim());
+            ProductDTO tea = new TeaDTO();
 
             try
             {
@@ -101,25 +174,40 @@ namespace TeaShopBot.Commands.CallbackCommands
                     UnitOfWork _unit = new UnitOfWork(context);
                     var teaService = new TeaService(_unit);
                     tea = await teaService.GetAsync(id);
-
-                    await client.SendTextMessageAsync(
-                        chatId: chatId,
-                        text: $"✅ Товар <b>{tea.ProductName}</b>, с кодом <b>{tea.ProductId}</b> получен из базы данных!",
-                        parseMode: ParseMode.Html,
-                        cancellationToken: cancellationToken);
-
                 }
                 return tea;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                await client.SendTextMessageAsync(
-                chatId: chatId,
-                text: ex.Message,
-                cancellationToken: cancellationToken);
-
+                await ExeptionMessage(chatId, client, cancellationToken);
                 return tea;
             }
+        }
+
+        private async Task ExeptionMessage(long chatId, ITelegramBotClient client, CancellationToken cancellationToken)
+        {
+             await client.SendTextMessageAsync(
+                chatId: chatId,
+                text: "🤦🏿‍♀️ Что-то пошло не так...",
+                cancellationToken: cancellationToken);
+        }
+
+        private string GetCartMessage(OrderDTO order)
+        {
+            string message = "";
+            foreach (var product in order.Products)
+            {
+                message += $"<b>{product.ProductName}</b>\n";
+                if (product is TeaDTO)
+                {
+                    message += $"⚖️ {TeaEnumParser.TeaWeightToString((product as TeaDTO).TeaWeight)} грамм\n";
+                }
+                message += $"💰 {product.ProductPrice}\n\n";                   
+            }
+            message += $"<b>💰 Общая стоимость</b>: {order.TotalProductPrice}\n" +
+                $"<b>🛸 Способ доставки</b>: {order.ReceiptMethod}\n" +
+                $"<b>💳 Способ оплаты</b>: {order.PaymentMethod}";
+            return message;
         }
 
     }
