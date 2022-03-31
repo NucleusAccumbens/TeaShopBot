@@ -44,7 +44,7 @@ namespace TeaShopBot.Commands.TeaCommands
                         {
                             InlineKeyboardButton.WithCallbackData(text: "200 грамм", callbackData: "W200"),
                             InlineKeyboardButton.WithCallbackData(text: "250 грамм", callbackData: "W250"),
-                            InlineKeyboardButton.WithCallbackData(text: "375 грамм", callbackData: "W375"),
+                            InlineKeyboardButton.WithCallbackData(text: "357 грамм", callbackData: "W357"),
                         },
                     }); 
 

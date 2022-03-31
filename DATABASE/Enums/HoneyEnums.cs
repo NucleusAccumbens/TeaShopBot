@@ -11,4 +11,13 @@ namespace DATABASE.Enums
         ThreeHundredFifty = 350,
         NineHundredFifty = 950
     }
+
+    public class HoneyEnumParser
+    {
+        public static string HoneyWeightToString(HoneyWeight honeyWeight)
+        {
+            if (honeyWeight == HoneyWeight.ThreeHundredFifty) return "350";
+            else return "950";
+        }
+    }
 }

@@ -27,7 +27,7 @@ namespace DATABASE.Enums
         OneHundredFifty = 150,
         TwoHundred = 200,
         TwoHundredFifty = 250,
-        ThreeHundredSeventyFive = 375
+        ThreeHundredFiftySeven = 357
     }
 
     public class TeaEnumParser
@@ -54,7 +54,7 @@ namespace DATABASE.Enums
             if (teaWeight == TeaWeight.OneHundredFifty) return "150";
             if (teaWeight == TeaWeight.TwoHundred) return "200";
             if (teaWeight == TeaWeight.TwoHundredFifty) return "250";
-            else return "375";
+            else return "357";
         }
     }
 }

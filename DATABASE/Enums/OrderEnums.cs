@@ -18,4 +18,20 @@ namespace TeaShopDAL.Enums
         Pickup,
         CDEK
     }
+
+    public class OrderEnumParser
+    {
+        public static string PaymentMethodToString(PaymentMethods method)
+        {
+            if (method == PaymentMethods.Cash) return "Оплата наличными";
+            if (method == PaymentMethods.Remittance) return "Оплата картой";
+            else return "Оплата по ссылке";
+        }
+
+        public static string ReceiptMethodToString(ReceiptMethods method)
+        {
+            if (method == ReceiptMethods.Pickup) return "Самовывоз";
+            else return "СДЭК";
+        }
+    }
 }

@@ -16,6 +16,7 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
+using TeaShopDAL.Enums;
 
 namespace TeaShopBot.Commands.CallbackCommands
 {
@@ -202,11 +203,19 @@ namespace TeaShopBot.Commands.CallbackCommands
                 {
                     message += $"⚖️ {TeaEnumParser.TeaWeightToString((product as TeaDTO).TeaWeight)} грамм\n";
                 }
+                if (product is HoneyDTO)
+                {
+                    message += $"⚖️ {HoneyEnumParser.HoneyWeightToString((product as HoneyDTO).HoneyWeight)} грамм\n";
+                }
+                if (product is HerbDTO)
+                {
+                    message += $"⚖️ {HerbsEnumParser.HerbsWeightToString((product as HerbDTO).Weight)} грамм\n";
+                }
                 message += $"💰 {product.ProductPrice}\n\n";                   
             }
             message += $"<b>💰 Общая стоимость</b>: {order.TotalProductPrice}\n" +
-                $"<b>🛸 Способ доставки</b>: {order.ReceiptMethod}\n" +
-                $"<b>💳 Способ оплаты</b>: {order.PaymentMethod}";
+                $"<b>🛸 Способ доставки</b>: {OrderEnumParser.ReceiptMethodToString(order.ReceiptMethod)}\n" +
+                $"<b>💳 Способ оплаты</b>: {OrderEnumParser.PaymentMethodToString(order.PaymentMethod)}";
             return message;
         }
 

@@ -62,9 +62,9 @@ namespace TeaShopBot.Commands.CallbackCommands
                     await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
                     return tea;
                 }
-                if (update.CallbackQuery.Data == "W375")
+                if (update.CallbackQuery.Data == "W357")
                 {
-                    (tea as TeaDTO).TeaWeight = TeaWeight.ThreeHundredSeventyFive;
+                    (tea as TeaDTO).TeaWeight = TeaWeight.ThreeHundredFiftySeven;
                     await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
                     return tea;
                 }
