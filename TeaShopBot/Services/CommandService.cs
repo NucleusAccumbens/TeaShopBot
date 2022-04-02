@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TeaShopBot.Abstractions;
 using TeaShopBot.Commands;
 using TeaShopBot.Commands.CallbackCommands;
+using TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands;
 using TeaShopBot.Commands.FileCommands;
 using TeaShopBot.Commands.TeaCommands;
 
@@ -58,6 +59,8 @@ namespace TeaShopBot.Services
             _callbackCommandList.Add(new TeaTypeForMenuCallbackCommand());
             _callbackCommandList.Add(new TeaListCallbackCommand());
             _callbackCommandList.Add(new ProductAddToCardCallbackCommand());
+            _callbackCommandList.Add(new OrderChangeCallbackCommand());
+            _callbackCommandList.Add(new OrderChangePaymentMethodCommand());
             return _callbackCommandList;
         }
     }

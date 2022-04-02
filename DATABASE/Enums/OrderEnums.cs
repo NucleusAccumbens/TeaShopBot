@@ -24,7 +24,7 @@ namespace TeaShopDAL.Enums
         public static string PaymentMethodToString(PaymentMethods method)
         {
             if (method == PaymentMethods.Cash) return "Оплата наличными";
-            if (method == PaymentMethods.Remittance) return "Оплата картой";
+            if (method == PaymentMethods.Remittance) return "Оплата денежным переводом";
             else return "Оплата по ссылке";
         }
 

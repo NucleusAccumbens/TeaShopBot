@@ -42,14 +42,14 @@ namespace TeaShopBot.Commands.CallbackCommands
 
                 if (update.CallbackQuery.Data == "CTeaAddToCard")
                 {
-                    var teaDTO = await GetTea(update, client, cancellationToken);
+                    var productDTO = await GetTea(update, client, cancellationToken);
                     try
                     {
                         using (ShopContext context = new ShopContext())
                         {
 
                             UnitOfWork _unit = new UnitOfWork(context);
-                            var tea = await _unit.Teas.GetAsync(teaDTO.ProductId);
+                            var tea = await _unit.Teas.GetAsync(productDTO.ProductId);
                             var orders = await (_unit.Orders as OrderRepository).GetAllUserOrdersAsync(chatId);
 
                             int activeOrdersCounter = 0;
@@ -127,13 +127,13 @@ namespace TeaShopBot.Commands.CallbackCommands
                                 InlineKeyboardButton.WithCallbackData(text: "💳 Способ оплаты", callbackData: "DPaymentMethod"),
                                 InlineKeyboardButton.WithCallbackData(text: "🛸 Способ доставки", callbackData: "DReceiptMethod"),
                             },
-                            new[]
+                                                        new[]
                             {
-                                InlineKeyboardButton.WithCallbackData(text: "🤝 Подтвердить заказ", callbackData: "DOrderConfirm"),
+                                InlineKeyboardButton.WithCallbackData(text: "❌ Удалить товар", callbackData: "DRemoveProduct"),
                             },
                             new[]
                             {
-                                InlineKeyboardButton.WithCallbackData(text: "✨ Меню ✨", callbackData: "CMenu"),
+                                InlineKeyboardButton.WithCallbackData(text: "🤝 Подтвердить заказ", callbackData: "DOrderConfirm"),
                             },
                         });
 
@@ -198,17 +198,19 @@ namespace TeaShopBot.Commands.CallbackCommands
             string message = "";
             foreach (var product in order.Products)
             {
-                message += $"<b>{product.ProductName}</b>\n";
                 if (product is TeaDTO)
                 {
+                    message += $"🍃 <b>{product.ProductName}</b>\n";
                     message += $"⚖️ {TeaEnumParser.TeaWeightToString((product as TeaDTO).TeaWeight)} грамм\n";
                 }
                 if (product is HoneyDTO)
                 {
+                    message += $"🍯 <b>{product.ProductName}</b>\n";
                     message += $"⚖️ {HoneyEnumParser.HoneyWeightToString((product as HoneyDTO).HoneyWeight)} грамм\n";
                 }
                 if (product is HerbDTO)
                 {
+                    message += $"🌱 <b>{product.ProductName}</b>\n";
                     message += $"⚖️ {HerbsEnumParser.HerbsWeightToString((product as HerbDTO).Weight)} грамм\n";
                 }
                 message += $"💰 {product.ProductPrice}\n\n";                   
