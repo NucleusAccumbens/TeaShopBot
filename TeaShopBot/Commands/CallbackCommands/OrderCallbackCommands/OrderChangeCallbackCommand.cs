@@ -169,10 +169,25 @@ namespace TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands
                         {
                             await client.SendTextMessageAsync(
                             chatId: admin.ChatId,
-                            text: $"{info}",
+                            text: $"{info}\n" +
+                            $"❗️ Если в пункте <b>От пользователя</b> нет ссылки, заказчик свяжется с тобой самостоятельно.\n" +
+                            $"✨ Чтобы понять, какой заказ ему принадлежит, уточни номер заказа! ",
                             parseMode: ParseMode.Html,
                             cancellationToken: cancellationToken);
                         }                       
+                    }
+
+                    if (update.CallbackQuery.Message.Chat.Username == null)
+                    {
+                        await client.SendTextMessageAsync(
+                            chatId: chatId,
+                            text: "💪🏾 Заказ успешно подтверждён!\n\n" +
+                            "😬 Упс...в твоём профиле отсутствует Username, админ не сможет выйти с тобой на связь...\n" +
+                            $"🔥 Но не стоит беспокоиться! Информация о заказе уже у админа! Напиши @shanti_travels и сообщи номер заказа:\n" +
+                            $"<b>№ {userOrder.OrderId}</b>",
+                            parseMode: ParseMode.Html,
+                            cancellationToken: cancellationToken) ;
+                        return;
                     }
 
                     await client.SendTextMessageAsync(
@@ -208,7 +223,8 @@ namespace TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands
             message += $"<b>💰 Общая стоимость</b>: {order.TotalProductPrice}\n" +
                 $"<b>🛸 Способ доставки</b>: {OrderEnumParser.ReceiptMethodToString(order.ReceiptMethod)}\n" +
                 $"<b>💳 Способ оплаты</b>: {OrderEnumParser.PaymentMethodToString(order.PaymentMethod)}\n" +
-                $"От пользователя: @{userName}";
+                $"<b>Номер заказа</b>: {order.OrderId}\n" +
+                $"<b>🧑🏼‍🎤 От пользователя</b>: @{userName}\n\n";
             return message;
         }
     }

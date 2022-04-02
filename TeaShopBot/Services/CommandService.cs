@@ -63,6 +63,7 @@ namespace TeaShopBot.Services
             _callbackCommandList.Add(new OrderChangePaymentMethodCallbackCommand());
             _callbackCommandList.Add(new OrderChangeReceiptMethodCallbackCommand());
             _callbackCommandList.Add(new OrderRemoveProductCallbackCommand());
+            _callbackCommandList.Add(new OrderContactUserCallbackCommand());
             return _callbackCommandList;
         }
     }

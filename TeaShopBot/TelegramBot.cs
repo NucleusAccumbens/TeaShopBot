@@ -77,7 +77,7 @@ namespace TeaShopBot
                         var user = new UserDTO()
                         {
                             ChatId = ubdate.Message.Chat.Id,
-                            Name = ubdate.Message.Chat.Username,
+                            Username = ubdate.Message.Chat.Username,
                             IsAdmin = false,
                         };                          
                         

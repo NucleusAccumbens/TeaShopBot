@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using TeaShopBLL.DTO;
 using TeaShopBLL.Services;
 using TeaShopBot.Abstractions;
-using DATABASE.Enums;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -98,7 +97,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                                 cancellationToken: cancellationToken);
                         }
                     }
-                    catch(Exception ex)
+                    catch(Exception)
                     {
                         await client.SendTextMessageAsync(
                             chatId: chatId,
