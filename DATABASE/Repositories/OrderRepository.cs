@@ -48,6 +48,25 @@ namespace DATABASE.Repositories
             }
         }
 
+        public async Task<string> DeleteProductFromOrderAsync(long? userChatId, long productId)
+        {
+            try
+            {
+                var order = await _context.Orders
+                    .Where(o => o.OrderStatus == true)
+                    .Include(o => o.Products)
+                    .SingleAsync(order => order.UserChatId == userChatId);
+                var product = order.Products.First(order => order.ProductId == productId);
+                order.Products.Remove(product);
+                await _context.SaveChangesAsync();
+                return product.ProductName;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public Task<IEnumerable<Order>> FindAsync(Func<Order, bool> predicate)
         {
             throw new NotImplementedException();

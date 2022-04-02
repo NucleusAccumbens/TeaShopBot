@@ -68,6 +68,26 @@ namespace TeaShopBLL.Services
             }
         }
 
+        public async Task<List<UserDTO>> GetAllAdminAsync()
+        {
+            try
+            {
+                var res = new List<UserDTO>();
+
+                var _allUsers = await (_repo.Users as UserRepository).GetAllAdminAsync();
+                foreach (var user in _allUsers)
+                {
+                    var _userDTO = user.Adapt<UserDTO>();
+                    res.Add(_userDTO);
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public async Task<UserDTO> GetAsync(long userId)
         {
             try

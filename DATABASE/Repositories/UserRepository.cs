@@ -79,6 +79,20 @@ namespace DATABASE.Repositories
             }
         }
 
+        public async Task<List<User>> GetAllAdminAsync()
+        {
+            try
+            {
+                return await _context.Users
+                    .Where(u => u.IsAdmin == true)
+                    .ToListAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public async Task<User?> GetUserByChatIdAsync(long chatId)
         {
             try

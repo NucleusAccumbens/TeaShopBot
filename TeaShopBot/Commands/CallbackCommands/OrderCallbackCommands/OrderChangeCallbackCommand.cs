@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using TeaShopBLL.DTO;
 using TeaShopBLL.Services;
 using TeaShopBot.Abstractions;
+using TeaShopDAL.Enums;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -96,7 +97,7 @@ namespace TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands
                                 {
                                     new[]
                                     {
-                                        InlineKeyboardButton.WithCallbackData(text: "❌ Удалить", callbackData: "ERemove"),
+                                        InlineKeyboardButton.WithCallbackData(text: "❌ Удалить", callbackData: $"G{product.ProductId}"),
                                     },
                                 });
 
@@ -129,13 +130,14 @@ namespace TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands
                                     InlineKeyboardButton.WithCallbackData(text: "🛒 Корзина 🛒", callbackData: "CCart"),
                                 },
                             });
+
                             await client.SendTextMessageAsync(
                                         chatId: chatId,
                                         text: $"Вернуться в корзину ⬇️",
                                         parseMode: ParseMode.Html,
                                         replyMarkup: inlineKeyboard,
                                         cancellationToken: cancellationToken);
-                        }
+                        }                           
                     }
                     catch (Exception)
                     {
@@ -147,9 +149,67 @@ namespace TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands
                 }
                 if (update.CallbackQuery.Data == "DOrderConfirm")
                 {
+                    OrderDTO userOrder;
+                    string userName = update.CallbackQuery.Message.Chat.Username;
+                    
+                    using (ShopContext context = new ShopContext())
+                    {
+                        UnitOfWork unit = new UnitOfWork(context);
+                        var orderServise = new OrderService(unit);
+                        userOrder = await orderServise.GetActiveOrderAsync(chatId);
+                    }
 
+                    using (ShopContext context = new ShopContext())
+                    {
+                        UnitOfWork unit = new UnitOfWork(context);
+                        var userServise = new UserService(unit);
+                        string info = GetOrderInfo(userOrder, userName);
+
+                        foreach(var admin in await userServise.GetAllAdminAsync())
+                        {
+                            await client.SendTextMessageAsync(
+                            chatId: admin.ChatId,
+                            text: $"{info}",
+                            parseMode: ParseMode.Html,
+                            cancellationToken: cancellationToken);
+                        }                       
+                    }
+
+                    await client.SendTextMessageAsync(
+                            chatId: chatId,
+                            text: "💪🏾 Заказ успешно подтверждён! Для уточнения деталей с тобой свяжется администратор.",
+                            cancellationToken: cancellationToken);
                 }
             }
+        }
+
+        private string GetOrderInfo(OrderDTO order, string userName)
+        {
+            string message = "";
+            foreach (var product in order.Products)
+            {
+                if (product is TeaDTO)
+                {
+                    message += $"🍃 <b>{product.ProductName}</b>\n";
+                    message += $"⚖️ {TeaEnumParser.TeaWeightToString((product as TeaDTO).TeaWeight)} грамм\n";
+                }
+                if (product is HoneyDTO)
+                {
+                    message += $"🍯 <b>{product.ProductName}</b>\n";
+                    message += $"⚖️ {HoneyEnumParser.HoneyWeightToString((product as HoneyDTO).HoneyWeight)} грамм\n";
+                }
+                if (product is HerbDTO)
+                {
+                    message += $"🌱 <b>{product.ProductName}</b>\n";
+                    message += $"⚖️ {HerbsEnumParser.HerbsWeightToString((product as HerbDTO).Weight)} грамм\n";
+                }
+                message += $"💰 {product.ProductPrice}\n\n";
+            }
+            message += $"<b>💰 Общая стоимость</b>: {order.TotalProductPrice}\n" +
+                $"<b>🛸 Способ доставки</b>: {OrderEnumParser.ReceiptMethodToString(order.ReceiptMethod)}\n" +
+                $"<b>💳 Способ оплаты</b>: {OrderEnumParser.PaymentMethodToString(order.PaymentMethod)}\n" +
+                $"От пользователя: @{userName}";
+            return message;
         }
     }
 }

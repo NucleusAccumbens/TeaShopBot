@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeaShopDAL.Repositories;
 
 namespace DATABASE.Repositories
 {
@@ -18,6 +19,7 @@ namespace DATABASE.Repositories
         private TeaRepository _teaRepository;
         private HerbRepository _herbRepository;
         private HoneyRepository _honeyRepository;
+        private ProductRepository _productRepository;
 
         public UnitOfWork(ShopContext context)
         {
@@ -71,6 +73,16 @@ namespace DATABASE.Repositories
                 if(_honeyRepository == null)
                    _honeyRepository = new HoneyRepository(_context);
                  return _honeyRepository;
+            }
+        }
+
+        public IRepository<Product> Products
+        {
+            get
+            {
+                if (_productRepository == null)
+                    _productRepository = new ProductRepository(_context);
+                return _productRepository;
             }
         }
 

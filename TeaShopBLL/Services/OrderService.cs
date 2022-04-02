@@ -53,6 +53,32 @@ namespace TeaShopBLL.Services
             throw new NotImplementedException();
         }
 
+        public async Task<string> DeleteProductFromOrderAsync(long? userChatId, long productId)
+        {
+            try
+            {
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<ProductDTO, Product>()
+                    .Include<TeaDTO, Tea>()
+                    .Include<HerbDTO, Herb>()
+                    .Include<HoneyDTO, Honey>();
+                    cfg.CreateMap<TeaDTO, Tea>();
+                    cfg.CreateMap<HerbDTO, Herb>();
+                    cfg.CreateMap<HoneyDTO, Honey>();
+                    cfg.CreateMap<OrderDTO, Order>();
+                });
+                var mapper = config.CreateMapper();
+
+                string productName = await (_repo.Orders as OrderRepository).DeleteProductFromOrderAsync(userChatId, productId);
+                await _repo.SaveAsync();
+                return productName;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public async Task<List<OrderDTO>> GetAllAsync()
         {
             try

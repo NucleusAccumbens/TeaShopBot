@@ -15,6 +15,7 @@ namespace DATABASE.Interfaces
         IRepository<Tea> Teas { get; }
         IRepository<Herb> Herbs { get; }
         IRepository<Honey> Honey { get; }
+        IRepository<Product> Products { get; }
         Task SaveAsync(); 
     }
 }
