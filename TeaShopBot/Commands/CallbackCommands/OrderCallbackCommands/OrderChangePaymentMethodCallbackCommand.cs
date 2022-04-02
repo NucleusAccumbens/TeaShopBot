@@ -18,7 +18,7 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands
 {
-    internal class OrderChangePaymentMethodCommand : TelegramCallbackCommand
+    internal class OrderChangePaymentMethodCallbackCommand : TelegramCallbackCommand
     {
         public override char CallbackDataCode => 'E';
 

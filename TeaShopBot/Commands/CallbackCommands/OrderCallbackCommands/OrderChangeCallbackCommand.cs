@@ -64,8 +64,8 @@ namespace TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands
                     {
                         new[]
                         {
-                            InlineKeyboardButton.WithCallbackData(text: "🚶🏾 Самовывоз", callbackData: "EPickup"),
-                            InlineKeyboardButton.WithCallbackData(text: "🚛 СДЭК", callbackData: "ESDAK"),
+                            InlineKeyboardButton.WithCallbackData(text: "🚶🏾 Самовывоз", callbackData: "FPickup"),
+                            InlineKeyboardButton.WithCallbackData(text: "🚛 СДЭК", callbackData: "FSDAK"),
                         },
                         new[]
                         {
@@ -121,6 +121,20 @@ namespace TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands
                                         replyMarkup: inlineKeyboardMarkup,
                                         cancellationToken: cancellationToken);
                             }
+
+                            InlineKeyboardMarkup inlineKeyboard = new(new[]
+                            {
+                                new[]
+                                {
+                                    InlineKeyboardButton.WithCallbackData(text: "🛒 Корзина 🛒", callbackData: "CCart"),
+                                },
+                            });
+                            await client.SendTextMessageAsync(
+                                        chatId: chatId,
+                                        text: $"Вернуться в корзину ⬇️",
+                                        parseMode: ParseMode.Html,
+                                        replyMarkup: inlineKeyboard,
+                                        cancellationToken: cancellationToken);
                         }
                     }
                     catch (Exception)
