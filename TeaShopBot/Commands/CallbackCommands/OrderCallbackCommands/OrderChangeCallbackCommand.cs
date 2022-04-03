@@ -182,7 +182,7 @@ namespace TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands
                         await client.SendTextMessageAsync(
                             chatId: chatId,
                             text: "💪🏾 Заказ успешно подтверждён!\n\n" +
-                            "😬 Упс...в твоём профиле отсутствует Username, админ не сможет выйти с тобой на связь...\n" +
+                            "😬 Упс...в твоём профиле отсутствует <b>Имя пользователя</b>, админ не сможет выйти с тобой на связь...\n" +
                             $"🔥 Но не стоит беспокоиться! Информация о заказе уже у админа! Напиши @shanti_travels и сообщи номер заказа:\n" +
                             $"<b>№ {userOrder.OrderId}</b>",
                             parseMode: ParseMode.Html,

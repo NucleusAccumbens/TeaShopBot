@@ -14,7 +14,7 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TeaShopBot.Commands.TeaCommands
 {
-    public class TeaDeskriptionCommand : TelegramCreateProductCommand
+    public class TeaDescriptionCommand : TelegramCreateProductCommand
     {
         public override string Name => @"Описание чая: ";
 
@@ -29,6 +29,10 @@ namespace TeaShopBot.Commands.TeaCommands
 
         public override async Task<ProductDTO> Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
         {
+            if (tea == null || tea is HerbDTO || tea is HoneyDTO)
+            {
+                tea = new TeaDTO();
+            }
             tea.ProductDescription = update.Message.Text.Substring(14);
             var chatId = update.Message.Chat.Id;
 

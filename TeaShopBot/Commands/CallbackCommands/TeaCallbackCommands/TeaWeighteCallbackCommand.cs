@@ -29,6 +29,10 @@ namespace TeaShopBot.Commands.CallbackCommands
         public override async Task<ProductDTO> CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
         {
             var chatId = update.CallbackQuery.Message.Chat.Id;
+            if (tea == null || tea is HerbDTO || tea is HoneyDTO)
+            {
+                tea = new TeaDTO();
+            }
 
             if (update.CallbackQuery.Data != null)
             {

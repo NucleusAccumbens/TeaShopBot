@@ -13,7 +13,7 @@ namespace TeaShopBot.Abstractions
     public abstract class TelegramAddProductCallbackCommand 
     {
         public abstract char CallbackDataCode { get; }
-        public abstract Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea);
+        public abstract Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO product);
         public abstract bool Contains(CallbackQuery message);
     }
 }

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using TeaShopBot.Abstractions;
 using TeaShopBot.Commands;
 using TeaShopBot.Commands.CallbackCommands;
+using TeaShopBot.Commands.CallbackCommands.HerbCallbackCommands;
 using TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands;
 using TeaShopBot.Commands.FileCommands;
+using TeaShopBot.Commands.HerbCommands;
 using TeaShopBot.Commands.TeaCommands;
 
 namespace TeaShopBot.Services
@@ -27,6 +29,7 @@ namespace TeaShopBot.Services
             _commandList.Add(new BackToSelectActionCommand()); 
             _commandList.Add(new AllTeaCommand());
             _commandList.Add(new MenuCommand());
+            _commandList.Add(new HerbRegionCommand());
             return _commandList;
         }
 
@@ -36,15 +39,18 @@ namespace TeaShopBot.Services
             _addProductCallbackCommandList.Add(new TeaWeighteCallbackCommand());
             _addProductCallbackCommandList.Add(new TeaFormCallbackCommand());
             _addProductCallbackCommandList.Add(new SaveTeaCallbackCommand());
+            _addProductCallbackCommandList.Add(new HernRegionCallbackCommand());
             return _addProductCallbackCommandList;
         }
 
         public List<TelegramCreateProductCommand> GetTelegramCreateProductCommands()
         {
             _createProductCommandList.Add(new TeaNameCommand());
-            _createProductCommandList.Add(new TeaDeskriptionCommand());
+            _createProductCommandList.Add(new TeaDescriptionCommand());
             _createProductCommandList.Add(new TeaPriceCommand());
             _createProductCommandList.Add(new TeaCountCommand());
+            _createProductCommandList.Add(new HerbNameCommand());
+            _createProductCommandList.Add(new HerbDescriptionCommand());
             return _createProductCommandList;
         }
 

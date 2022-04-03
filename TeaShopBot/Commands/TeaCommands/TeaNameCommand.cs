@@ -28,6 +28,10 @@ namespace TeaShopBot.Commands.TeaCommands
 
         public override async Task<ProductDTO> Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
         {
+            if (tea == null || tea is HerbDTO || tea is HoneyDTO)
+            {
+                tea = new TeaDTO();
+            }
             tea.ProductName = update.Message.Text.Substring(14);
             var chatId = update.Message.Chat.Id;
             await client.SendTextMessageAsync(

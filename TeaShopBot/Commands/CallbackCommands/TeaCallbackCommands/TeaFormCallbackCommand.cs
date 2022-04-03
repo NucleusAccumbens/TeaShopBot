@@ -31,6 +31,11 @@ namespace TeaShopBot.Commands.CallbackCommands
         {
             var chatId = update.CallbackQuery.Message.Chat.Id;
 
+            if (tea == null || tea is HerbDTO || tea is HoneyDTO)
+            {
+                tea = new TeaDTO();
+            }
+
             if (update.CallbackQuery.Data != null)
             {
                 if (update.CallbackQuery.Data == "FПресованный")

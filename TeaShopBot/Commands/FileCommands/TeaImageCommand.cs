@@ -32,6 +32,10 @@ namespace TeaShopBot.Commands.FileCommands
         public override async Task<ProductDTO> FileExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
         {
             var chatId = update.Message.Chat.Id;
+            if (tea == null || tea is HerbDTO || tea is HoneyDTO)
+            {
+                tea = new TeaDTO();
+            }
             var fileId = update.Message.Photo[2].FileId;
             InputOnlineFile file = new InputOnlineFile(fileId);
             tea.ProductPathToImage = fileId;
