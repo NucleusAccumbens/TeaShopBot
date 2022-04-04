@@ -27,38 +27,32 @@ namespace TeaShopBot.Commands.TeaCommands
             return mes.Contains(Name);
         }
 
-        public override async Task<ProductDTO> Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
+        public override async Task Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea, HerbDTO herb, HoneyDTO honey)
         {
             var chatId = update.Message.Chat.Id;
-            if (tea == null || tea is HerbDTO || tea is HoneyDTO)
-            {
-                tea = new TeaDTO();
-            }
 
             try
             {
                 tea.ProductCount = Convert.ToInt32(update.Message.Text.Substring(16));
                 await client.SendTextMessageAsync(
                             chatId: chatId,
-                            text: $"Сорт чая: {TeaEnumParser.TeaTypeToString((tea as TeaDTO).TeaType)}\n" +
+                            text: $"Сорт чая: {TeaEnumParser.TeaTypeToString(tea.TeaType)}\n" +
                             $"Название чая: {tea.ProductName}\n" +
                             $"Описание чая: {tea.ProductDescription}\n" +
-                            $"Вес чая: {TeaEnumParser.TeaWeightToString((tea as TeaDTO).TeaWeight)}\n" +
-                            $"Форма хранения чая: {TeaEnumParser.TeaFormToString((tea as TeaDTO).TeaForm)}\n" +
+                            $"Вес чая: {TeaEnumParser.TeaWeightToString(tea.TeaWeight)}\n" +
+                            $"Форма хранения чая: {TeaEnumParser.TeaFormToString(tea.TeaForm)}\n" +
                             $"Цена чая: {tea.ProductPrice}\n" +
                             $"Количество чая: {tea.ProductCount}\n\n" +
                             $"Осталось только загрузить фото! Отправь фотографию с подписью:\n" +
                             $"Фото чая",
                             cancellationToken: cancellationToken);
-                return tea;
             }
             catch (Exception)
             {
                 await client.SendTextMessageAsync(
                             chatId: chatId,
-                            text: $"Неверный формат количества! Укажи цифру.",
+                            text: $"🙅🏻‍♀️ Неверный формат количества! Укажи цифру.",
                             cancellationToken: cancellationToken);
-                return tea;
             }
         }
     }

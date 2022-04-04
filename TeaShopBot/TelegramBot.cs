@@ -78,6 +78,8 @@ namespace TeaShopBot
                         {
                             ChatId = ubdate.Message.Chat.Id,
                             Username = ubdate.Message.Chat.Username,
+                            Firstname = ubdate.Message.Chat.FirstName,
+                            Lastname = ubdate.Message.Chat.LastName,
                             IsAdmin = false,
                         };                          
                         

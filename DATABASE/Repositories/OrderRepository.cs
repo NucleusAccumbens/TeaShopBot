@@ -86,14 +86,31 @@ namespace DATABASE.Repositories
             }
         }
 
-        public async Task<Order> GetActiveOrderAsync(long? userChatId)
+        public async Task<Order> GetByOrderIdAsync(long? orderChatId)
         {
             try
             {
                 return await _context.Orders
+                    .Include(o => o.Products)
+                    .SingleAsync(order => order.OrderId == orderChatId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<Order?> GetActiveOrderAsync(long? userChatId)
+        {
+            try
+            {
+                var order = await _context.Orders
                     .Where(o => o.OrderStatus == true)
                     .Include(o => o.Products)
-                    .FirstAsync(order => order.UserChatId == userChatId);
+                    .FirstOrDefaultAsync(order => order.UserChatId == userChatId);
+
+                if (order != null) return order;
+                return null;
             }
             catch (Exception)
             {

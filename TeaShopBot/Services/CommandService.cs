@@ -7,9 +7,11 @@ using TeaShopBot.Abstractions;
 using TeaShopBot.Commands;
 using TeaShopBot.Commands.CallbackCommands;
 using TeaShopBot.Commands.CallbackCommands.HerbCallbackCommands;
+using TeaShopBot.Commands.CallbackCommands.HoneyCallbackCommands;
 using TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands;
 using TeaShopBot.Commands.FileCommands;
 using TeaShopBot.Commands.HerbCommands;
+using TeaShopBot.Commands.HoneyCommands;
 using TeaShopBot.Commands.TeaCommands;
 
 namespace TeaShopBot.Services
@@ -30,16 +32,23 @@ namespace TeaShopBot.Services
             _commandList.Add(new AllTeaCommand());
             _commandList.Add(new MenuCommand());
             _commandList.Add(new HerbRegionCommand());
+            _commandList.Add(new HoneyCommand());
+            _commandList.Add(new UserListCommand());
+            _commandList.Add(new OrderListCommand());
             return _commandList;
         }
 
         public List<TelegramAddProductCallbackCommand> GetAddProductCallbackCommands()
         {
             _addProductCallbackCommandList.Add(new TeaTypeCallbackCommand());
-            _addProductCallbackCommandList.Add(new TeaWeighteCallbackCommand());
+            _addProductCallbackCommandList.Add(new TeaWeightCallbackCommand());
             _addProductCallbackCommandList.Add(new TeaFormCallbackCommand());
-            _addProductCallbackCommandList.Add(new SaveTeaCallbackCommand());
-            _addProductCallbackCommandList.Add(new HernRegionCallbackCommand());
+            _addProductCallbackCommandList.Add(new TeaSaveCallbackCommand());
+            _addProductCallbackCommandList.Add(new HerbRegionCallbackCommand());
+            _addProductCallbackCommandList.Add(new HerbWeightCallbackCommand());
+            _addProductCallbackCommandList.Add(new HerbSaveCallbackCommand());
+            _addProductCallbackCommandList.Add(new HoneyWeightCallbackCommand());
+            _addProductCallbackCommandList.Add(new HoneySaveCallbackCommand());
             return _addProductCallbackCommandList;
         }
 
@@ -51,18 +60,26 @@ namespace TeaShopBot.Services
             _createProductCommandList.Add(new TeaCountCommand());
             _createProductCommandList.Add(new HerbNameCommand());
             _createProductCommandList.Add(new HerbDescriptionCommand());
+            _createProductCommandList.Add(new HerbPriceCommand());
+            _createProductCommandList.Add(new HerbCountCommand());
+            _createProductCommandList.Add(new HoneyNameCommand());
+            _createProductCommandList.Add(new HoneyDescriptionCommand());
+            _createProductCommandList.Add(new HoneyPriceCommand());
+            _createProductCommandList.Add(new HoneyCountCommand());
             return _createProductCommandList;
         }
 
         public List<TelegramFileCommand> GetTelegramFileCommands()
         {
             _fileCommandList.Add(new TeaImageCommand());
+            _fileCommandList.Add(new HerbImageCommand());
+            _fileCommandList.Add(new HoneyImageCommand());
             return _fileCommandList;
         }
 
         public List<TelegramCallbackCommand> GetCallbackCommands()
         {
-            _callbackCommandList.Add(new TeaTypeForMenuCallbackCommand());
+            _callbackCommandList.Add(new ProductTypeForMenuCallbackCommand());
             _callbackCommandList.Add(new TeaListCallbackCommand());
             _callbackCommandList.Add(new ProductAddToCardCallbackCommand());
             _callbackCommandList.Add(new OrderChangeCallbackCommand());
@@ -70,6 +87,9 @@ namespace TeaShopBot.Services
             _callbackCommandList.Add(new OrderChangeReceiptMethodCallbackCommand());
             _callbackCommandList.Add(new OrderRemoveProductCallbackCommand());
             _callbackCommandList.Add(new OrderContactUserCallbackCommand());
+            _callbackCommandList.Add(new HerbsListCallbackCommand());
+            _callbackCommandList.Add(new OrderHistoryCallbackCommand());
+            _callbackCommandList.Add(new OrderStatusCallbackCommand());
             return _callbackCommandList;
         }
     }

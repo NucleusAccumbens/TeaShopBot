@@ -13,7 +13,7 @@ using Telegram.Bot.Types.Enums;
 
 namespace TeaShopBot.Commands.CallbackCommands.HerbCallbackCommands
 {
-    public class HernRegionCallbackCommand : TelegramAddProductCallbackCommand
+    public class HerbRegionCallbackCommand : TelegramAddProductCallbackCommand
     {
         public override char CallbackDataCode => 'h';
         public override bool Contains(CallbackQuery message)
@@ -26,47 +26,34 @@ namespace TeaShopBot.Commands.CallbackCommands.HerbCallbackCommands
             return message.Data.Contains(CallbackDataCode);
         }
 
-        public override async Task<ProductDTO> CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO product)
+        public override async Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea, HerbDTO herb, HoneyDTO honey)
         {
-            if (product == null || product is TeaDTO || product is HoneyDTO)
-            {
-                product = new HerbDTO();
-            }
             if (update.CallbackQuery.Data != null)
             {
                 var chatId = update.CallbackQuery.Message.Chat.Id;
-                if (product == null || product is TeaDTO || product is HoneyDTO)
-                {
-                    product = new HerbDTO();
-                }
 
                 if (update.CallbackQuery.Data == "hКарелия")
                 {
-                    (product as HerbDTO).Region = HerbsRegion.Karelia;
-                    await SetHerbName(update, client, cancellationToken, product as HerbDTO);
-                    return product;
+                    herb.Region = HerbsRegion.Karelia;
+                    await SetHerbName(update, client, cancellationToken, herb);
                 }
                 if (update.CallbackQuery.Data == "hКавказ")
                 {
-                    (product as HerbDTO).Region = HerbsRegion.Caucasus;
-                    await SetHerbName(update, client, cancellationToken, product as HerbDTO);
-                    return product;
+                    herb.Region = HerbsRegion.Caucasus;
+                    await SetHerbName(update, client, cancellationToken, herb);
                 }
                 if (update.CallbackQuery.Data == "hАлтай")
                 {
-                    (product as HerbDTO).Region = HerbsRegion.Altai;
-                    await SetHerbName(update, client, cancellationToken, product as HerbDTO);
-                    return product;
+                    herb.Region = HerbsRegion.Altai;
+                    await SetHerbName(update, client, cancellationToken, herb);
                 }
                 if (update.CallbackQuery.Data == "hСибирь")
                 {
-                    (product as HerbDTO).Region = HerbsRegion.Siberia;
-                    await SetHerbName(update, client, cancellationToken, product as HerbDTO);
-                    return product;
+                    herb.Region = HerbsRegion.Siberia;
+                    await SetHerbName(update, client, cancellationToken, herb);
                 }
                
             }
-            return new HerbDTO();
         }
 
         private static async Task<HerbDTO> SetHerbName(Update update, ITelegramBotClient client, CancellationToken cancellationToken, HerbDTO herb)

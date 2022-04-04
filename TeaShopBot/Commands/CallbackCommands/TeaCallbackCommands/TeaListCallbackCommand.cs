@@ -144,7 +144,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                             new[]
                             {
                                 InlineKeyboardButton.WithCallbackData(text: "🛒 Корзина 🛒", callbackData: "CCart"),
-                                InlineKeyboardButton.WithCallbackData(text: "✨ Меню ✨", callbackData: "CMenu"),
+                                InlineKeyboardButton.WithCallbackData(text: "🍃 Выбрать сорт чая 🍃", callbackData: "ATea"),
                             },
                         });
 

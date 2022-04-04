@@ -11,11 +11,11 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
-namespace TeaShopBot.Commands.TeaCommands
+namespace TeaShopBot.Commands.HoneyCommands
 {
-    public class TeaPriceCommand : TelegramCreateProductCommand
+    public class HoneyCountCommand : TelegramCreateProductCommand
     {
-        public override string Name => @"Цена чая: ";
+        public override string Name => "Количество меда: ";
 
         public override bool Contains(Message message)
         {
@@ -29,22 +29,20 @@ namespace TeaShopBot.Commands.TeaCommands
         public override async Task Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea, HerbDTO herb, HoneyDTO honey)
         {
             var chatId = update.Message.Chat.Id;
-
             try
             {
-                tea.ProductPrice = Convert.ToDecimal(update.Message.Text.Substring(10));
+                honey.ProductCount = Convert.ToInt32(update.Message.Text.Substring(17));
                 await client.SendTextMessageAsync(
-                            chatId: chatId,
-                            text: $"Сорт чая: {TeaEnumParser.TeaTypeToString(tea.TeaType)}\n" +
-                            $"Название чая: {tea.ProductName}\n" +
-                            $"Описание чая: {tea.ProductDescription}\n" +
-                            $"Вес чая: {TeaEnumParser.TeaWeightToString(tea.TeaWeight)}\n" +
-                            $"Форма хранения чая: {TeaEnumParser.TeaFormToString(tea.TeaForm)}\n" +
-                            $"Цена чая: {tea.ProductPrice}\n\n" +
-                            $"Теперь укажи количество: \n" +
-                            $"<b>Количество чая</b>: <i>какя-то цифра...</i>",
-                            parseMode: ParseMode.Html,
-                            cancellationToken: cancellationToken);
+                       chatId: chatId,
+                       text: $"Название мёда: {honey.ProductName}\n" +
+                       $"Описание мёда: {honey.ProductDescription}\n" +
+                       $"Вес мёда: {HoneyEnumParser.HoneyWeightToString(honey.HoneyWeight)}\n" +
+                       $"Цена мёда: {honey.ProductPrice}\n" +
+                       $"Количество мёда: {honey.ProductCount}\n\n" +
+                       $"Осталось только загрузить фото! Отправь фотографию с подписью:\n" +
+                       $"Фото меда",
+                       parseMode: ParseMode.Html,
+                       cancellationToken: cancellationToken);
             }
             catch (FormatException)
             {

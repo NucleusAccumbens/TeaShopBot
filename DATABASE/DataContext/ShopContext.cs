@@ -40,6 +40,7 @@ namespace DATABASE.DataContext
                     UserId = 1,
                     ChatId = 444343256,
                     Username = "noncredistka",
+                    Firstname = "nucleus accumbens",
                     IsAdmin = true
                 },
                 new User
@@ -47,6 +48,7 @@ namespace DATABASE.DataContext
                     UserId = 2,
                     ChatId = 519140043,
                     Username = "shanti_travels",
+                    Firstname = "Алексей Курлян",
                     IsAdmin = true
                 }
             });

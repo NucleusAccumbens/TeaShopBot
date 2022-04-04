@@ -13,7 +13,7 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TeaShopBot.Commands.CallbackCommands
 {
-    public class TeaWeighteCallbackCommand : TelegramAddProductCallbackCommand
+    public class TeaWeightCallbackCommand : TelegramAddProductCallbackCommand
     {
         public override char CallbackDataCode => 'W';
         public override bool Contains(CallbackQuery message)
@@ -26,54 +26,43 @@ namespace TeaShopBot.Commands.CallbackCommands
             return message.Data.Contains(CallbackDataCode);
         }
 
-        public override async Task<ProductDTO> CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
+        public override async Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea, HerbDTO herb, HoneyDTO honey)
         {
             var chatId = update.CallbackQuery.Message.Chat.Id;
-            if (tea == null || tea is HerbDTO || tea is HoneyDTO)
-            {
-                tea = new TeaDTO();
-            }
 
             if (update.CallbackQuery.Data != null)
             {
                 if (update.CallbackQuery.Data == "W50")
                 {
-                    (tea as TeaDTO).TeaWeight = TeaWeight.Fifty;
-                    await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
-                    return tea;
+                    tea.TeaWeight = TeaWeight.Fifty;
+                    await SetTeaForm(update, client, cancellationToken, tea);
                 }
                 if (update.CallbackQuery.Data == "W100")
                 {
-                    (tea as TeaDTO).TeaWeight = TeaWeight.OneHundred;
-                    await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
-                    return tea;
+                    tea.TeaWeight = TeaWeight.OneHundred;
+                    await SetTeaForm(update, client, cancellationToken, tea);
                 }
                 if (update.CallbackQuery.Data == "W150")
                 {
-                    (tea as TeaDTO).TeaWeight = TeaWeight.OneHundredFifty;
-                    await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
-                    return tea;
+                    tea.TeaWeight = TeaWeight.OneHundredFifty;
+                    await SetTeaForm(update, client, cancellationToken, tea);
                 }
                 if (update.CallbackQuery.Data == "W200")
                 {
-                    (tea as TeaDTO).TeaWeight = TeaWeight.TwoHundred;
-                    await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
-                    return tea;
+                    tea.TeaWeight = TeaWeight.TwoHundred;
+                    await SetTeaForm(update, client, cancellationToken, tea);
                 }
                 if (update.CallbackQuery.Data == "W250")
                 {
-                    (tea as TeaDTO).TeaWeight = TeaWeight.TwoHundredFifty;
-                    await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
-                    return tea;
+                    tea.TeaWeight = TeaWeight.TwoHundredFifty;
+                    await SetTeaForm(update, client, cancellationToken, tea);
                 }
                 if (update.CallbackQuery.Data == "W357")
                 {
-                    (tea as TeaDTO).TeaWeight = TeaWeight.ThreeHundredFiftySeven;
-                    await SetTeaForm(update, client, cancellationToken, tea as TeaDTO);
-                    return tea;
+                    tea.TeaWeight = TeaWeight.ThreeHundredFiftySeven;
+                    await SetTeaForm(update, client, cancellationToken, tea);
                 }
             }
-            return tea;
         }
 
         private static async Task SetTeaForm(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea)

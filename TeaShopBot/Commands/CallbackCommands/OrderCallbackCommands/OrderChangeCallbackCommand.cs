@@ -167,12 +167,24 @@ namespace TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands
 
                         foreach(var admin in await userServise.GetAllAdminAsync())
                         {
+                            InlineKeyboardMarkup inlineKeyboard = new(new[]
+                            {
+                                new[]
+                                {
+                                    InlineKeyboardButton.WithCallbackData(text: "🤝 Сделка состоялась 🤝", callbackData: $"OArchive{userOrder.OrderId}"),
+                                },
+                            });
+
                             await client.SendTextMessageAsync(
                             chatId: admin.ChatId,
                             text: $"{info}\n" +
                             $"❗️ Если в пункте <b>От пользователя</b> нет ссылки, заказчик свяжется с тобой самостоятельно.\n" +
-                            $"✨ Чтобы понять, какой заказ ему принадлежит, уточни номер заказа! ",
+                            $"✨ Чтобы понять, какой заказ ему принадлежит, уточни номер заказа!\n\n" +
+                            $"❗️❗️ Когда заказчик получит свой заказ, нажми\n" +
+                            $"🤝 Сделка состоялась 🤝\n" +
+                            $"Заказ будет помещён в архив.",
                             parseMode: ParseMode.Html,
+                            replyMarkup: inlineKeyboard,
                             cancellationToken: cancellationToken);
                         }                       
                     }

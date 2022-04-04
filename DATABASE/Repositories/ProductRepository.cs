@@ -19,14 +19,35 @@ namespace TeaShopDAL.Repositories
             _context = context;
         }
 
-        public Task CreateAsync(Product item)
+        public async Task CreateAsync(Product product)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _context.Products
+                    .AddAsync(product);
+                await _context
+                    .SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task DeleteAsync(long? id)
+        public async Task DeleteAsync(long? id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var product = await _context.Products
+                    .SingleAsync(p => p.ProductId == id);
+                _context.Products
+                    .Remove(product);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public Task<IEnumerable<Product>> FindAsync(Func<Product, bool> predicate)
@@ -34,9 +55,17 @@ namespace TeaShopDAL.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Product>> GetAllAsync()
+        public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _context.Products
+                    .ToListAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public async Task<Product> GetAsync(long? productId)
@@ -53,9 +82,17 @@ namespace TeaShopDAL.Repositories
             }
         }
 
-        public Task UpdateAsync(Product item)
+        public async Task UpdateAsync(Product product)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Entry(product).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

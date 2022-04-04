@@ -50,6 +50,8 @@ namespace TeaShopBot.Commands.CallbackCommands
 
                             UnitOfWork _unit = new UnitOfWork(context);
                             var product = await _unit.Products.GetAsync(productDTO.ProductId);
+                            product.ProductCount -= 1;
+                            await _unit.Products.UpdateAsync(product);
                             var orders = await (_unit.Orders as OrderRepository).GetAllUserOrdersAsync(chatId);
 
                             int activeOrdersCounter = 0;
@@ -96,6 +98,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                                 parseMode: ParseMode.Html,
                                 cancellationToken: cancellationToken);
                         }
+
                     }
                     catch(Exception)
                     {
@@ -117,9 +120,9 @@ namespace TeaShopBot.Commands.CallbackCommands
                         UnitOfWork unit = new UnitOfWork(context);
                         var orderServise = new OrderService(unit);
                         var userOrder = await orderServise.GetActiveOrderAsync(chatId);
-                        string message = GetCartMessage(userOrder);
+                        string message = "";
 
-                        if (userOrder.Products.Count == 0)
+                        if (userOrder == null || userOrder.Products.Count == 0)
                         {
                             InlineKeyboardMarkup inlineKeyboard = new(new[]
                             {
@@ -136,6 +139,8 @@ namespace TeaShopBot.Commands.CallbackCommands
                                         cancellationToken: cancellationToken);
                             return;
                         }
+
+                        message = GetCartMessage(userOrder);
 
                         InlineKeyboardMarkup inlineKeyboardMarkup = new(new[]
                         {
@@ -164,9 +169,13 @@ namespace TeaShopBot.Commands.CallbackCommands
 
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    await ExeptionMessage(chatId, client, cancellationToken);
+                    await client.SendTextMessageAsync(
+                                chatId: chatId,
+                                text: ex.Message,
+                                parseMode: ParseMode.Html,
+                                cancellationToken: cancellationToken);
                 }
             }
             if (update.CallbackQuery.Data == "CMenu")
@@ -179,6 +188,7 @@ namespace TeaShopBot.Commands.CallbackCommands
         private async Task<ProductDTO> GetProduct(Update update, ITelegramBotClient client, CancellationToken cancellationToken)
         {
             var chatId = update.CallbackQuery.Message.Chat.Id;
+
             var productData = update.CallbackQuery.Message.Caption;
             var ch = '\n';
             var productId = productData.Substring(4, productData.IndexOf(ch) - 4);

@@ -21,19 +21,68 @@ namespace TeaShopBLL.Services
             _repo = repo;
         }
 
-        public Task CreateAsync(ProductDTO item)
+        public async Task CreateAsync(ProductDTO productDto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<OrderDTO, Order>();
+                    cfg.CreateMap<ProductDTO, Product>()
+                    .Include<TeaDTO, Tea>()
+                    .Include<HerbDTO, Herb>()
+                    .Include<HoneyDTO, Honey>();
+                    cfg.CreateMap<TeaDTO, Tea>();
+                    cfg.CreateMap<HerbDTO, Herb>();
+                    cfg.CreateMap<HoneyDTO, Honey>();
+                });
+                var mapper = config.CreateMapper();
+
+                var product = mapper.Map<Product>(productDto);
+                await _repo.Products.CreateAsync(product);
+                await _repo.SaveAsync();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            };
         }
 
-        public Task DeleteAsync(long itemId)
+        public async Task DeleteAsync(long itemId)
         {
-            throw new NotImplementedException();
+            await _repo.Products.DeleteAsync(itemId);
+            await _repo.SaveAsync();
         }
 
-        public Task<List<ProductDTO>> GetAllAsync()
+        public async Task<List<ProductDTO>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<Order, OrderDTO>();
+                    cfg.CreateMap<Product, ProductDTO>()
+                    .Include<Tea, TeaDTO>()
+                    .Include<Herb, HerbDTO>()
+                    .Include<Honey, HoneyDTO>();
+                    cfg.CreateMap<Tea, TeaDTO>();
+                    cfg.CreateMap<Herb, HerbDTO>();
+                    cfg.CreateMap<Honey, HoneyDTO>();
+                });
+                var mapper = config.CreateMapper();
+
+                var productsDto = new List<ProductDTO>();
+                var allProducts = await _repo.Products.GetAllAsync();
+                foreach (var product in allProducts)
+                {
+                    var productDto = mapper.Map<ProductDTO>(product);
+                    productsDto.Add(productDto);
+                }
+                return productsDto;
+            }
+            catch (Exception)
+            {
+                throw;
+            };
         }
 
         public async Task<ProductDTO> GetAsync(long productId)
@@ -62,9 +111,31 @@ namespace TeaShopBLL.Services
             };
         }
 
-        public Task UpdateAsync(ProductDTO item)
+        public async Task UpdateAsync(ProductDTO productDto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<OrderDTO, Order>();
+                    cfg.CreateMap<ProductDTO, Product>()
+                    .Include<TeaDTO, Tea>()
+                    .Include<HerbDTO, Herb>()
+                    .Include<HoneyDTO, Honey>();
+                    cfg.CreateMap<TeaDTO, Tea>();
+                    cfg.CreateMap<HerbDTO, Herb>();
+                    cfg.CreateMap<HoneyDTO, Honey>();
+                });
+                var mapper = config.CreateMapper();
+
+                var product = mapper.Map<Product>(productDto);
+                await _repo.Products.UpdateAsync(product);
+                await _repo.SaveAsync();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            };
         }
     }
 }

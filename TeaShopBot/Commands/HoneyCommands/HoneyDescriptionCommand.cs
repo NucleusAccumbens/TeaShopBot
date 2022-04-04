@@ -1,5 +1,4 @@
-﻿using DATABASE.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,46 +11,43 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 
-namespace TeaShopBot.Commands.HerbCommands
+namespace TeaShopBot.Commands.HoneyCommands
 {
-    public class HerbDescriptionCommand : TelegramCreateProductCommand
+    public class HoneyDescriptionCommand : TelegramCreateProductCommand
     {
-        public override string Name => "Описание сбора: ";
+        public override string Name => "Описание меда: ";
 
         public override bool Contains(Message message)
         {
             if (message.Type != MessageType.Text)
                 return false;
+            string mes = message.Text;
 
-            return message.Text.Contains(Name);
+            return mes.Contains(Name);
         }
 
         public override async Task Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea, HerbDTO herb, HoneyDTO honey)
         {
+            honey.ProductDescription = update.Message.Text.Substring(15);
             var chatId = update.Message.Chat.Id;
-            herb.ProductDescription = update.Message.Text.Substring(16);
 
             InlineKeyboardMarkup inlineKeyboardMarkup = new(new[]
             {
                 new[]
                 {
-                    InlineKeyboardButton.WithCallbackData(text: "50 грамм", callbackData: "I50"),
-                    InlineKeyboardButton.WithCallbackData(text: "100 грамм", callbackData: "I100"),
-                    InlineKeyboardButton.WithCallbackData(text: "150 грамм", callbackData: "I150"),
+                    InlineKeyboardButton.WithCallbackData(text: "350 грамм", callbackData: "w350"),
                 },
                 new[]
                 {
-                     InlineKeyboardButton.WithCallbackData(text: "200 грамм", callbackData: "I200"),
-                     InlineKeyboardButton.WithCallbackData(text: "250 грамм", callbackData: "I250"),
+                    InlineKeyboardButton.WithCallbackData(text: "950 грамм", callbackData: "w950"),
                 },
             });
 
             await client.SendTextMessageAsync(
                         chatId: chatId,
-                        text: $"Регион: {HerbsEnumParser.HerbsRegionToString(herb.Region)}\n" +
-                        $"Название сбора: {herb.ProductName}\n" +
-                        $"Описание сбора: {herb.ProductDescription}\n\n" +
-                        $"Выбери вес сбора: \n",
+                        text: $"Название мёда: {honey.ProductName}\n" +
+                        $"Описание мёда: {honey.ProductDescription}\n\n" +
+                        $"Далее выбери вес мёда: ",
                         parseMode: ParseMode.Html,
                         replyMarkup: inlineKeyboardMarkup,
                         cancellationToken: cancellationToken);

@@ -13,7 +13,7 @@ namespace TeaShopBot.Abstractions
     public abstract class TelegramFileCommand
     {
         public abstract string Name { get; }
-        public abstract Task FileExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO product);
+        public abstract Task FileExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea, HerbDTO herb, HoneyDTO honey);
         public abstract bool Contains(Message message);
     }
 }

@@ -1,5 +1,7 @@
 using DATABASE.Entityes;
+using DATABASE.Enums;
 using DATABASE.Interfaces;
+using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,17 +25,7 @@ namespace TeaShopBLL.Services
         {
             try
             {
-                var _herb = new Herb()
-                {
-                    ProductName = herb.ProductName,
-                    ProductDescription = herb.ProductDescription,
-                    ProductPrice = herb.ProductPrice,
-                    ProductCount = herb.ProductCount,
-                    ProductPathToImage = herb.ProductPathToImage,
-                    InStock = herb.InStock,
-                    Weight = herb.Weight,
-                    Region = herb.Region,
-                };
+                var _herb = herb.Adapt<Herb>();
                 await _repo.Herbs.CreateAsync(_herb);
                 await _repo.SaveAsync();
             }
@@ -64,17 +56,7 @@ namespace TeaShopBLL.Services
                 var allHerbs = await _repo.Herbs.GetAllAsync();
                 foreach (var herb in allHerbs)
                 {
-                    var herbDTO = new HerbDTO()
-                    {
-                        ProductId = herb.ProductId,
-                        ProductName = herb.ProductName,
-                        ProductDescription = herb.ProductDescription,
-                        ProductCount = herb.ProductCount,
-                        ProductPathToImage = herb.ProductPathToImage,
-                        ProductPrice = herb.ProductPrice,
-                        Region = herb.Region,
-                        Weight = herb.Weight         
-                    };
+                    var herbDTO = herb.Adapt<HerbDTO>();
                     res.Add(herbDTO);   
                 }
                 return res;
@@ -83,6 +65,86 @@ namespace TeaShopBLL.Services
             {
                 throw;
             }
+        }
+
+        public async Task<List<HerbDTO>> GetAllAltaiHerbsAsync()
+        {
+            try
+            {
+                var res = new List<HerbDTO>();
+                var allHerbs = await _repo.Herbs.GetAllAsync();
+
+                foreach (var herb in allHerbs)
+                {
+                    if (herb.Region == HerbsRegion.Altai)
+                        res.Add(herb.Adapt<HerbDTO>());
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
+            };
+        }
+
+        public async Task<List<HerbDTO>> GetAllCaucasusHerbsAsync()
+        {
+            try
+            {
+                var res = new List<HerbDTO>();
+                var allHerbs = await _repo.Herbs.GetAllAsync();
+
+                foreach (var herb in allHerbs)
+                {
+                    if (herb.Region == HerbsRegion.Caucasus)
+                        res.Add(herb.Adapt<HerbDTO>());
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
+            };
+        }
+
+        public async Task<List<HerbDTO>> GetAllKareliaHerbsAsync()
+        {
+            try
+            {
+                var res = new List<HerbDTO>();
+                var allHerbs = await _repo.Herbs.GetAllAsync();
+
+                foreach (var herb in allHerbs)
+                {
+                    if (herb.Region == HerbsRegion.Karelia)
+                        res.Add(herb.Adapt<HerbDTO>());
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
+            };
+        }
+
+        public async Task<List<HerbDTO>> GetAllSiberiaaHerbsAsync()
+        {
+            try
+            {
+                var res = new List<HerbDTO>();
+                var allHerbs = await _repo.Herbs.GetAllAsync();
+
+                foreach (var herb in allHerbs)
+                {
+                    if (herb.Region == HerbsRegion.Siberia)
+                        res.Add(herb.Adapt<HerbDTO>());
+                }
+                return res;
+            }
+            catch (Exception)
+            {
+                throw;
+            };
         }
 
         public async Task<HerbDTO> GetAsync(long productId)

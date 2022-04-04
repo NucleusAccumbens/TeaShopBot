@@ -1,5 +1,4 @@
-﻿using DATABASE.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +10,11 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
-namespace TeaShopBot.Commands.TeaCommands
+namespace TeaShopBot.Commands.HoneyCommands
 {
-    public class TeaNameCommand : TelegramCreateProductCommand
+    public class HoneyNameCommand : TelegramCreateProductCommand
     {
-        public override string Name => @"Название чая: ";
+        public override string Name => "Название меда: ";
 
         public override bool Contains(Message message)
         {
@@ -28,15 +27,13 @@ namespace TeaShopBot.Commands.TeaCommands
 
         public override async Task Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea, HerbDTO herb, HoneyDTO honey)
         {
-
-            tea.ProductName = update.Message.Text.Substring(14);
+            honey.ProductName = update.Message.Text.Substring(15);
             var chatId = update.Message.Chat.Id;
             await client.SendTextMessageAsync(
                         chatId: chatId,
-                        text: $"Сорт чая: {TeaEnumParser.TeaTypeToString(tea.TeaType)}\n" +
-                        $"Название чая: {tea.ProductName}\n\n" +
-                        $"Теперь отправь сообщение с описанием чая: \n" +
-                        $"<b>Описание чая</b>: <i>какое-то описание...</i>",
+                        text: $"Название мёда: {honey.ProductName}\n\n" +
+                        $"Теперь отправь сообщение с описанием мёда: \n" +
+                        $"<b>Описание меда</b>: <i>какое-то описание...</i>",
                         parseMode: ParseMode.Html,
                         cancellationToken: cancellationToken);
         }

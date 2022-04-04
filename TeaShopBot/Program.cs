@@ -16,9 +16,10 @@ namespace TeaShopBot
     public class Program
     {
         private static readonly TelegramBot _bot = new TelegramBot();
-        private static ProductDTO _tea = new TeaDTO();
-        private static ProductDTO _herb = new HerbDTO();
-        private static ProductDTO _honey = new HoneyDTO();
+        private static TeaDTO _tea = new TeaDTO();
+        private static HerbDTO _herb = new HerbDTO();
+        private static HoneyDTO _honey = new HoneyDTO();
+
 
         static void Main(string[] args)
         {
@@ -52,7 +53,7 @@ namespace TeaShopBot
                     {
                         if (fileCommand.Contains(update.Message))
                         {
-                            await fileCommand.FileExecute(update, botClient, cancellationToken, _tea);
+                            await fileCommand.FileExecute(update, botClient, cancellationToken, _tea, _herb, _honey);
                             break;
                         }
                         
@@ -68,7 +69,7 @@ namespace TeaShopBot
                     {
                         if (callbackCommand.Contains(callbackQuery))
                         {
-                            await callbackCommand.CallbackExecute(update, botClient, cancellationToken, _tea);
+                            await callbackCommand.CallbackExecute(update, botClient, cancellationToken, _tea, _herb, _honey);
                             break;
                         }
                     }
@@ -123,7 +124,7 @@ namespace TeaShopBot
                     {
                         if (addProductCommand.Contains(message))
                         {
-                            await addProductCommand.Execute(update, botClient, cancellationToken, _tea);
+                            await addProductCommand.Execute(update, botClient, cancellationToken, _tea, _herb, _honey);
                             break;
                         }
                     }

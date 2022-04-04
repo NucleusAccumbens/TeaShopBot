@@ -14,7 +14,7 @@ using Telegram.Bot.Types;
 
 namespace TeaShopBot.Commands.CallbackCommands
 {
-    public class SaveTeaCallbackCommand : TelegramAddProductCallbackCommand
+    public class TeaSaveCallbackCommand : TelegramAddProductCallbackCommand
     {
         public override char CallbackDataCode => 'S';
         public override bool Contains(CallbackQuery message)
@@ -27,7 +27,7 @@ namespace TeaShopBot.Commands.CallbackCommands
             return message.Data.Contains(CallbackDataCode);
         }
 
-        public override async Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
+        public override async Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea, HerbDTO herb, HoneyDTO honey)
         {
             var chatId = update.CallbackQuery.Message.Chat.Id;
             using (ShopContext context = new ShopContext())
@@ -38,7 +38,7 @@ namespace TeaShopBot.Commands.CallbackCommands
                     UnitOfWork _unit = new UnitOfWork(context);
                     var teaService = new TeaService(_unit);
 
-                     await teaService.CreateAsync(tea as TeaDTO);
+                     await teaService.CreateAsync(tea);
 
                      await client.SendTextMessageAsync(
                         chatId: chatId,

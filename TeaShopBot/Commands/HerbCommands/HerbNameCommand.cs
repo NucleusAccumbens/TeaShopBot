@@ -25,23 +25,19 @@ namespace TeaShopBot.Commands.HerbCommands
             return message.Text.Contains(Name);
         }
 
-        public override async Task<ProductDTO> Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO product)
+        public override async Task Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea, HerbDTO herb, HoneyDTO honey)
         {
-            if (product == null || product is TeaDTO || product is HoneyDTO)
-            {
-                product = new HerbDTO();
-            }
+
             var chatId = update.Message.Chat.Id;
-            product.ProductName = update.Message.Text.Substring(16);
+            herb.ProductName = update.Message.Text.Substring(16);
             await client.SendTextMessageAsync(
                         chatId: chatId,
-                        text: $"Регион: {HerbsEnumParser.HerbsRegionToString((product as HerbDTO).Region)}\n" +
-                        $"Название сбора: {product.ProductName}\n\n" +
+                        text: $"Регион: {HerbsEnumParser.HerbsRegionToString(herb.Region)}\n" +
+                        $"Название сбора: {herb.ProductName}\n\n" +
                         $"Теперь отправь сообщение с описанием сбора: \n" +
                         $"<b>Описание сбора</b>: <i>какое-то описание...</i>",
                         parseMode: ParseMode.Html,
                         cancellationToken: cancellationToken);
-            return product;
         }
     }
 }

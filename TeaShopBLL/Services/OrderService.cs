@@ -144,7 +144,7 @@ namespace TeaShopBLL.Services
             }
         }
 
-        public async Task<OrderDTO> GetActiveOrderAsync(long userChatId)
+        public async Task<OrderDTO?> GetActiveOrderAsync(long userChatId)
         {
             try
             {
@@ -161,8 +161,12 @@ namespace TeaShopBLL.Services
                 var mapper = config.CreateMapper();
 
                 var order = await (_repo.Orders as OrderRepository).GetActiveOrderAsync(userChatId);
-                var orderDto = mapper.Map<OrderDTO>(order);
-                return orderDto;
+                if (order != null)
+                {
+                    var orderDto = mapper.Map<OrderDTO>(order);
+                    return orderDto;
+                }
+                else return null;
             }
             catch (Exception)
             {
@@ -187,6 +191,32 @@ namespace TeaShopBLL.Services
                 var mapper = config.CreateMapper();
 
                 var order = await _repo.Orders.GetAsync(userChatId);
+                var orderDto = mapper.Map<OrderDTO>(order);
+                return orderDto;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<OrderDTO> GetByOrderIdAsync(long orderId)
+        {
+            try
+            {
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<Product, ProductDTO>()
+                    .Include<Tea, TeaDTO>()
+                    .Include<Herb, HerbDTO>()
+                    .Include<Honey, HoneyDTO>();
+                    cfg.CreateMap<Tea, TeaDTO>();
+                    cfg.CreateMap<Herb, HerbDTO>();
+                    cfg.CreateMap<Honey, HoneyDTO>();
+                    cfg.CreateMap<Order, OrderDTO>();
+                });
+                var mapper = config.CreateMapper();
+
+                var order = await (_repo.Orders as OrderRepository).GetByOrderIdAsync(orderId);
                 var orderDto = mapper.Map<OrderDTO>(order);
                 return orderDto;
             }

@@ -40,6 +40,7 @@ namespace TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands
                 try
                 {
                     long productId = Convert.ToInt64(update.CallbackQuery.Data.Substring(1));
+                    await ChangeProductCount(productId);
                     OrderDTO order;
 
                     using (ShopContext context = new ShopContext())
@@ -79,6 +80,24 @@ namespace TeaShopBot.Commands.CallbackCommands.OrderCallbackCommands
                         $"{ex.Message}",
                         cancellationToken: cancellationToken);
                 }
+            }
+        }
+
+        private async Task ChangeProductCount(long productId)
+        {
+            try
+            {
+                using (ShopContext context = new ShopContext())
+                {
+                    UnitOfWork repo = new UnitOfWork(context);
+                    var product = await repo.Products.GetAsync(productId);
+                    product.ProductCount += 1;
+                    await repo.Products.UpdateAsync(product);
+                }
+            }
+            catch(Exception)
+            {
+                throw;
             }
         }
 

@@ -27,12 +27,8 @@ namespace TeaShopBot.Commands.TeaCommands
             return mes.Contains(Name);
         }
 
-        public override async Task<ProductDTO> Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
+        public override async Task Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea, HerbDTO herb, HoneyDTO honey)
         {
-            if (tea == null || tea is HerbDTO || tea is HoneyDTO)
-            {
-                tea = new TeaDTO();
-            }
             tea.ProductDescription = update.Message.Text.Substring(14);
             var chatId = update.Message.Chat.Id;
 
@@ -54,13 +50,12 @@ namespace TeaShopBot.Commands.TeaCommands
 
             await client.SendTextMessageAsync(
                 chatId: chatId,
-                text: $"Сорт чая: {TeaEnumParser.TeaTypeToString((tea as TeaDTO).TeaType)}\n" +
+                text: $"Сорт чая: {TeaEnumParser.TeaTypeToString(tea.TeaType)}\n" +
                 $"Название чая: {tea.ProductName}\n" +
                 $"Описание чая: {tea.ProductDescription}\n\n" +
                 $"Далее выбери вес чая: ",
                 replyMarkup: inlineKeyboardMarkup,
                 cancellationToken: cancellationToken);
-            return tea;
            }    
         }
 }

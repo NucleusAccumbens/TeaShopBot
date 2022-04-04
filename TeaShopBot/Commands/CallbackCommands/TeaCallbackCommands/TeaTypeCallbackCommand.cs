@@ -27,56 +27,44 @@ namespace TeaShopBot.Commands.CallbackCommands
             return message.Data.Contains(CallbackDataCode);
         }
 
-        public override async Task<ProductDTO> CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, ProductDTO tea)
+        public override async Task CallbackExecute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea, HerbDTO herb, HoneyDTO honey)
         {
 
             if (update.CallbackQuery.Data != null)
             {
                 var chatId = update.CallbackQuery.Message.Chat.Id;
 
-                if (tea == null || tea is HerbDTO || tea is HoneyDTO)
-                {
-                    tea = new TeaDTO();
-                }
-
                 if (update.CallbackQuery.Data == "TКрасный")
                 {
-                    (tea as TeaDTO).TeaType = TeaTypes.Red;
-                    await SetTeaName(update, client, cancellationToken, tea as TeaDTO);
-                    return tea;
+                    tea.TeaType = TeaTypes.Red;
+                    await SetTeaName(update, client, cancellationToken, tea);
                 }
                 if (update.CallbackQuery.Data == "TЗелёный")
                 {
-                    (tea as TeaDTO).TeaType = TeaTypes.Green;
-                    await SetTeaName(update, client, cancellationToken, tea as TeaDTO);
-                    return tea;
+                    tea.TeaType = TeaTypes.Green;
+                    await SetTeaName(update, client, cancellationToken, tea);
                 }
                 if (update.CallbackQuery.Data == "TБелый")
                 {
-                    (tea as TeaDTO).TeaType = TeaTypes.White;
-                    await SetTeaName(update, client, cancellationToken, tea as TeaDTO);
-                    return tea;
+                    tea.TeaType = TeaTypes.White;
+                    await SetTeaName(update, client, cancellationToken, tea);
                 }
                 if (update.CallbackQuery.Data == "TУлун")
                 {
-                    (tea as TeaDTO).TeaType = TeaTypes.Oolong;
-                    await SetTeaName(update, client, cancellationToken, tea as TeaDTO);
-                    return tea;
+                    tea.TeaType = TeaTypes.Oolong;
+                    await SetTeaName(update, client, cancellationToken, tea);
                 }
                 if (update.CallbackQuery.Data == "TШу пуэр")
                 {
-                    (tea as TeaDTO).TeaType = TeaTypes.ShuPuer;
-                    await SetTeaName(update, client, cancellationToken, tea as TeaDTO);
-                    return tea;
+                    tea.TeaType = TeaTypes.ShuPuer;
+                    await SetTeaName(update, client, cancellationToken, tea);
                 }
                 if (update.CallbackQuery.Data == "TШен пуэр")
                 {
-                    (tea as TeaDTO).TeaType = TeaTypes.ShenPuer;
-                    await SetTeaName(update, client, cancellationToken, tea as TeaDTO);
-                    return tea;
+                    tea.TeaType = TeaTypes.ShenPuer;
+                    await SetTeaName(update, client, cancellationToken, tea);
                 }
             }
-            return new TeaDTO();
         }
 
         private static async Task<TeaDTO> SetTeaName(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea)
