@@ -1,5 +1,6 @@
 using DATABASE.Entityes;
 using DATABASE.Interfaces;
+using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,21 +20,11 @@ namespace TeaShopBLL.Services
             _repo = repo;
         }
 
-        public async Task CreateAsync(HoneyDTO honey)
+        public async Task CreateAsync(HoneyDTO honeyDto)
         {
             try
             {
-                var _honey = new Honey()
-                {
-                    ProductName = honey.ProductName,
-                    ProductDescription = honey.ProductDescription,
-                    ProductCount = honey.ProductCount,
-                    ProductPrice = honey.ProductPrice,
-                    ProductPathToImage = honey.ProductPathToImage,
-                    InStock = honey.InStock,
-                    HoneyWeight = honey.HoneyWeight
-                };
-
+                var _honey = honeyDto.Adapt<Honey>();
                 await _repo.Honey.CreateAsync(_honey);
                 await _repo.SaveAsync();
             }
@@ -64,16 +55,7 @@ namespace TeaShopBLL.Services
                 var allHoney = await _repo.Honey.GetAllAsync();
                 foreach(var honey in allHoney)
                 {
-                    var _honeyDTO = new HoneyDTO()
-                    {
-                        ProductId = honey.ProductId,
-                        ProductName = honey.ProductName,
-                        ProductDescription = honey.ProductDescription,
-                        ProductCount = honey.ProductCount,
-                        ProductPathToImage = honey.ProductPathToImage,
-                        ProductPrice = honey.ProductPrice,
-                        HoneyWeight = honey.HoneyWeight
-                    };
+                    var _honeyDTO = honey.Adapt<HoneyDTO>();
                     res.Add(_honeyDTO);
                 }
                 return res;
@@ -89,16 +71,7 @@ namespace TeaShopBLL.Services
             try
             {
                 var _honey = await _repo.Honey.GetAsync(productId);
-                var _honeyDTO = new HoneyDTO()
-                {
-                    ProductId = _honey.ProductId,
-                    ProductName = _honey.ProductName,
-                    ProductDescription = _honey.ProductDescription,
-                    ProductCount = _honey.ProductCount,
-                    ProductPathToImage = _honey.ProductPathToImage,
-                    ProductPrice = _honey.ProductPrice,
-                    HoneyWeight = _honey.HoneyWeight
-                };
+                var _honeyDTO = _honey.Adapt<HoneyDTO>();
                 return _honeyDTO;
             }
             catch (Exception)
@@ -107,11 +80,12 @@ namespace TeaShopBLL.Services
             }
         }
 
-        public async Task UpdateAsync(HoneyDTO product)
+        public async Task UpdateAsync(HoneyDTO honeyDto)
         {
             try
             {
-                await _repo.Honey.DeleteAsync(product.ProductId);
+                var _honey = honeyDto.Adapt<Honey>();
+                await _repo.Honey.UpdateAsync(_honey);
                 await _repo.SaveAsync();
             }
             catch (Exception)

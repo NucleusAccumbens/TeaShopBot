@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TeaShopBot.Abstractions;
 using TeaShopBot.Commands;
+using TeaShopBot.Commands.AdminCommands;
+using TeaShopBot.Commands.AdminCommands.AdminCallbackCommands;
+using TeaShopBot.Commands.AdminCommands.AdminFileCommand;
 using TeaShopBot.Commands.CallbackCommands;
 using TeaShopBot.Commands.CallbackCommands.HerbCallbackCommands;
 using TeaShopBot.Commands.CallbackCommands.HoneyCallbackCommands;
@@ -26,7 +29,7 @@ namespace TeaShopBot.Services
         public List<TelegramCommand> GetCommands()
         {
             _commandList.Add(new StartCommand());
-            _commandList.Add(new AddProductCommand());
+            _commandList.Add(new ShopAddProductCommand());
             _commandList.Add(new TeaTypeCommand());
             _commandList.Add(new BackToSelectActionCommand()); 
             _commandList.Add(new AllTeaCommand());
@@ -35,6 +38,10 @@ namespace TeaShopBot.Services
             _commandList.Add(new HoneyCommand());
             _commandList.Add(new UserListCommand());
             _commandList.Add(new OrderListCommand());
+            _commandList.Add(new ShopEditCommand());
+            _commandList.Add(new ProductEditDescriptionCommand());
+            _commandList.Add(new ProductEditCountCommand());
+            _commandList.Add(new ProductPriceEditCommand());
             return _commandList;
         }
 
@@ -74,6 +81,7 @@ namespace TeaShopBot.Services
             _fileCommandList.Add(new TeaImageCommand());
             _fileCommandList.Add(new HerbImageCommand());
             _fileCommandList.Add(new HoneyImageCommand());
+            _fileCommandList.Add(new ProductEditPhotoCommand());
             return _fileCommandList;
         }
 
@@ -90,6 +98,11 @@ namespace TeaShopBot.Services
             _callbackCommandList.Add(new HerbsListCallbackCommand());
             _callbackCommandList.Add(new OrderHistoryCallbackCommand());
             _callbackCommandList.Add(new OrderStatusCallbackCommand());
+            _callbackCommandList.Add(new ShopEditCallbackCommand());
+            _callbackCommandList.Add(new ProductTypeForEditCallbackCommand());
+            _callbackCommandList.Add(new HoneyEditCallbackCommand());
+            _callbackCommandList.Add(new TeaListForEditCallbackCommand());
+            _callbackCommandList.Add(new HerbListForEditCallbackCommand());
             return _callbackCommandList;
         }
     }

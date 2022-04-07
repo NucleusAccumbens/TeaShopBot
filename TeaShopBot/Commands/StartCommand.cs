@@ -35,7 +35,7 @@ namespace TeaShopBot.Commands
             {
                 ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
                 {
-                    new KeyboardButton[] { "🍓 Добавить товар", "📃 История заказов" },
+                    new KeyboardButton[] { "🎁 Добавить товар", "📃 История заказов" },
                     new KeyboardButton[] { "✏️ Редактировать", "👨‍👨‍👦 Список пользователей" },
                     new KeyboardButton[] { "✨ Меню ✨" },
                 })

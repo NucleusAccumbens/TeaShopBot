@@ -1,4 +1,6 @@
-﻿using DATABASE.Enums;
+﻿using DATABASE.DataContext;
+using DATABASE.Enums;
+using DATABASE.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TeaShopBLL.DTO;
+using TeaShopBLL.Services;
 using TeaShopBot.Abstractions;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -29,6 +32,7 @@ namespace TeaShopBot.Commands.HoneyCommands
         public override async Task Execute(Update update, ITelegramBotClient client, CancellationToken cancellationToken, TeaDTO tea, HerbDTO herb, HoneyDTO honey)
         {           
             var chatId = update.Message.Chat.Id;
+
             try
             {
                 honey.ProductPrice = Convert.ToDecimal(update.Message.Text.Substring(11));

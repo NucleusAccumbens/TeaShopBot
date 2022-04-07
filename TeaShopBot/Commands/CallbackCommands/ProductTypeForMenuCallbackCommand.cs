@@ -130,13 +130,13 @@ namespace TeaShopBot.Commands.CallbackCommands
                             IUnitOfWork unit = new UnitOfWork(context);
                             var honeyService = new HoneyService(unit);
                             var honey = await honeyService.GetAllAsync();
+                            int honeyCount = 0;
 
-                            if (honey.Count == 0) 
-                                await client.SendTextMessageAsync(
-                                    chatId: chatId,
-                                    text: "🤷🏼 Здесь пока ничего нет...\n" +
-                                    "Но это временно, не пропусти обновления ✨",
-                                    cancellationToken: cancellationToken);
+                            if (honey.Count == 0)
+                            {
+                                await GetMessageForHoneyCountIsNull(chatId, client, cancellationToken);
+                                return;
+                            }                              
 
                             foreach (var h in honey)
                             {
@@ -167,6 +167,8 @@ namespace TeaShopBot.Commands.CallbackCommands
                                         parseMode: ParseMode.Html,
                                         replyMarkup: inlineKeyboardMarkup,
                                         cancellationToken: cancellationToken);
+
+                                    honeyCount++;
                                 }
                                 if (h.ProductPathToImage == null && h.InStock == true)
                                 {
@@ -194,8 +196,13 @@ namespace TeaShopBot.Commands.CallbackCommands
                                         parseMode: ParseMode.Html,
                                         replyMarkup: inlineKeyboardMarkup,
                                         cancellationToken: cancellationToken);
+
+                                    honeyCount++;
                                 }
                             }
+
+                            if (honeyCount == 0) 
+                                await GetMessageForHoneyCountIsNull(chatId, client, cancellationToken);
                         }
                     }
                     catch (Exception)
@@ -224,6 +231,15 @@ namespace TeaShopBot.Commands.CallbackCommands
                        cancellationToken: cancellationToken);
                 }
             }         
+        }
+
+        private async Task GetMessageForHoneyCountIsNull(long chatId, ITelegramBotClient client, CancellationToken cancellationToken)
+        {
+            await client.SendTextMessageAsync(
+                                    chatId: chatId,
+                                    text: "🤷🏼 Здесь пока ничего нет...\n" +
+                                    "Но это временно, не пропусти обновления ✨",
+                                    cancellationToken: cancellationToken);
         }
     }
 }

@@ -16,8 +16,4 @@
     <ProjectReference Include="..\TeaShopBLL\TeaShopBLL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commands\AdminCommands\AdminCallbackCommands\" />
-  </ItemGroup>
-
 </Project>

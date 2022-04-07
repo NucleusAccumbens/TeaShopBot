@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using TeaShopBLL.DTO;
 using TeaShopBot.Abstractions;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 
-namespace TeaShopBot.Commands
+namespace TeaShopBot.Commands.AdminCommands
 {
-    public class AddProductCommand : TelegramCommand
+    public class ShopEditCommand : TelegramCommand
     {
-        public override string Name => @"Добавить товар";
+        public override string Name => "Редактировать";
 
         public override bool Contains(Message message)
         {
@@ -29,19 +28,19 @@ namespace TeaShopBot.Commands
         {
             var chatId = update.Message.Chat.Id;
 
-            ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
+            InlineKeyboardMarkup inlineKeyboardMarkup = new(new[]
             {
-                new KeyboardButton[] { "🍃 Чай 🍃",  "🌱 Травы 🌱"},
-                new KeyboardButton[] { "🍯 Мёд 🍯", "⬅️ Назад" }
-            })
-            {
-                ResizeKeyboard = true
-            };
+                new[]
+                {
+                    InlineKeyboardButton.WithCallbackData(text: "🎁 Товары 🎁", callbackData: "PProducts"),
+                    InlineKeyboardButton.WithCallbackData(text: "🤑 Скидки 🤑", callbackData: "PSale"),
+                },
+            });
 
             await client.SendTextMessageAsync(
                 chatId: chatId,
-                text: "Выбери категорию товара ⬇️",
-                replyMarkup: replyKeyboardMarkup,
+                text: "Выбери категорию для редактирования⬇️",
+                replyMarkup: inlineKeyboardMarkup,
                 cancellationToken: cancellationToken);
         }
     }
