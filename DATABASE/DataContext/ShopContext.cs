@@ -14,7 +14,7 @@ namespace DATABASE.DataContext
             "Password=8c2e136947db3b10a8a22150cc309d674a88ef16525134372f0c64c140c173d5;" +
             "Pooling=true;" +
             "SSL Mode=Require;" +
-            "TrusrServerSertificate=true;";
+            "TrustServerSertificate=True;";
 
         public ShopContext() 
             : base () 
