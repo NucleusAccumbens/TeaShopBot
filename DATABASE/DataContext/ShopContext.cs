@@ -11,13 +11,16 @@ namespace DATABASE.DataContext
             "Port=5432;" +
             "Database=d7ogg57688h1bb;" +
             "Username=vogndulbxckdox;" +
-            "Password=8c2e136947db3b10a8a22150cc309d674a88ef16525134372f0c64c140c173d5";
+            "Password=8c2e136947db3b10a8a22150cc309d674a88ef16525134372f0c64c140c173d5;" +
+            "Pooling=true;" +
+            "SSL Mode=Require;" +
+            "TrusrServerSertificate=true;";
 
         public ShopContext() 
             : base () 
         {
             //Database.EnsureDeleted();   // удаляем бд со старой схемой
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
         private readonly StreamWriter _logStream = new("mylog.txt", true);
