@@ -2258,3 +2258,11 @@ info: 07.04.2022 15:25:13.026 CoreEventId.ContextInitialized[10403] (Microsoft.E
       Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: None
 dbug: 07.04.2022 15:25:13.062 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
       'ShopContext' disposed.
+dbug: 07.04.2022 15:26:13.432 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 07.04.2022 15:26:13.433 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+info: 07.04.2022 15:26:13.653 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: None
+dbug: 07.04.2022 15:26:13.694 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.
