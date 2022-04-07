@@ -7,20 +7,24 @@ namespace DATABASE.DataContext
     public class ShopContext : DbContext
     {
         private readonly string _connectionString =
-            "Data Source=User;Initial Catalog=TeaShopLocal;Integrated Security=True";
+            "Host=ec2-54-77-182-219.eu-west-1.compute.amazonaws.com;" +
+            "Port=5432;" +
+            "Database=d7ogg57688h1bb;" +
+            "Username=vogndulbxckdox;" +
+            "Password=8c2e136947db3b10a8a22150cc309d674a88ef16525134372f0c64c140c173d5";
 
         public ShopContext() 
             : base () 
         {
             //Database.EnsureDeleted();   // удаляем бд со старой схемой
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         private readonly StreamWriter _logStream = new("mylog.txt", true);
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(_connectionString);
+            optionsBuilder.UseNpgsql(_connectionString);
             optionsBuilder.LogTo(_logStream.WriteLine, LogLevel.Trace);  // Логгирование 
         }
 
