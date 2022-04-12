@@ -2266,3 +2266,335 @@ info: 07.04.2022 15:26:13.653 CoreEventId.ContextInitialized[10403] (Microsoft.E
       Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: None
 dbug: 07.04.2022 15:26:13.694 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
       'ShopContext' disposed.
+dbug: 07.04.2022 15:26:41.584 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 07.04.2022 15:26:41.584 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+info: 07.04.2022 15:26:41.813 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: None
+dbug: 07.04.2022 15:26:41.842 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.
+dbug: 07.04.2022 15:28:18.131 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 07.04.2022 15:28:18.131 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+info: 07.04.2022 15:28:18.374 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: None
+dbug: 07.04.2022 15:28:18.405 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.
+dbug: 07.04.2022 15:28:52.769 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 07.04.2022 15:28:52.769 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+info: 07.04.2022 15:28:52.999 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: None
+dbug: 07.04.2022 15:28:53.042 RelationalEventId.MigrateUsingConnection[20400] (Microsoft.EntityFrameworkCore.Migrations) 
+      Migrating using database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:53.052 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:54.261 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:54.263 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:54.268 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:54.275 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 07.04.2022 15:28:54.280 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (4ms).
+dbug: 07.04.2022 15:28:54.280 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:54.900 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:54.921 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+info: 07.04.2022 15:28:55.150 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (243ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+dbug: 07.04.2022 15:28:55.151 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:55.152 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:55.153 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:55.778 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:55.778 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:55.779 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:55.940 CoreEventId.DetectChangesStarting[10800] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges starting for 'ShopContext'.
+dbug: 07.04.2022 15:28:55.942 CoreEventId.DetectChangesCompleted[10801] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges completed for 'ShopContext'.
+dbug: 07.04.2022 15:28:55.962 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+dbug: 07.04.2022 15:28:55.962 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (0ms).
+dbug: 07.04.2022 15:28:55.962 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:55.962 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:55.963 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "__EFMigrationsHistory" (
+          "MigrationId" character varying(150) NOT NULL,
+          "ProductVersion" character varying(32) NOT NULL,
+          CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+      );
+info: 07.04.2022 15:28:56.101 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (138ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "__EFMigrationsHistory" (
+          "MigrationId" character varying(150) NOT NULL,
+          "ProductVersion" character varying(32) NOT NULL,
+          CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+      );
+dbug: 07.04.2022 15:28:56.101 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:56.102 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:56.106 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:56.736 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:56.736 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:56.737 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:56.737 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 07.04.2022 15:28:56.737 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (0ms).
+dbug: 07.04.2022 15:28:56.737 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:56.737 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:56.737 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+info: 07.04.2022 15:28:56.834 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (97ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+dbug: 07.04.2022 15:28:56.835 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:56.835 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:56.840 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 07.04.2022 15:28:56.840 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+dbug: 07.04.2022 15:28:56.840 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:28:56.840 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:56.841 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 07.04.2022 15:28:56.940 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (98ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+dbug: 07.04.2022 15:28:56.954 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+dbug: 07.04.2022 15:28:56.954 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:28:56.954 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+info: 07.04.2022 15:28:56.993 RelationalEventId.MigrationApplying[20402] (Microsoft.EntityFrameworkCore.Migrations) 
+      Applying migration '20220312113506_Initial-IgnoreChanges'.
+dbug: 07.04.2022 15:28:57.073 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.
+dbug: 07.04.2022 15:33:07.035 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 07.04.2022 15:33:07.036 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+info: 07.04.2022 15:33:07.292 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: None
+dbug: 07.04.2022 15:33:07.323 CoreEventId.RedundantIndexRemoved[10601] (Microsoft.EntityFrameworkCore.Model) 
+      The index {'OrdersOrderId'} was not created on entity type 'OrderProduct (Dictionary<string, object>)' as the properties are already covered by the index {'OrdersOrderId', 'ProductsProductId'}.
+dbug: 07.04.2022 15:33:07.328 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 07.04.2022 15:33:07.328 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 07.04.2022 15:33:07.423 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.
+dbug: 07.04.2022 15:39:57.876 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 07.04.2022 15:39:57.876 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+info: 07.04.2022 15:39:58.087 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: None
+dbug: 07.04.2022 15:39:58.165 RelationalEventId.MigrateUsingConnection[20400] (Microsoft.EntityFrameworkCore.Migrations) 
+      Migrating using database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:39:58.178 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:39:59.371 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:39:59.373 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:39:59.381 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:39:59.391 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 07.04.2022 15:39:59.396 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (5ms).
+dbug: 07.04.2022 15:39:59.396 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:40:00.036 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:40:00.054 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+info: 07.04.2022 15:40:00.275 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (228ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+dbug: 07.04.2022 15:40:00.278 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:40:00.281 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:40:00.284 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:40:01.112 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:40:01.112 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:40:01.113 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:40:01.114 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 07.04.2022 15:40:01.114 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (0ms).
+dbug: 07.04.2022 15:40:01.115 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:40:01.115 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:40:01.115 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+info: 07.04.2022 15:40:01.225 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (110ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+dbug: 07.04.2022 15:40:01.225 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:40:01.225 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:40:01.261 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 07.04.2022 15:40:01.261 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+dbug: 07.04.2022 15:40:01.261 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:40:01.261 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:40:01.262 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 07.04.2022 15:40:01.372 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (109ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+dbug: 07.04.2022 15:40:01.387 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+dbug: 07.04.2022 15:40:01.387 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:40:01.387 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+info: 07.04.2022 15:40:01.417 RelationalEventId.MigrationApplying[20402] (Microsoft.EntityFrameworkCore.Migrations) 
+      Applying migration '20220312113506_Initial-IgnoreChanges'.
+dbug: 07.04.2022 15:40:01.514 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.
+dbug: 07.04.2022 15:44:02.434 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 07.04.2022 15:44:02.434 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+info: 07.04.2022 15:44:02.680 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: None
+dbug: 07.04.2022 15:44:02.737 RelationalEventId.MigrateUsingConnection[20400] (Microsoft.EntityFrameworkCore.Migrations) 
+      Migrating using database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:44:02.748 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:44:04.062 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:44:04.064 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:44:04.071 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:44:04.083 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 07.04.2022 15:44:04.088 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (5ms).
+dbug: 07.04.2022 15:44:04.088 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:44:04.745 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:44:04.766 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+info: 07.04.2022 15:44:05.016 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (264ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+dbug: 07.04.2022 15:44:05.017 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:44:05.019 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:44:05.022 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:44:05.718 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:44:05.718 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:44:05.719 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:44:05.719 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+dbug: 07.04.2022 15:44:05.720 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (0ms).
+dbug: 07.04.2022 15:44:05.721 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:44:05.721 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:44:05.721 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+info: 07.04.2022 15:44:05.826 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (104ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+dbug: 07.04.2022 15:44:05.826 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:44:05.826 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:44:05.873 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 07.04.2022 15:44:05.873 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+dbug: 07.04.2022 15:44:05.873 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'd7ogg57688h1bb' on server ''.
+dbug: 07.04.2022 15:44:05.873 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:44:05.875 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 07.04.2022 15:44:05.977 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (102ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+dbug: 07.04.2022 15:44:05.991 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+dbug: 07.04.2022 15:44:05.991 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'd7ogg57688h1bb' on server 'tcp://ec2-54-77-182-219.eu-west-1.compute.amazonaws.com:5432'.
+dbug: 07.04.2022 15:44:05.991 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'd7ogg57688h1bb' on server ''.
+info: 07.04.2022 15:44:06.016 RelationalEventId.MigrationApplying[20402] (Microsoft.EntityFrameworkCore.Migrations) 
+      Applying migration '20220312113506_Initial-IgnoreChanges'.
+dbug: 07.04.2022 15:44:06.114 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.

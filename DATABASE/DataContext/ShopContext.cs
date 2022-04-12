@@ -7,13 +7,23 @@ namespace DATABASE.DataContext
     public class ShopContext : DbContext
     {
         private readonly string _connectionString =
-            "Host=ec2-54-77-182-219.eu-west-1.compute.amazonaws.com;" +
-            "Port=5432;" +
-            "Database=d7ogg57688h1bb;" +
-            "Username=vogndulbxckdox;" +
-            "Password=8c2e136947db3b10a8a22150cc309d674a88ef16525134372f0c64c140c173d5;" +
-            "Pooling=true;" +
-            "SSL Mode=Require;";
+            "Data Source=USER;" +
+            "Initial Catalog=TeaShopLocal;" +
+            "Integrated Security=True;" +
+            "Connect Timeout=30;" +
+            "Encrypt=False;" +
+            "TrustServerCertificate=False;" +
+            "ApplicationIntent=ReadWrite;" +
+            "MultiSubnetFailover=False;";
+
+            //"Host=ec2-54-77-182-219.eu-west-1.compute.amazonaws.com;" +
+            //"Port=5432;" +
+            //"Database=d7ogg57688h1bb;" +
+            //"Username=vogndulbxckdox;" +
+            //"Password=8c2e136947db3b10a8a22150cc309d674a88ef16525134372f0c64c140c173d5;" +
+            //"Pooling=true;" +
+            //"SSL Mode=Require;" +
+            //"Trust Server Certificate=True";
 
         public ShopContext() 
             : base () 
@@ -26,7 +36,7 @@ namespace DATABASE.DataContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(_connectionString);
+            optionsBuilder.UseSqlServer(_connectionString);
             optionsBuilder.LogTo(_logStream.WriteLine, LogLevel.Trace);  // Логгирование 
         }
 
