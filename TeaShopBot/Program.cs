@@ -31,18 +31,19 @@ namespace TeaShopBot
                 AllowedUpdates = { } 
             };
 
-            var me = botClient.GetMeAsync().Result;
-
-            Console.WriteLine($"Start listening for @{me.Username}");
-            Console.ReadLine();
-            cts.Cancel();
-
             botClient.StartReceiving(
                 HandleUpdateAsync,
                 HandleErrorAsync,
                 receiverOptions,
                 cancellationToken: cts.Token);
 
+            var me = botClient.GetMeAsync().Result;
+
+            Console.WriteLine($"Start listening for @{me.Username}");
+            Console.ReadLine();
+            cts.Cancel();
+
+            Thread.Sleep(int.MaxValue);
 
             async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
             {
@@ -146,9 +147,6 @@ namespace TeaShopBot
                 Console.WriteLine(ErrorMessage);
                 return Task.CompletedTask;
             }
-
-            Thread.Sleep(int.MaxValue);
-
         }
     }
 }
