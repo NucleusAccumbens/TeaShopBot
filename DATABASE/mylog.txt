@@ -2598,3 +2598,17 @@ info: 07.04.2022 15:44:06.016 RelationalEventId.MigrationApplying[20402] (Micros
       Applying migration '20220312113506_Initial-IgnoreChanges'.
 dbug: 07.04.2022 15:44:06.114 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
       'ShopContext' disposed.
+dbug: 13.04.2022 17:57:57.871 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 13.04.2022 17:57:57.872 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+info: 13.04.2022 17:57:58.253 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.2 initialized 'ShopContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f' with options: None
+dbug: 13.04.2022 17:57:58.292 CoreEventId.RedundantIndexRemoved[10601] (Microsoft.EntityFrameworkCore.Model) 
+      The index {'OrdersOrderId'} was not created on entity type 'OrderProduct (Dictionary<string, object>)' as the properties are already covered by the index {'OrdersOrderId', 'ProductsProductId'}.
+dbug: 13.04.2022 17:57:58.298 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).OrdersOrderId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 13.04.2022 17:57:58.298 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'OrderProduct (Dictionary<string, object>).ProductsProductId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 13.04.2022 17:57:58.407 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'ShopContext' disposed.

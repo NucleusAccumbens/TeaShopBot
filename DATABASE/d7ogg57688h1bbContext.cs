@@ -1,10 +1,12 @@
-﻿using DATABASE.Entityes;
+﻿using System;
+using System.Collections.Generic;
+using DATABASE.Entityes;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace DATABASE.DataContext
+namespace TeaShopDAL
 {
-    public class ShopContext : DbContext
+    public partial class d7ogg57688h1bbContext : DbContext
     {
         private readonly string _connectionString =
                         "Host=ec2-54-77-182-219.eu-west-1.compute.amazonaws.com;" +
@@ -15,40 +17,32 @@ namespace DATABASE.DataContext
                         "Pooling=true;" +
                         "SSL Mode=Require;" +
                         "Trust Server Certificate=True";
-
-        //"Data Source=USER;" +
-        //"Initial Catalog=TeaShopLocal;" +
-        //"Integrated Security=True;" +
-        //"Connect Timeout=30;" +
-        //"Encrypt=False;" +
-        //"TrustServerCertificate=False;" +
-        //"ApplicationIntent=ReadWrite;" +
-        //"MultiSubnetFailover=False;";
-
-        public ShopContext() 
-            : base () 
+        public d7ogg57688h1bbContext()
         {
-            //Database.EnsureDeleted();   // удаляем бд со старой схемой
-            //Database.EnsureCreated();
         }
 
-        private readonly StreamWriter _logStream = new("mylog.txt", true);
+        public d7ogg57688h1bbContext(DbContextOptions<d7ogg57688h1bbContext> options)
+            : base(options)
+        {
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(_connectionString);
-            optionsBuilder.LogTo(_logStream.WriteLine, LogLevel.Trace);  // Логгирование 
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseNpgsql(_connectionString);
+            }
         }
 
         public override void Dispose()
         {
             base.Dispose();
-            _logStream.Dispose();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Предзаполнение БД - обязательно проинициализировать первичный ключ (Id)
+            OnModelCreatingPartial(modelBuilder);
+
             modelBuilder.Entity<User>().HasData(new User[]
             {
                 new User
@@ -77,6 +71,9 @@ namespace DATABASE.DataContext
                 .HasMany(c => c.Products)
                 .WithMany(c => c.Orders);
         }
+
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Tea> Teas { get; set; }

@@ -17,7 +17,7 @@ namespace TeaShopBot.Commands.FileCommands
 {
     public class TeaImageCommand : TelegramFileCommand
     {
-        public override string Name => @"Фото чая: ";
+        public override string Name => "Фото чая";
 
         public override bool Contains(Message message)
         {

@@ -16,7 +16,7 @@ namespace DATABASE.Repositories
 
         public HerbRepository(ShopContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         public async Task CreateAsync(Herb herb)

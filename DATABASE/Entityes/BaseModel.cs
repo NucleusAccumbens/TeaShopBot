@@ -8,7 +8,7 @@ namespace DATABASE.Entityes
 {
     public abstract class BaseModel
     {
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public bool IsDeleted { get; set; }
     }
 }
