@@ -40,8 +40,8 @@ namespace TeaShopBot
             var me = botClient.GetMeAsync().Result;
 
             Console.WriteLine($"Start listening for @{me.Username}");
-            Console.ReadLine();
-            cts.Cancel();
+            //Console.ReadLine();
+            //cts.Cancel();
 
             Thread.Sleep(int.MaxValue);
 
