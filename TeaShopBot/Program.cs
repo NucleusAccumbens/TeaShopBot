@@ -42,7 +42,6 @@ namespace TeaShopBot
                 HandleErrorAsync,
                 receiverOptions,
                 cancellationToken: cts.Token);
-            Thread.Sleep(int.MaxValue);
 
 
             async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
@@ -147,6 +146,8 @@ namespace TeaShopBot
                 Console.WriteLine(ErrorMessage);
                 return Task.CompletedTask;
             }
+
+            Thread.Sleep(int.MaxValue);
 
         }
     }
