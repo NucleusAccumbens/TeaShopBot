@@ -40,9 +40,6 @@ namespace TeaShopBot
             var me = botClient.GetMeAsync().Result;
 
             Console.WriteLine($"Start listening for @{me.Username}");
-            //Console.ReadLine();
-            //cts.Cancel();
-
             Thread.Sleep(int.MaxValue);
 
             async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)

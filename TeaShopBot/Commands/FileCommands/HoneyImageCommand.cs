@@ -20,7 +20,7 @@ namespace TeaShopBot.Commands.FileCommands
 {
     public class HoneyImageCommand : TelegramFileCommand
     {
-        public override string Name => "Фото меда: ";
+        public override string Name => "Фото меда";
 
         public override bool Contains(Message message)
         {
