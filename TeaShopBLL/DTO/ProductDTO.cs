@@ -25,6 +25,6 @@ namespace TeaShopBLL.DTO
                 else return false;
             }
         }
-        public virtual List<OrderDTO>? Orders { get; set; } = new List<OrderDTO>();
+        public List<OrderDTO>? Orders { get; set; } = new List<OrderDTO>();
     }
 }

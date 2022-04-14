@@ -52,7 +52,7 @@ namespace TeaShopBot.Commands.AdminCommands.AdminCallbackCommands
 
                     await client.SendTextMessageAsync(
                         chatId: chatId,
-                        text: "Выбери категорию товара для редактирования⬇️",
+                        text: "Выбери категорию товара для редактирования ⬇️",
                         replyMarkup: inlineKeyboardMarkup,
                         cancellationToken: cancellationToken);
                 }
