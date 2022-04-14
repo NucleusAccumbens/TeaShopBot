@@ -62,11 +62,6 @@ namespace DATABASE.Repositories
             }
         }
 
-        public Task<IEnumerable<Tea>> FindAsync(Func<Tea, bool> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Tea> GetAsync(long? teaId)
         {
             try

@@ -67,11 +67,6 @@ namespace DATABASE.Repositories
             }
         }
 
-        public Task<IEnumerable<Order>> FindAsync(Func<Order, bool> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Order> GetAsync(long? userChatId)
         {
             try

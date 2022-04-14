@@ -10,7 +10,6 @@ namespace DATABASE.Intarfaces
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetAsync(long? id);
-        Task<IEnumerable<T>> FindAsync(Func<T, Boolean> predicate);
         Task CreateAsync(T item);
         Task UpdateAsync(T item);
         Task DeleteAsync(long? id);

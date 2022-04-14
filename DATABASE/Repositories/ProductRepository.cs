@@ -50,11 +50,6 @@ namespace TeaShopDAL.Repositories
             }
         }
 
-        public Task<IEnumerable<Product>> FindAsync(Func<Product, bool> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
             try

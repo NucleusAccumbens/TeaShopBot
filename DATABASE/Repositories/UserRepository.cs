@@ -61,11 +61,6 @@ namespace DATABASE.Repositories
             }
         }
 
-        public Task<IEnumerable<User>> FindAsync(Func<User, bool> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<User> GetAsync(long? userId)
         {
             try
