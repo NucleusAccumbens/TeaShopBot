@@ -39,7 +39,7 @@ namespace TeaShopBot.Commands.AdminCommands
 
             await client.SendTextMessageAsync(
                 chatId: chatId,
-                text: "Выбери категорию для редактирования⬇️",
+                text: "Выбери категорию для редактирования ⬇️",
                 replyMarkup: inlineKeyboardMarkup,
                 cancellationToken: cancellationToken);
         }
