@@ -62,11 +62,6 @@ namespace DATABASE.Repositories
             }
         }
 
-        public Task<IEnumerable<Honey>> FindAsync(Func<Honey, bool> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Honey> GetAsync(long? honeyId)
         {
             try
